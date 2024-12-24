@@ -12,14 +12,14 @@ interface Notification {
   visibilityDuration: number;
 }
 
-interface InputField {
-  label: string;
-  placeholder: string;
-}
-
 interface Button {
   text: string;
   link?: string;
+}
+/**
+interface InputField {
+  label: string;
+  placeholder: string;
 }
 interface Section {
   titleHeading: string;
@@ -33,6 +33,8 @@ interface Rating {
   name: string;
   value: number;
 }
+
+**/
 
 /** HEADER **/
 interface HeaderContent {
