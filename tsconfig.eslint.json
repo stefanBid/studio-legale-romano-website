@@ -12,6 +12,7 @@
     }
   },
   "include": [
+    "src/**/*.json", // Includi i file JSON
     "src/**/*", // Includi tutti i file della cartella src
     "vite.config.ts", // Includi file di configurazione o altri file specifici da lintare
     "vitest.config.ts", // Includi file di configurazione o altri file specifici da lintare
@@ -22,6 +23,6 @@
     "node_modules", // Escludi le dipendenze
     "dist", // Escludi la cartella di build
     "**/*.js", // Escludi eventuali file JavaScript (se non vuoi lintarli)
-    "**/*.svg",// Escludi i file SVG
+    "**/*.svg" // Escludi i file SVG
   ]
 }

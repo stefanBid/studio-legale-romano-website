@@ -1,0 +1,10 @@
+{
+  "header": {
+    "navbarRoutes": [
+      {
+        "text": "Home",
+        "path": "/"
+      }
+    ]
+  }
+}

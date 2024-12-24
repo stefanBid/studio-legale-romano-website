@@ -9,7 +9,7 @@ export default [
     ignores: ['node_modules/**', 'dist/**', '**/*.d.ts', '**/*.svg'], // Folders to ignore
   },
   {
-    files: ['**/*.vue', '**/*.ts', '**/*.tsx', '**/i18n/**/*.json'], // Files for ESLint to lint
+    files: ['**/*.vue', '**/*.ts', '**/*.tsx', 'src/**/*.json' ], // Files for ESLint to lint
     languageOptions: {
       ecmaVersion: 'latest', // Use the latest ECMAScript version
       sourceType: 'module',
@@ -17,7 +17,7 @@ export default [
       parserOptions: {
         parser: '@typescript-eslint/parser', // TypeScript parser for scripts within .vue files
         project: './tsconfig.eslint.json', // Provides access to type information
-        extraFileExtensions: ['.vue'], // Support for .vue files
+        extraFileExtensions: ['.vue'] // Support for .vue files
       },
       globals: {
         ...globals.browser,

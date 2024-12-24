@@ -1,7 +1,7 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { TheAppContainer } from '@/components';
+</script>
 
 <template>
-  <div>
-    <h1 class="text-rm-error">Studio Legale Romano Website</h1>
-  </div>
+  <TheAppContainer />
 </template>
