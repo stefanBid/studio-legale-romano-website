@@ -12,6 +12,7 @@
     }
   },
   "include": [
+    ".storybook/**/*", // Includi i file di Storybook
     "src/**/*.json", // Includi i file JSON
     "src/**/*", // Includi tutti i file della cartella src
     "vite.config.ts", // Includi file di configurazione o altri file specifici da lintare
