@@ -26,7 +26,7 @@ export default {
 			'rm-notification': 1400,
 		},
 		fontFamily: {
-			bebas: ['Bebas Neue', 'sans-serif'],
+			merriweather: ['Merriweather', 'serif'],
 			roboto: ['Roboto', 'sans-serif'],
 		},
 		fontSize: {
@@ -46,17 +46,9 @@ export default {
 			'black': '#000000',
 			'white': '#ffffff',
 			'transparent': 'transparent',
-			'rm-main': '#0F0F20',
+			'rm-main': '#1c1919',
+			'rm-secondary': '#c08e41',
 			'rm-error': '#d32f2f',
-			'rm-secondary': {
-				100: '#707890',
-				200: '#424a6e',
-				300: '#011e41'
-			},
-			'rm-tertiary': {
-				100: '#e95905',
-				200: '#a33503'
-			},
 		},
 		extend: {
       boxShadow: {
