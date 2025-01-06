@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import { useI18nStore, useStyleStore, useTitleStore } from '@/stores';
+import { useStyleStore, useTitleStore } from '@/stores';
 import { BaseButton } from '@/components';
 
 // Store Declarations
