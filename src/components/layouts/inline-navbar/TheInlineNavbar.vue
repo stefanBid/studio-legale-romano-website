@@ -1,0 +1,126 @@
+<script setup lang="ts">
+import { vOnClickOutside, vIntersectionObserver } from '@vueuse/components';
+import { useFloatingPanel } from '@/hooks';
+import { useStyleStore } from '@/stores';
+import { ChevronDownIcon } from '@heroicons/vue/24/outline';
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+
+interface InlineNavbarProps {
+  routes: { path: string; text: string }[];
+}
+
+interface ManagedRoutes {
+  visibleRoutes: { path: string; text: string }[];
+  collapsedRoutes: { path: string; text: string }[];
+}
+
+const props = defineProps<InlineNavbarProps>();
+const route = useRoute();
+const styleStore = useStyleStore();
+
+const { isOpen, reference, floating, floatingStyles, changeFloatingVisibility } = useFloatingPanel({
+  placement: 'bottom',
+  strategy: 'fixed',
+  offsetValue: 5,
+});
+
+const onIntersectionObserver = ([{ isIntersecting }]: IntersectionObserverEntry[]): void => {
+  if (!isIntersecting && isOpen.value) {
+    changeFloatingVisibility(false);
+  }
+};
+
+const getVisibleRoutes = computed<ManagedRoutes>(() => {
+  return {
+    visibleRoutes: props.routes.slice(0, 3),
+    collapsedRoutes: props.routes.slice(3),
+  };
+});
+</script>
+
+<template>
+  <nav v-bind="$attrs" class="flex flex-row items-center justify-end">
+    <div
+      v-for="(routeItemV, index) in getVisibleRoutes.visibleRoutes"
+      :key="index"
+      :class="[
+        index === getVisibleRoutes.visibleRoutes.length - 1 ? '' : 'border-r-2 border-rm-main',
+      ]"
+      class="inline-flex items-center justify-center px-4 py-2 min-w-20"
+    >
+      <RouterLink
+        :to="routeItemV.path"
+        tabindex="0"
+        class="font-medium transition-all duration-300 ease-in-out outline-0 font-lora ring-0 focus-visible:ring-0 text-rm-base underline-offset-2"
+        :class="[
+          {
+            'text-rm-secondary underline': route.path === routeItemV.path,
+            'text-rm-main hover:text-rm-secondary hover:underline focus-visible:text-rm-secondary focus-visible:underline':
+              route.path !== routeItemV.path,
+          },
+        ]"
+      >
+        {{ routeItemV.text }}
+      </RouterLink>
+    </div>
+    <div
+      v-if="getVisibleRoutes.collapsedRoutes.length > 0"
+      ref="reference"
+      class="inline-flex items-center justify-center px-4 py-2 border-l-2 min-w-20 border-rm-main"
+    >
+      <span
+        class="inline-flex items-center justify-center group"
+        @click="changeFloatingVisibility(isOpen ? false : true)"
+      >
+        <span
+          class="font-medium transition-all duration-300 ease-in-out underline-offset-2 group-hover:cursor-pointer outline-0 font-lora ring-0 group-focus-visible:ring-0 text-rm-base text-rm-main group-hover:text-rm-secondary group-hover:underline group-focus-visible:text-rm-secondary group-focus-visible:underline"
+        >
+          Altro
+        </span>
+        <ChevronDownIcon
+          :class="[styleStore.iconSizeS, isOpen ? 'rotate-180' : 'rotate-0']"
+          class="shrink-0 ml-1.5 transition-all duration-300 ease-in-out group-hover:text-rm-secondary group-hover:cursor-pointer"
+        />
+      </span>
+    </div>
+    <teleport to="body">
+      <transition name="scale-and-fade-fast">
+        <div
+          v-if="isOpen"
+          ref="floating"
+          v-on-click-outside="[
+            (_: Event) => changeFloatingVisibility(false),
+            { ignore: [reference] },
+          ]"
+          v-intersection-observer="[
+            onIntersectionObserver,
+            {
+              root: null,
+              threshold: 0.05,
+              rootMargin: '-80px 0px 0px 0px',
+            },
+          ]"
+          :style="floatingStyles"
+          class="box-border flex flex-col items-center justify-center p-4 bg-white border-2 rounded-md shadow-2xl min-w-36 gap-y-4 z-rm-dropdown border-rm-secondary shadow-black"
+        >
+          <RouterLink
+            v-for="routeItemC in getVisibleRoutes.collapsedRoutes"
+            :to="routeItemC.path"
+            tabindex="0"
+            class="font-medium transition-all duration-300 ease-in-out outline-0 font-lora ring-0 focus-visible:ring-0 text-rm-base underline-offset-2"
+            :class="[
+              {
+                'text-rm-secondary underline': route.path === routeItemC.path,
+                'text-rm-main hover:text-rm-secondary hover:underline focus-visible:text-rm-secondary focus-visible:underline':
+                  route.path !== routeItemC.path,
+              },
+            ]"
+          >
+            {{ routeItemC.text }}
+          </RouterLink>
+        </div>
+      </transition>
+    </teleport>
+  </nav>
+</template>

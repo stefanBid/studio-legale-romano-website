@@ -18,12 +18,12 @@ export const useStyleStore = defineStore('style', () => {
 
   const containerPadding = computed(() => {
     if (activeBreakpoint.value === 'xs' || activeBreakpoint.value === 'sm') {
-      return 'px-[5%]';
+      return 'px-[3%]';
     }
     if (activeBreakpoint.value === 'md') {
-      return 'px-[6%]';
+      return 'px-[4%]';
     }
-    return 'px-[7%]';
+    return 'px-[5%]';
   });
 
   const containerGapElements = computed(() => {

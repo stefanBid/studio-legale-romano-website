@@ -12,6 +12,14 @@ const routes = [
     name: 'homePage',
     component: HomePage,
   },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'notFoundPage',
+    component: () =>
+      import(
+        /* webpackPrefetch: true, webpackPreload: true */ '@/pages/not-found-page/NotFoundPage.vue'
+      ),
+  },
 ];
 
 // Create route instance

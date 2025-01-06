@@ -26,9 +26,9 @@ export default {
 			'rm-notification': 1400,
 		},
 		fontFamily: {
-			merriweather: ['Merriweather', 'serif'],
-			roboto: ['Roboto', 'sans-serif'],
-		},
+			playfair: ['Playfair Display', 'serif'],
+			lora: ['Lora', 'serif'],
+		},		
 		fontSize: {
 			'rm-xs': '0.75rem',  // extra small
 			'rm-sm': '0.875rem', // small

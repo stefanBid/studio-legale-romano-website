@@ -1,5 +1,6 @@
 //import { fn } from '@storybook/test';
 import type { Meta, StoryObj } from '@storybook/vue3';
+import { HomeIcon } from '@heroicons/vue/24/outline';
 
 import { BaseButton } from '@/components';
 
@@ -25,7 +26,7 @@ const meta = {
       description: 'The button variant',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'custom'],
+        options: ['secondary', 'custom'],
       },
     },
     contentSize: {
@@ -68,6 +69,7 @@ const meta = {
     },
   },
   args: {
+    default: 'Click me',
     dataTestid: 'button-test',
     ariaLabel: 'button',
   },
@@ -76,32 +78,47 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const CustomButton: Story = {
+export const SecondaryButton: Story = {
   args: {
-    default: 'Custom button',
-    variant: 'custom',
-    contentSize: 'custom',
-    spacingSize: 'custom',
+    variant: 'secondary',
   },
 };
 
-export const SecondaryButton: Story = {
+export const SmallButton: Story = {
   args: {
-    default: 'Save ',
-    variant: 'secondary',
+    contentSize: 'small',
+  },
+};
+
+export const MediumButton: Story = {
+  args: {
+    contentSize: 'medium',
   },
 };
 
 export const DisabledButton: Story = {
   args: {
-    default: 'Disabled button',
     disabled: true,
   },
 };
 
 export const LoadingButton: Story = {
   args: {
-    default: 'Loading button',
     loading: true,
+  },
+};
+
+export const IconButton: Story = {
+  args: {
+    default: '',
+    icon: HomeIcon,
+  },
+};
+
+export const CustomButton: Story = {
+  args: {
+    variant: 'custom',
+    spacingSize: 'custom',
+    contentSize: 'custom',
   },
 };

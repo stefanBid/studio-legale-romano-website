@@ -2,9 +2,32 @@
   "header": {
     "navbarRoutes": [
       {
-        "text": "Home",
-        "path": "/"
+        "path": "/",
+        "text": "Home"
+      },
+      {
+        "path": "/prestazioni",
+        "text": "Prestazioni"
+      },
+      {
+        "path": "/collaborazioni",
+        "text": "Collaborazioni"
+      },
+      {
+        "path": "/contatti",
+        "text": "Contatti"
+      },
+      {
+        "path": "/chi-siamo",
+        "text": "Chi siamo"
       }
     ]
+  },
+  "notFoundPage": {
+    "firstHeading": "404 - Pagina Non Trovata",
+    "secondHeading": "La pagina che stai cercando non esiste.",
+    "goHomeButton": {
+      "text": "Torna alla Home"
+    }
   }
 }
