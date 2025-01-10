@@ -37,5 +37,8 @@ jobs:
       - name: Project lint
         run: npm run lint
 
+      - name: Project test
+        run: npm run test
+
       - name: GitHub Status Check
         run: echo "All steps have passed!"
