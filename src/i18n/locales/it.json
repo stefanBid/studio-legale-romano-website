@@ -23,11 +23,51 @@
       }
     ]
   },
+  "homePage": {
+    "firstHeading": "Studio Legale Romano",
+    "secondHeading": "Offriamo soluzioni legali personalizzate, unendo competenza ed esperienza per affrontare con successo ogni sfida del diritto.",
+    "firstCta": {
+      "text": "Scopri come possiamo aiutarti",
+      "link": "performancePage"
+    },
+    "secondCta": {
+      "text": "Contatta il nostro studio",
+      "link": "contactPage"
+    }
+  },
+  "performancePage": {
+    "firstHeading": "Prestazioni",
+    "secondHeading": "Il nostro studio legale offre consulenza e assistenza legale in diversi ambiti del diritto.",
+    "imagePath": "/images/performance-page-cover.jpg",
+    "index": {
+      "title": "In questa sezione:",
+
+      "items": [
+        {
+          "title": "Diritto Civile",
+          "shortcutId": "#diritto-civile"
+        },
+        {
+          "title": "Diritto Penale",
+          "shortcutId": "#diritto-penale"
+        },
+        {
+          "title": "Diritto Amministrativo",
+          "shortcutId": "#diritto-amministrativo"
+        },
+        {
+          "title": "Diritto del Lavoro",
+          "shortcutId": "#diritto-del-lavoro"
+        }
+      ]
+    }
+  },
   "notFoundPage": {
     "firstHeading": "404 - Pagina Non Trovata",
     "secondHeading": "La pagina che stai cercando non esiste.",
     "goHomeButton": {
-      "text": "Torna alla Home"
+      "text": "Torna alla Home",
+      "link": "homePage"
     }
   }
 }

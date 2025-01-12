@@ -5,7 +5,7 @@ import { useStyleStore } from '@/stores';
 
 interface BaseButtonProps {
   type?: 'button' | 'submit' | 'reset';
-  variant?: 'secondary' | 'custom';
+  variant?: 'primary' | 'secondary' | 'custom';
   contentSize?: 'medium' | 'small' | 'custom';
   spacingSize?: 'medium' | 'small' | 'custom';
   disabled?: boolean;
@@ -17,7 +17,7 @@ interface BaseButtonProps {
 
 const props = withDefaults(defineProps<BaseButtonProps>(), {
   type: 'button',
-  variant: 'secondary',
+  variant: 'primary',
   contentSize: 'medium',
   spacingSize: 'medium',
   disabled: false,
@@ -68,6 +68,8 @@ const styleStore = useStyleStore();
           (styleStore.activeBreakpoint === 'sm' || styleStore.activeBreakpoint === 'xs'),
       },
       {
+        'bg-rm-secondary text-rm-main border border-rm-secondary hover:text-rm-secondary hover:border-white hover:bg-white focus-visible:text-rm-secondary focus-visible:border-white focus-visible:bg-white':
+          props.variant === 'primary',
         'bg-rm-secondary text-rm-main border border-rm-secondary hover:text-rm-secondary hover:border-rm-main hover:bg-rm-main focus-visible:text-rm-secondary focus-visible:border-rm-main focus-visible:bg-rm-main':
           props.variant === 'secondary',
         'pointer-events-none opacity-50': props.disabled || props.loading,

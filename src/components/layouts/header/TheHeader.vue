@@ -85,7 +85,7 @@ watch(
             class="transition-all duration-300 ease-in-out shrink-0"
           />
           <span
-            class="flex-1 font-semibold transition-all duration-300 ease-in-out font-playfair group-hover:text-shadow-luminous"
+            class="flex-1 font-medium transition-all duration-300 ease-in-out font-playfair group-hover:text-shadow-luminous"
             :class="{
               'text-rm-3xl':
                 styleStore.activeBreakpoint !== 'xs' &&

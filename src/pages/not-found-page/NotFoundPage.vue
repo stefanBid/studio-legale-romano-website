@@ -51,7 +51,7 @@ titleStore.setTitleSuffix('404 Pagina non trovata');
       name="go_home_button"
       aria-label="click to go to the home page"
       :icon="HomeIcon"
-      @click="router.push({ name: 'homePage' })"
+      @click.stop="router.push({ name: i18nStore.notFoundPageI18nContent.goHomeButton.link })"
     >
       {{ i18nStore.notFoundPageI18nContent.goHomeButton.text }}
     </BaseButton>

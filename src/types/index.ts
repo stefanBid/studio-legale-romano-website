@@ -44,6 +44,28 @@ interface HeaderContent {
   }[];
 }
 
+/** HOME PAGE **/
+interface HomePageContent {
+  firstHeading: string;
+  secondHeading: string;
+  firstCta: Button;
+  secondCta: Button;
+}
+
+/** PERFORMANCE PAGE **/
+interface PerformancePageContent {
+  firstHeading: string;
+  secondHeading: string;
+  imagePath: string;
+  index: {
+    title: string;
+    items: {
+      title: string;
+      shortcutId: string;
+    }[];
+  };
+}
+
 /** NOT FOUND PAGE **/
 interface NotFoundPageContent {
   firstHeading: string;
@@ -57,5 +79,7 @@ export type {
   Notification,
   NotificationCategory,
   HeaderContent,
+  HomePageContent,
+  PerformancePageContent,
   NotFoundPageContent,
 };

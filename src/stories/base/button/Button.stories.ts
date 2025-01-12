@@ -26,7 +26,7 @@ const meta = {
       description: 'The button variant',
       control: {
         type: 'select',
-        options: ['secondary', 'custom'],
+        options: ['primary', 'secondary', 'custom'],
       },
     },
     contentSize: {
@@ -77,6 +77,12 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+
+export const DefaultButton: Story = {
+  args: {
+    variant: 'primary',
+  },
+};
 
 export const SecondaryButton: Story = {
   args: {

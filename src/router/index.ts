@@ -13,6 +13,14 @@ const routes = [
     component: HomePage,
   },
   {
+    path: '/prestazioni',
+    name: 'performancePage',
+    component: () =>
+      import(
+        /* webpackPrefetch: true, webpackPreload: true */ '@/pages/performance-page/PerformancePage.vue'
+      ),
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'notFoundPage',
     component: () =>

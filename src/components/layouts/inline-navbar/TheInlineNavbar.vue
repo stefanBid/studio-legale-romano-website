@@ -49,11 +49,12 @@ const getVisibleRoutes = computed<ManagedRoutes>(() => {
       ]"
       class="inline-flex items-center justify-center px-4 py-2 min-w-20"
     >
-      <RouterLink
+      <router-link
         :to="routeItemV.path"
         tabindex="0"
-        class="font-medium transition-all duration-300 ease-in-out outline-0 font-lora ring-0 focus-visible:ring-0 text-rm-base underline-offset-2"
+        class="transition-all duration-300 ease-in-out outline-0 font-lora ring-0 focus-visible:ring-0 underline-offset-2"
         :class="[
+          styleStore.textSizeS,
           {
             'text-rm-secondary underline': route.path === routeItemV.path,
             'text-rm-main hover:text-rm-secondary hover:underline focus-visible:text-rm-secondary focus-visible:underline':
@@ -62,7 +63,7 @@ const getVisibleRoutes = computed<ManagedRoutes>(() => {
         ]"
       >
         {{ routeItemV.text }}
-      </RouterLink>
+      </router-link>
     </div>
     <div
       v-if="getVisibleRoutes.collapsedRoutes.length > 0"
@@ -74,12 +75,13 @@ const getVisibleRoutes = computed<ManagedRoutes>(() => {
         @click="changeFloatingVisibility(isOpen ? false : true)"
       >
         <span
-          class="font-medium transition-all duration-300 ease-in-out underline-offset-2 group-hover:cursor-pointer outline-0 font-lora ring-0 group-focus-visible:ring-0 text-rm-base text-rm-main group-hover:text-rm-secondary group-hover:underline group-focus-visible:text-rm-secondary group-focus-visible:underline"
+          :class="[styleStore.textSizeS]"
+          class="transition-all duration-300 ease-in-out underline-offset-2 group-hover:cursor-pointer outline-0 font-lora ring-0 group-focus-visible:ring-0 text-rm-main group-hover:text-rm-secondary group-hover:underline group-focus-visible:text-rm-secondary group-focus-visible:underline"
         >
           Altro
         </span>
         <ChevronDownIcon
-          :class="[styleStore.iconSizeS, isOpen ? 'rotate-180' : 'rotate-0']"
+          :class="[styleStore.iconSizeXS, isOpen ? 'rotate-180' : 'rotate-0']"
           class="shrink-0 ml-1.5 transition-all duration-300 ease-in-out group-hover:text-rm-secondary group-hover:cursor-pointer"
         />
       </span>
@@ -104,12 +106,13 @@ const getVisibleRoutes = computed<ManagedRoutes>(() => {
           :style="floatingStyles"
           class="box-border flex flex-col items-center justify-center p-4 bg-white border-2 rounded-md shadow-2xl min-w-36 gap-y-4 z-rm-dropdown border-rm-secondary shadow-black"
         >
-          <RouterLink
+          <router-link
             v-for="routeItemC in getVisibleRoutes.collapsedRoutes"
             :to="routeItemC.path"
             tabindex="0"
-            class="font-medium transition-all duration-300 ease-in-out outline-0 font-lora ring-0 focus-visible:ring-0 text-rm-base underline-offset-2"
+            class="transition-all duration-300 ease-in-out outline-0 font-lora ring-0 focus-visible:ring-0 underline-offset-2"
             :class="[
+              styleStore.textSizeS,
               {
                 'text-rm-secondary underline': route.path === routeItemC.path,
                 'text-rm-main hover:text-rm-secondary hover:underline focus-visible:text-rm-secondary focus-visible:underline':
@@ -118,7 +121,7 @@ const getVisibleRoutes = computed<ManagedRoutes>(() => {
             ]"
           >
             {{ routeItemC.text }}
-          </RouterLink>
+          </router-link>
         </div>
       </transition>
     </teleport>

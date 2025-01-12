@@ -36,6 +36,16 @@ export const useStyleStore = defineStore('style', () => {
     return ' gap-y-36';
   });
 
+  const firstLetterSize = computed(() => {
+    if (activeBreakpoint.value === 'xs' || activeBreakpoint.value === 'sm') {
+      return 'first-letter:text-rm-5xl';
+    }
+    if (activeBreakpoint.value === 'md') {
+      return 'first-letter:text-rm-6xl';
+    }
+    return 'first-letter:text-rm-7xl';
+  });
+
   // Common style for text elements
   const textSizeXXL = computed(() => {
     if (activeBreakpoint.value === 'xs' || activeBreakpoint.value === 'sm') {
@@ -166,6 +176,7 @@ export const useStyleStore = defineStore('style', () => {
     activeBreakpoint,
     containerPadding,
     containerGapElements,
+    firstLetterSize,
     textSizeXXL,
     textSizeXL,
     textSizeL,

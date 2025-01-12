@@ -16,26 +16,34 @@ describe('BaseButton Unit Tests', () => {
       expect(screen.getByTestId('custom-base-button')).toHaveAttribute('type', type);
     });
 
-    it.each(['secondary', 'custom'])('set the correct button variant "%s"', (variant) => {
-      render(BaseButton, {
-        props: {
-          dataTestid: 'custom-base-button',
-          variant: variant as 'secondary' | 'custom',
-        },
-      });
+    it.each(['primary', 'secondary', 'custom'])(
+      'set the correct button variant "%s"',
+      (variant) => {
+        render(BaseButton, {
+          props: {
+            dataTestid: 'custom-base-button',
+            variant: variant as 'primary' | 'secondary' | 'custom',
+          },
+        });
 
-      const button = screen.getByTestId('custom-base-button');
+        const button = screen.getByTestId('custom-base-button');
 
-      if (variant === 'secondary')
-        expect(button).toHaveClass(
-          'bg-rm-secondary text-rm-main border border-rm-secondary hover:text-rm-secondary hover:border-rm-main hover:bg-rm-main focus-visible:text-rm-secondary focus-visible:border-rm-main focus-visible:bg-rm-main',
-        );
+        if (variant === 'primary')
+          expect(button).toHaveClass(
+            'bg-rm-secondary text-rm-main border border-rm-secondary hover:text-rm-secondary hover:border-white hover:bg-white focus-visible:text-rm-secondary focus-visible:border-white focus-visible:bg-white',
+          );
 
-      if (variant === 'custom') {
-        expect(button).not.toHaveClass('bg-white text-black border-2 border-white');
-        expect(button).not.toHaveClass('bg-transparent/50 text-white border-2 border-white');
-      }
-    });
+        if (variant === 'secondary')
+          expect(button).toHaveClass(
+            'bg-rm-secondary text-rm-main border border-rm-secondary hover:text-rm-secondary hover:border-rm-main hover:bg-rm-main focus-visible:text-rm-secondary focus-visible:border-rm-main focus-visible:bg-rm-main',
+          );
+
+        if (variant === 'custom') {
+          expect(button).not.toHaveClass('bg-white text-black border-2 border-white');
+          expect(button).not.toHaveClass('bg-transparent/50 text-white border-2 border-white');
+        }
+      },
+    );
 
     it.each([true, false])('set the correct button disabled state "%s"', (disabled) => {
       render(BaseButton, {
