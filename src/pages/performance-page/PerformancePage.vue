@@ -78,7 +78,10 @@ titleStore.setTitleSuffix('Prestazioni');
               :class="[styleStore.iconSizeM]"
               class="transition-all duration-300 ease-in-out text-rm-secondary shrink-0 text-kl-icon"
             />
-            <h2 :class="[styleStore.textSizeL]" class="font-medium text-rm-secondary font-playfair">
+            <h2
+              :class="[styleStore.textSizeL]"
+              class="font-medium text-left text-rm-secondary font-playfair"
+            >
               {{ item.title }}
             </h2>
           </div>

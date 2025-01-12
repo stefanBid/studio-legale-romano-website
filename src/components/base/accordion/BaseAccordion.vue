@@ -55,8 +55,8 @@ watch(
         <slot name="section-visibility-content"> </slot>
       </div>
       <ChevronDownIcon
-        :class="[styleStore.iconSizeM, { 'rotate-180': isAccordionOpen }]"
-        class="transition-all duration-300 ease-in-out size-6 shrink-0 text-kl-icon"
+        :class="[styleStore.iconSizeS, { 'rotate-180': isAccordionOpen }]"
+        class="transition-all duration-300 ease-in-out shrink-0"
       />
     </BaseButton>
     <transition name="stretch">
