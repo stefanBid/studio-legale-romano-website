@@ -1,15 +1,28 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
 import { BookOpenIcon } from '@heroicons/vue/24/solid';
 import { useStyleStore, useTitleStore, useI18nStore } from '@/stores';
 import { BaseAccordion, ThePageContainer } from '@/components';
+import { onMounted, ref } from 'vue';
 
 // Store Declarations
 const i18nStore = useI18nStore();
 const styleStore = useStyleStore();
 const titleStore = useTitleStore();
 
+// Hooks Declarations
+const router = useRouter();
+
 // Feature 1: Page Title
 titleStore.setTitleSuffix('Prestazioni');
+
+// Feature 2: Manage Open Accordion Section on Route Change
+const defaultAccordionIdOpen = ref<string>();
+
+onMounted(() => {
+  defaultAccordionIdOpen.value =
+    router.currentRoute.value.hash !== '' ? router.currentRoute.value.hash.slice(1) : undefined;
+});
 </script>
 
 <template>
@@ -70,7 +83,9 @@ titleStore.setTitleSuffix('Prestazioni');
         v-for="(item, index) in i18nStore.performancepageI18nContent.index.items"
         :id="item.shortcutId.slice(1)"
         :key="item.shortcutId"
-        :external-open="index === 0"
+        :external-open="
+          defaultAccordionIdOpen ? item.shortcutId.slice(1) === defaultAccordionIdOpen : index === 0
+        "
       >
         <template #section-visibility-content>
           <div class="inline-flex items-center w-full gap-x-4">

@@ -70,7 +70,7 @@ watch(
 <template>
   <header
     :class="[styleStore.containerPadding]"
-    class="fixed left-0 w-full h-20 bg-white z-rm-header"
+    class="fixed left-0 w-screen h-20 bg-white z-rm-header"
   >
     <div class="flex items-center h-20 p-rm-side gap-x-4">
       <!-- Logo Section-->
