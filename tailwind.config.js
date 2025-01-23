@@ -44,7 +44,7 @@ export default {
 		},
 		colors: {
 			'black': '#000000',
-			'white': '#ffffff',
+			'white': '#fdfcf9',
 			'transparent': 'transparent',
 			'rm-main': '#1c1919',
 			'rm-secondary': '#c08e41',

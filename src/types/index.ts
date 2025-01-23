@@ -65,6 +65,26 @@ interface PerformancePageContent {
     }[];
   };
 }
+/** COLLABORATION PAGE **/
+interface CollaborationPageContent {
+  firstHeading: string;
+  secondHeading: string;
+  imagePath: string;
+}
+
+/** CONTACT PAGE **/
+interface ContactPageContent {
+  firstHeading: string;
+  secondHeading: string;
+  imagePath: string;
+}
+
+/** ABOUT US PAGE **/
+interface AboutUsPageContent {
+  firstHeading: string;
+  secondHeading: string;
+  imagePath: string;
+}
 
 /** NOT FOUND PAGE **/
 interface NotFoundPageContent {
@@ -81,5 +101,8 @@ export type {
   HeaderContent,
   HomePageContent,
   PerformancePageContent,
+  CollaborationPageContent,
+  ContactPageContent,
+  AboutUsPageContent,
   NotFoundPageContent,
 };

@@ -15,7 +15,8 @@
 }
 
 body {
-  background-color: #ffffff;
+  background-color: #faf8f2
+  ;
   overflow-x: hidden;
   scrollbar-gutter: 'stable';
 }

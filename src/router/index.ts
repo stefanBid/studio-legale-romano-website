@@ -21,6 +21,14 @@ const routes = [
       ),
   },
   {
+    path: '/contatti',
+    name: 'contactPage',
+    component: () =>
+      import(
+        /* webpackPrefetch: true, webpackPreload: true */ '@/pages/contact-page/ContactPage.vue'
+      ),
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'notFoundPage',
     component: () =>

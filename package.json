@@ -22,12 +22,14 @@
     "@heroicons/vue": "^2.2.0",
     "@vueuse/components": "^12.0.0",
     "@vueuse/core": "^12.0.0",
+    "leaflet": "^1.9.4",
     "nanoid": "^5.0.9",
     "pinia": "^2.3.0",
     "prettier": "^3.4.2",
     "vue": "^3.5.13",
     "vue-i18n": "^10.0.5",
-    "vue-router": "^4.5.0"
+    "vue-router": "^4.5.0",
+    "vue3-leaflet": "^1.0.50"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.3",
@@ -40,6 +42,7 @@
     "@storybook/vue3-vite": "^8.4.7",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/vue": "^8.1.0",
+    "@types/leaflet": "^1.9.16",
     "@types/node": "^22.7.9",
     "@typescript-eslint/eslint-plugin": "^8.18.1",
     "@typescript-eslint/parser": "^8.18.1",
