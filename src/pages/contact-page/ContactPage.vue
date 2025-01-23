@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { useStyleStore, useTitleStore, useI18nStore } from '@/stores';
+import { useTitleStore, useI18nStore } from '@/stores';
 import { ThePageContainer } from '@/components';
 import OfficeMap from '@/pages/contact-page/components/office-map/OfficeMap.vue';
 
 // Store Declarations
 const i18nStore = useI18nStore();
-const styleStore = useStyleStore();
 const titleStore = useTitleStore();
 
 // Feature 1: Page Title
