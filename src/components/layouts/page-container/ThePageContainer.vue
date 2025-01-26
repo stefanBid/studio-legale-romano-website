@@ -73,7 +73,7 @@ onMounted(() => {
         styleStore.containerPadding,
         styleStore.containerGapElements,
         {
-          'pb-20 mt-8': slots['page-content'],
+          'py-20': slots['page-content'],
         },
       ]"
     >

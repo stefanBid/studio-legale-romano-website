@@ -1,16 +1,17 @@
 <script setup lang="ts">
 import 'leaflet/dist/leaflet.css';
 import L, { LatLngTuple } from 'leaflet'; // Import Leaflet library
-
 import { onMounted, ref } from 'vue';
+import { BaseButton } from '@/components';
+import { LockOpenIcon, LockClosedIcon } from '@heroicons/vue/24/outline';
 
 // Feature 1: Office Location
-const officeLocation: LatLngTuple = [40.9150884, 14.79021]; // Example: Milan, Italy
+const officeLocation: LatLngTuple = [40.9150884, 14.79021];
 const map = ref<L.Map>();
 
 onMounted(() => {
   // Initialize the map and set its center to the office location with a zoom level of 15
-  map.value = L.map('office-map').setView(officeLocation, 19);
+  map.value = L.map('office-map', { scrollWheelZoom: false }).setView(officeLocation, 19);
 
   // Add OpenStreetMap tiles as the map layer
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -31,21 +32,48 @@ onMounted(() => {
     .bindPopup('<strong>Studio Legale Romano</strong><br>Via Partenio, 56, Avellino')
     .openPopup();
 });
+
+// Feature 2: Manage Scroll Wheel Zoom on the map
+const isScrollEnabled = ref(false);
+const showEnableScrollPanel = ref(false);
+
+const handleManageScroll = (): void => {
+  if (isScrollEnabled.value) {
+    // Disabilita lo zoom con la rotellina del mouse
+    isScrollEnabled.value = false;
+    map.value?.scrollWheelZoom.disable();
+    return;
+  } else {
+    // Abilita lo zoom con la rotellina del mouse
+    isScrollEnabled.value = true;
+    map.value?.scrollWheelZoom.enable();
+  }
+};
 </script>
 
 <template>
   <div
-    id="office-map"
-    class="rounded-md w-full h-[400px] z-rm-base-1 border-rm-secondary border-2"
-  ></div>
-  <!--
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3015.0276294751734!2d14.787786376720947!3d40.91514007136384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133bcc51014eb7b5%3A0xd8e3de02f392103c!2sVia%20Partenio%2C%2056%2C%2083100%20Avellino%20AV!5e0!3m2!1sit!2sit!4v1737590798095!5m2!1sit!2sit"
-    width="600"
-    height="450"
-    style="border: 0"
-    allowfullscreen=""
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"
-  ></iframe>
---></template>
+    class="relative w-full h-[400px]"
+    @mouseover="showEnableScrollPanel = true"
+    @mouseleave="showEnableScrollPanel = false"
+  >
+    <div
+      id="office-map"
+      class="absolute rounded-md w-full h-[400px] z-rm-base-1 border-rm-secondary border-2"
+    ></div>
+    <transition name="fade">
+      <div
+        v-if="showEnableScrollPanel"
+        id="scroll-panel"
+        class="absolute flex flex-col items-end justify-start w-fit bg-transparent z-rm-base-2 right-2.5 top-2.5 bottom-2-5 h-fit"
+      >
+        <BaseButton
+          content-size="small"
+          spacing-size="small"
+          :icon="isScrollEnabled ? LockOpenIcon : LockClosedIcon"
+          @click="handleManageScroll"
+        />
+      </div>
+    </transition>
+  </div>
+</template>

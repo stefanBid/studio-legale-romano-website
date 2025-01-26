@@ -77,6 +77,45 @@ interface ContactPageContent {
   firstHeading: string;
   secondHeading: string;
   imagePath: string;
+  reachUs: {
+    heading: string;
+    description: string;
+    withCar: {
+      title: string;
+      description: string;
+      parkings: {
+        name: string;
+        description: string;
+        distance?: string;
+      }[];
+    };
+    withPublicTransport: {
+      title: string;
+      description: string;
+      busStops: {
+        name: string;
+        description: string;
+        distance?: string;
+      }[];
+    };
+    withFoot: {
+      title: string;
+      description: string;
+      landmarks: {
+        name: string;
+        description: string;
+        distance?: string;
+      }[];
+    };
+  };
+  contacts: {
+    heading: string;
+    description: string;
+    channels: {
+      name: string;
+      value: string;
+    }[];
+  };
 }
 
 /** ABOUT US PAGE **/

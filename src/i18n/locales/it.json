@@ -65,7 +65,84 @@
   "contactPage": {
     "firstHeading": "Contatti",
     "secondHeading": "Contattaci per fissare un appuntamento o per richiedere informazioni.",
-    "imagePath": "/images/contacts-page-cover.jpg"
+    "imagePath": "/images/contacts-page-cover.jpg",
+    "reachUs": {
+      "heading": "Come raggiungerci?",
+      "description": "Per raggiungere il nostro studio legale in Via Partenio, 56, Avellino, ecco alcune indicazioni dettagliate:",
+      "withCar": {
+        "title": "In Auto",
+        "description": "Se ti trovi già ad Avellino, dirigiti verso il centro città. Via Partenio è situata nelle vicinanze di Piazza Libertà, una delle piazze principali della città:",
+        "parkings": [
+          {
+            "name": "Parcheggio Berardi",
+            "description": "Situato vicino al viale principale di Avellino, offre circa 30 posti auto custoditi.",
+            "distance": "500m"
+          },
+          {
+            "name": "Central Park Avellino",
+            "description": "Ubicato in centro città, offre parcheggi coperti e scoperti su due livelli, con ingressi e uscite separate.",
+            "distance": "700m"
+          },
+          {
+            "name": "Parcheggi su strada",
+            "description": "Nelle vicinanze di Via Partenio sono disponibili parcheggi su strada a pagamento. Si prega di prestare attenzione alle zone a traffico limitato (ZTL) per evitare sanzioni."
+          }
+        ]
+      },
+      "withPublicTransport": {
+        "title": "Con i Mezzi Pubblici (Autobus)",
+        "description": "Se utilizzi il trasporto pubblico, diverse linee di autobus servono l'area intorno a Via Partenio, 56. Ecco le fermate principali e le linee che le raggiungono:",
+        "busStops": [
+          {
+            "name": "Fermata Piazza Libertà-Capolinea",
+            "description": "Linee: 8, SITA, BIS",
+            "distance": "Circa 2 minuti a piedi"
+          },
+          {
+            "name": "Fermata Piazza Libertà",
+            "description": "Linee: 8, SITA",
+            "distance": "Circa 3 minuti a piedi"
+          },
+          {
+            "name": "Fermata Carlo Del Balzo-Piazza Kennedy",
+            "description": "Linee: 8, BIS",
+            "distance": "Circa 4 minuti a piedi"
+          }
+        ]
+      },
+      "withFoot": {
+        "title": "A Piedi",
+        "description": "Se ti trovi nel centro di Avellino, raggiungere Via Partenio è semplice:",
+        "landmarks": [
+          {
+            "name": "Da Piazza Libertà",
+            "description": "Procedi verso est su Corso Vittorio Emanuele II per circa 200 metri, quindi svolta a sinistra su Via Partenio."
+          },
+          {
+            "name": "Da Piazza Kennedy",
+            "description": "Cammina verso sud-ovest su Via Circumvallazione per circa 300 metri, quindi svolta a destra su Via Partenio."
+          }
+        ]
+      }
+    },
+    "contacts": {
+      "heading": "Come contattarci:",
+      "description": "Per fissare un appuntamento o per richiedere informazioni, contattaci tramite i seguenti canali:",
+      "channels": [
+        {
+          "name": "Mobile",
+          "value": "+39 0825 123456"
+        },
+        {
+          "name": "Telefono",
+          "value": "+39 0825 123456"
+        },
+        {
+          "name": "Email",
+          "value": "studiolegaleromano@gmail.com"
+        }
+      ]
+    }
   },
   "notFoundPage": {
     "firstHeading": "404 - Pagina Non Trovata",
