@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useTitleStore, useI18nStore, useStyleStore } from '@/stores';
-import { ThePageContainer, BaseCard, BaseElementsContainer } from '@/components';
+import { ThePageContainer, BaseCard, BaseElementsContainer, BaseBadge } from '@/components';
+import { CONTACT_CHANNEL_ICONS_MAP } from '@/constants';
 import OfficeMap from '@/pages/contact-page/components/office-map/OfficeMap.vue';
 
 // Store Declarations
@@ -75,6 +76,7 @@ titleStore.setTitleSuffix('Contatti');
               </ul>
             </BaseCard>
           </BaseElementsContainer>
+          <!-- By Public Transport Section -->
           <BaseElementsContainer class="min-h-[375px]">
             <BaseCard
               class="h-full"
@@ -105,6 +107,7 @@ titleStore.setTitleSuffix('Contatti');
               </ul>
             </BaseCard>
           </BaseElementsContainer>
+          <!-- By Foot Section -->
           <BaseElementsContainer
             class="min-h-[375px]"
             :class="{
@@ -154,6 +157,28 @@ titleStore.setTitleSuffix('Contatti');
           <p :class="[styleStore.textSizeS]" class="text-left font-lora">
             {{ i18nStore.contactPageI18nContent.contacts.description }}
           </p>
+        </div>
+        <div
+          :class="{
+            'grid-cols-1':
+              styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+            'grid-cols-2':
+              styleStore.activeBreakpoint === 'md' || styleStore.activeBreakpoint === 'lg',
+            'grid-cols-3':
+              styleStore.activeBreakpoint !== 'xs' &&
+              styleStore.activeBreakpoint !== 'sm' &&
+              styleStore.activeBreakpoint !== 'md' &&
+              styleStore.activeBreakpoint !== 'lg',
+          }"
+          class="grid gap-8 grid-col"
+        >
+          <BaseBadge
+            v-for="channel in i18nStore.contactPageI18nContent.contacts.channels"
+            :key="channel.id"
+            :icon="CONTACT_CHANNEL_ICONS_MAP[channel.id]"
+            icon-size="small"
+            :text-content="channel.value"
+          />
         </div>
       </div>
     </template>

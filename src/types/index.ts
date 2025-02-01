@@ -112,7 +112,7 @@ interface ContactPageContent {
     heading: string;
     description: string;
     channels: {
-      name: string;
+      id: string;
       value: string;
     }[];
   };

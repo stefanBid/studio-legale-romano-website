@@ -1,7 +1,7 @@
 // router/index.ts
 
 import { ref } from 'vue';
-import { HomePage } from '@/pages';
+import HomePage from '@/pages/home-page/HomePage.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
 const isLoading = ref(false);
