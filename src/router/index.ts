@@ -29,6 +29,14 @@ const routes = [
       ),
   },
   {
+    path: '/chi-siamo',
+    name: 'whoWeArePage',
+    component: () =>
+      import(
+        /* webpackPrefetch: true, webpackPreload: true */ '@/pages/who-we-are-page/WhoWeArePage.vue'
+      ),
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'notFoundPage',
     component: () =>

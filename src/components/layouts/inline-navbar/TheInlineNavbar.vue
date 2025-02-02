@@ -32,6 +32,13 @@ const onIntersectionObserver = ([{ isIntersecting }]: IntersectionObserverEntry[
 };
 
 const getVisibleRoutes = computed<ManagedRoutes>(() => {
+  if (props.routes.length <= 4) {
+    return {
+      visibleRoutes: props.routes,
+      collapsedRoutes: [],
+    };
+  }
+
   return {
     visibleRoutes: props.routes.slice(0, 3),
     collapsedRoutes: props.routes.slice(3),

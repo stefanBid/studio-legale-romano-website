@@ -21,13 +21,6 @@ interface InputField {
   label: string;
   placeholder: string;
 }
-interface Section {
-  titleHeading: string;
-  subTitleHeading: string;
-  contentParagraph: string;
-  imagePath?: string;
-  imageDescription?: string;
-}
 
 interface Rating {
   name: string;
@@ -64,12 +57,6 @@ interface PerformancePageContent {
       shortcutId: string;
     }[];
   };
-}
-/** COLLABORATION PAGE **/
-interface CollaborationPageContent {
-  firstHeading: string;
-  secondHeading: string;
-  imagePath: string;
 }
 
 /** CONTACT PAGE **/
@@ -118,11 +105,19 @@ interface ContactPageContent {
   };
 }
 
-/** ABOUT US PAGE **/
-interface AboutUsPageContent {
+/** WHO WE ARE PAGE **/
+interface WhoWeArePageContent {
   firstHeading: string;
   secondHeading: string;
   imagePath: string;
+  team: {
+    heading: string;
+    description: string;
+  };
+  office: {
+    heading: string;
+    description: string;
+  };
 }
 
 /** NOT FOUND PAGE **/
@@ -140,8 +135,7 @@ export type {
   HeaderContent,
   HomePageContent,
   PerformancePageContent,
-  CollaborationPageContent,
   ContactPageContent,
-  AboutUsPageContent,
+  WhoWeArePageContent,
   NotFoundPageContent,
 };

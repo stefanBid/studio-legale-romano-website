@@ -5,9 +5,8 @@ import type {
   HeaderContent,
   HomePageContent,
   PerformancePageContent,
-  CollaborationPageContent,
   ContactPageContent,
-  AboutUsPageContent,
+  WhoWeArePageContent,
   NotFoundPageContent,
 } from '@/types';
 import { ref } from 'vue';
@@ -28,19 +27,14 @@ export const useI18nStore = defineStore('i18n', () => {
     messages.value[locale.value].performancePage as PerformancePageContent,
   );
 
-  // Collaboration page content initialization
-  const collaborationPageI18nContent = ref(
-    messages.value[locale.value].collaborationPage as CollaborationPageContent,
-  );
-
   // Contact page content initialization
   const contactPageI18nContent = ref(
     messages.value[locale.value].contactPage as ContactPageContent,
   );
 
-  // About us page content initialization
-  const aboutUsPageI18nContent = ref(
-    messages.value[locale.value].aboutUsPage as AboutUsPageContent,
+  // Who we are page content initialization
+  const whoWeArePageI18nContent = ref(
+    messages.value[locale.value].whoWeArePage as WhoWeArePageContent,
   );
 
   // Not found page content initialization
@@ -64,15 +58,12 @@ export const useI18nStore = defineStore('i18n', () => {
       performancePageI18nContent.value = messages.value[locale.value]
         .performancePage as PerformancePageContent;
 
-      // Collaboration page content update
-      collaborationPageI18nContent.value = messages.value[locale.value]
-        .collaborationPage as CollaborationPageContent;
-
       // Contact page content update
       contactPageI18nContent.value = messages.value[locale.value].contactPage as ContactPageContent;
 
-      // About us page content update
-      aboutUsPageI18nContent.value = messages.value[locale.value].aboutUsPage as AboutUsPageContent;
+      // Who we are page content update
+      whoWeArePageI18nContent.value = messages.value[locale.value]
+        .whoWeArePage as WhoWeArePageContent;
 
       // Not found page content update
       notFoundPageI18nContent.value = messages.value[locale.value]
@@ -85,9 +76,8 @@ export const useI18nStore = defineStore('i18n', () => {
     headerI18nContent,
     homePageI18nContent,
     performancePageI18nContent,
-    collaborationPageI18nContent,
     contactPageI18nContent,
-    aboutUsPageI18nContent,
+    whoWeArePageI18nContent,
     notFoundPageI18nContent,
     changeLanguage,
   };

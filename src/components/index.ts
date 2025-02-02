@@ -11,4 +11,5 @@ export { default as TheAppContainer } from '@/components/layouts/app-container/T
 export { default as TheHeader } from '@/components/layouts/header/TheHeader.vue';
 export { default as TheInlineNavbar } from '@/components/layouts/inline-navbar/TheInlineNavbar.vue';
 export { default as ThePageContainer } from '@/components/layouts/page-container/ThePageContainer.vue';
+export { default as ThePageLoader } from '@/components/layouts/page-loader/ThePageLoader.vue';
 export { default as TheSideNavbar } from '@/components/layouts/side-navbar/TheSideNavbar.vue';

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
-import { BookOpenIcon } from '@heroicons/vue/24/solid';
+import { BookOpenIcon, BookmarkIcon } from '@heroicons/vue/24/solid';
 import { useStyleStore, useTitleStore, useI18nStore } from '@/stores';
-import { BaseAccordion, BaseElementsContainer, ThePageContainer } from '@/components';
+import { BaseAccordion, BaseElementsContainer, ThePageContainer, BaseBadge } from '@/components';
 import { navigateTo } from '@/utils';
 import { onMounted, ref } from 'vue';
 
@@ -35,54 +35,42 @@ onMounted(() => {
     }"
   >
     <template #page-content>
-      <div
-        :class="{
-          'items-start':
-            styleStore.activeBreakpoint !== 'xs' && styleStore.activeBreakpoint !== 'sm',
-          'items-center':
-            styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-        }"
-        class="flex flex-col w-full p-2 border-2 rounded-md border-rm-secondary gap-y-4"
-      >
-        <h1
-          :class="[
-            styleStore.textSizeL,
-            {
-              'text-center':
-                styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-              'text-left':
-                styleStore.activeBreakpoint !== 'xs' && styleStore.activeBreakpoint !== 'sm',
-            },
-          ]"
-          class="font-medium transition-all duration-300 ease-in-out font-playfair"
-        >
-          {{ i18nStore.performancePageI18nContent.index.title }}
-        </h1>
+      <BaseElementsContainer>
+        <BaseBadge :icon="BookmarkIcon">
+          <div class="w-full p-4">
+            <h1
+              :class="[styleStore.textSizeL]"
+              class="font-medium text-left transition-all duration-300 ease-in-out font-playfair"
+            >
+              {{ i18nStore.performancePageI18nContent.index.title }}
+            </h1>
 
-        <ol
-          :class="[
-            styleStore.textSizeS,
-            {
-              'pl-0 text-center':
-                styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-              'pl-12 text-justify':
-                styleStore.activeBreakpoint !== 'xs' && styleStore.activeBreakpoint !== 'sm',
-            },
-          ]"
-          class="list-[upper-roman] font-lora"
-        >
-          <li
-            v-for="item in i18nStore.performancePageI18nContent.index.items"
-            :key="item.shortcutId"
-            tabindex="0"
-            class="transition-all duration-300 ease-in-out cursor-pointer outline-0 ring-0 w-fit hover:text-rm-secondary hover:underline focus-visible:text-rm-secondary focus-visible:underline focus-visible:ring-0"
-            @click.stop="navigateTo(item.shortcutId)"
-            @keypress.enter.stop="navigateTo(item.shortcutId)"
-          >
-            {{ item.title }}
-          </li>
-        </ol>
-      </div>
+            <ol
+              :class="[
+                styleStore.textSizeS,
+                {
+                  'pl-0 text-center':
+                    styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+                  'pl-12 text-justify':
+                    styleStore.activeBreakpoint !== 'xs' && styleStore.activeBreakpoint !== 'sm',
+                },
+              ]"
+              class="list-[upper-roman] font-lora"
+            >
+              <li
+                v-for="item in i18nStore.performancePageI18nContent.index.items"
+                :key="item.shortcutId"
+                tabindex="0"
+                class="transition-all duration-300 ease-in-out cursor-pointer outline-0 ring-0 w-fit hover:text-rm-secondary hover:underline focus-visible:text-rm-secondary focus-visible:underline focus-visible:ring-0"
+                @click.stop="navigateTo(item.shortcutId)"
+                @keypress.enter.stop="navigateTo(item.shortcutId)"
+              >
+                {{ item.title }}
+              </li>
+            </ol>
+          </div>
+        </BaseBadge>
+      </BaseElementsContainer>
       <BaseElementsContainer
         v-for="(item, index) in i18nStore.performancePageI18nContent.index.items"
         :key="item.shortcutId"

@@ -10,10 +10,6 @@
         "text": "Prestazioni"
       },
       {
-        "path": "/collaborazioni",
-        "text": "Collaborazioni"
-      },
-      {
         "path": "/contatti",
         "text": "Contatti"
       },
@@ -146,6 +142,19 @@
           "value": "@studiolegaleromano"
         }
       ]
+    }
+  },
+  "whoWeArePage": {
+    "firstHeading": "Chi siamo",
+    "secondHeading": "Una panoramica sul nostro studio legale e sui professionisti del diritto che lo compongono.",
+    "imagePath": "/images/who-we-are-page-cover.jpg",
+    "team": {
+      "heading": "Il nostro team",
+      "description": "Il nostro studio legale è composto da professionisti del diritto con esperienza pluriennale in diversi ambiti giuridici. Scopri di più sui nostri avvocati e collaboratori:"
+    },
+    "office": {
+      "heading": "Il nostro studio",
+      "description": "Uno sguardo all'interno del nostro studio legale, situato in Via Partenio, 56, Avellino. Scopri le nostre aule di lavoro e i nostri spazi di accoglienza:"
     }
   },
   "notFoundPage": {
