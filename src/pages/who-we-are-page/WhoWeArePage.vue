@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useTitleStore, useI18nStore, useStyleStore } from '@/stores';
-import { ThePageContainer, BaseElementsContainer } from '@/components';
+import { ThePageContainer } from '@/components';
 
 // Store Declarations
 const i18nStore = useI18nStore();
