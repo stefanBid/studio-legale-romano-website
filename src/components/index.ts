@@ -6,6 +6,7 @@ export { default as BaseBadge } from '@/components/base/badge/BaseBadge.vue';
 export { default as BaseButton } from '@/components/base/button/BaseButton.vue';
 export { default as BaseElementsContainer } from '@/components/base/elements-container/BaseElementsContainer.vue';
 export { default as BaseCard } from '@/components/base/card/BaseCard.vue';
+export { default as BaseDialog } from '@/components/base/dialog/BaseDialog.vue';
 // LAYOUTS COMPONENTS
 export { default as TheAppContainer } from '@/components/layouts/app-container/TheAppContainer.vue';
 export { default as TheHeader } from '@/components/layouts/header/TheHeader.vue';
