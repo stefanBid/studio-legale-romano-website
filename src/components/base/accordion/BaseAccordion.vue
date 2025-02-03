@@ -45,7 +45,7 @@ watch(
       spacing-size="custom"
       content-size="custom"
       variant="custom"
-      :data-testid="`${props.dataTestid}-header`"
+      :data-testid="`${props.dataTestid}-button`"
       :class="{
         'hover:bg-rm-main/20 focus-visible:bg-rm-main/20': !isAccordionOpen,
         'bg-rm-main/20': isAccordionOpen,
