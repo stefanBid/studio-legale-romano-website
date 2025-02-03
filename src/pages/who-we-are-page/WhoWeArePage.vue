@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useTitleStore, useI18nStore, useStyleStore } from '@/stores';
 import { ThePageContainer } from '@/components';
+import ProfileCard from './components/ProfileCard.vue';
 
 // Store Declarations
 const i18nStore = useI18nStore();
@@ -30,6 +31,7 @@ titleStore.setTitleSuffix('Chi Siamo');
             {{ i18nStore.whoWeArePageI18nContent.team.description }}
           </p>
         </div>
+        <ProfileCard />
       </div>
 
       <div id="office-section" class="flex flex-col">
