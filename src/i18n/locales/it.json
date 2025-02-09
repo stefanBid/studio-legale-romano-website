@@ -150,7 +150,26 @@
     "imagePath": "/images/who-we-are-page-cover.jpg",
     "team": {
       "heading": "Il nostro team",
-      "description": "Il nostro studio legale è composto da professionisti del diritto con esperienza pluriennale in diversi ambiti giuridici. Scopri di più sui nostri avvocati e collaboratori:"
+      "description": "Il nostro studio legale è composto da professionisti del diritto con esperienza pluriennale in diversi ambiti giuridici. Scopri di più sui nostri avvocati e collaboratori:",
+      "members": [
+        {
+          "id": "antonio-romano",
+          "name": "Antionio",
+          "surname": "Romano",
+          "birthDate": "01/01/1970",
+          "role": "Fondatore e Avvocato",
+          "description": "Antonio Romano è un avvocato specializzato in diritto civile e penale. Fondatore dello studio legale, si occupa di consulenze legali e assistenza giudiziale per aziende e privati."
+        },
+        {
+          "id": "enrico-romano",
+          "imagePath": "https://picsum.photos/200/300",
+          "name": "Enrico",
+          "surname": "Romano",
+          "birthDate": "01/01/1975",
+          "role": "Avvocato",
+          "description": "Enrico Romano è un avvocato specializzato in diritto amministrativo e del lavoro. Si occupa di consulenze legali e assistenza giudiziale per aziende e privati."
+        }
+      ]
     },
     "office": {
       "heading": "Il nostro studio",

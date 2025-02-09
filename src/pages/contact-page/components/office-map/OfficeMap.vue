@@ -53,7 +53,7 @@ const handleManageScroll = (): void => {
 
 <template>
   <div
-    class="relative w-full h-[400px]"
+    class="relative w-full h-[400px] shadow-lg"
     @mouseover="showEnableScrollPanel = true"
     @mouseleave="showEnableScrollPanel = false"
   >

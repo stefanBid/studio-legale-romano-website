@@ -31,7 +31,16 @@ titleStore.setTitleSuffix('Chi Siamo');
             {{ i18nStore.whoWeArePageI18nContent.team.description }}
           </p>
         </div>
-        <ProfileCard />
+        <ProfileCard
+          v-for="member in i18nStore.whoWeArePageI18nContent.team.members"
+          :key="member.id"
+          :title="`${member.name} ${member.surname}`"
+          :avatar="{
+            initials: `${member.name[0]}${member.surname[0]}`,
+            imageUrl: member.imagePath,
+            alt: member.imagePath ? `${member.name} ${member.surname}` : undefined,
+          }"
+        />
       </div>
 
       <div id="office-section" class="flex flex-col">

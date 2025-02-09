@@ -53,27 +53,44 @@ titleStore.setTitleSuffix('Contatti');
             <BaseCard
               class="h-full"
               :aria-label="i18nStore.contactPageI18nContent.reachUs.withCar.title"
+              content-type="custom"
               :title="i18nStore.contactPageI18nContent.reachUs.withCar.title"
-              :text-content="i18nStore.contactPageI18nContent.reachUs.withCar.description"
             >
-              <!-- Parking -->
-              <ul class="mt-3 ml-6 list-disc">
-                <li
-                  v-for="parking in i18nStore.contactPageI18nContent.reachUs.withCar.parkings"
-                  :key="parking.name"
-                  class="mb-2"
+              <template #content>
+                <!-- Parking -->
+                <div
+                  :class="{
+                    'p-2.5':
+                      styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+                    'p-3': styleStore.activeBreakpoint === 'md',
+                    'p-4':
+                      styleStore.activeBreakpoint !== 'xs' &&
+                      styleStore.activeBreakpoint !== 'sm' &&
+                      styleStore.activeBreakpoint !== 'md',
+                  }"
                 >
-                  <h4 :class="[styleStore.textSizeS]" class="font-bold font-playfair">
-                    {{ parking.name }}
-                    <span v-if="parking.distance" class="font-normal"
-                      >({{ parking.distance }})</span
-                    >
-                  </h4>
                   <p :class="[styleStore.textSizeXS]" class="font-lora">
-                    {{ parking.description }}
+                    {{ i18nStore.contactPageI18nContent.reachUs.withCar.description }}
                   </p>
-                </li>
-              </ul>
+                  <ul class="mt-3 ml-6 list-disc">
+                    <li
+                      v-for="parking in i18nStore.contactPageI18nContent.reachUs.withCar.parkings"
+                      :key="parking.name"
+                      class="mb-2"
+                    >
+                      <h4 :class="[styleStore.textSizeS]" class="font-bold font-playfair">
+                        {{ parking.name }}
+                        <span v-if="parking.distance" class="font-normal"
+                          >({{ parking.distance }})</span
+                        >
+                      </h4>
+                      <p :class="[styleStore.textSizeXS]" class="font-lora">
+                        {{ parking.description }}
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </template>
             </BaseCard>
           </BaseElementsContainer>
           <!-- By Public Transport Section -->
@@ -81,30 +98,49 @@ titleStore.setTitleSuffix('Contatti');
             <BaseCard
               class="h-full"
               :aria-label="i18nStore.contactPageI18nContent.reachUs.withPublicTransport.title"
+              content-type="custom"
               :title="i18nStore.contactPageI18nContent.reachUs.withPublicTransport.title"
               :text-content="
                 i18nStore.contactPageI18nContent.reachUs.withPublicTransport.description
               "
             >
-              <!-- Bus Stops -->
-              <ul class="mt-3 ml-6 list-disc">
-                <li
-                  v-for="busStop in i18nStore.contactPageI18nContent.reachUs.withPublicTransport
-                    .busStops"
-                  :key="busStop.name"
-                  class="mb-2"
+              <template #content>
+                <!-- Bus Stops -->
+                <div
+                  :class="{
+                    'p-2.5':
+                      styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+                    'p-3': styleStore.activeBreakpoint === 'md',
+                    'p-4':
+                      styleStore.activeBreakpoint !== 'xs' &&
+                      styleStore.activeBreakpoint !== 'sm' &&
+                      styleStore.activeBreakpoint !== 'md',
+                  }"
                 >
-                  <h4 :class="[styleStore.textSizeS]" class="font-bold font-playfair">
-                    {{ busStop.name }}
-                    <span v-if="busStop.distance" class="font-normal"
-                      >({{ busStop.distance }})</span
-                    >
-                  </h4>
                   <p :class="[styleStore.textSizeXS]" class="font-lora">
-                    {{ busStop.description }}
+                    {{ i18nStore.contactPageI18nContent.reachUs.withPublicTransport.description }}
                   </p>
-                </li>
-              </ul>
+
+                  <ul class="mt-3 ml-6 list-disc">
+                    <li
+                      v-for="busStop in i18nStore.contactPageI18nContent.reachUs.withPublicTransport
+                        .busStops"
+                      :key="busStop.name"
+                      class="mb-2"
+                    >
+                      <h4 :class="[styleStore.textSizeS]" class="font-bold font-playfair">
+                        {{ busStop.name }}
+                        <span v-if="busStop.distance" class="font-normal"
+                          >({{ busStop.distance }})</span
+                        >
+                      </h4>
+                      <p :class="[styleStore.textSizeXS]" class="font-lora">
+                        {{ busStop.description }}
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </template>
             </BaseCard>
           </BaseElementsContainer>
           <!-- By Foot Section -->
@@ -118,27 +154,46 @@ titleStore.setTitleSuffix('Contatti');
             <BaseCard
               class="h-full"
               :aria-label="i18nStore.contactPageI18nContent.reachUs.withFoot.title"
+              content-type="custom"
               :title="i18nStore.contactPageI18nContent.reachUs.withFoot.title"
               :text-content="i18nStore.contactPageI18nContent.reachUs.withFoot.description"
             >
-              <!-- Landmars -->
-              <ul class="mt-3 ml-6 list-disc">
-                <li
-                  v-for="landmark in i18nStore.contactPageI18nContent.reachUs.withFoot.landmarks"
-                  :key="landmark.name"
-                  class="mb-2"
+              <template #content>
+                <!-- Landmars -->
+                <div
+                  :class="{
+                    'p-2.5':
+                      styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+                    'p-3': styleStore.activeBreakpoint === 'md',
+                    'p-4':
+                      styleStore.activeBreakpoint !== 'xs' &&
+                      styleStore.activeBreakpoint !== 'sm' &&
+                      styleStore.activeBreakpoint !== 'md',
+                  }"
                 >
-                  <h4 :class="[styleStore.textSizeS]" class="font-bold font-playfair">
-                    {{ landmark.name }}
-                    <span v-if="landmark.distance" class="font-normal"
-                      >({{ landmark.distance }})</span
-                    >
-                  </h4>
                   <p :class="[styleStore.textSizeXS]" class="font-lora">
-                    {{ landmark.description }}
+                    {{ i18nStore.contactPageI18nContent.reachUs.withFoot.description }}
                   </p>
-                </li>
-              </ul>
+                  <ul class="mt-3 ml-6 list-disc">
+                    <li
+                      v-for="landmark in i18nStore.contactPageI18nContent.reachUs.withFoot
+                        .landmarks"
+                      :key="landmark.name"
+                      class="mb-2"
+                    >
+                      <h4 :class="[styleStore.textSizeS]" class="font-bold font-playfair">
+                        {{ landmark.name }}
+                        <span v-if="landmark.distance" class="font-normal"
+                          >({{ landmark.distance }})</span
+                        >
+                      </h4>
+                      <p :class="[styleStore.textSizeXS]" class="font-lora">
+                        {{ landmark.description }}
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </template>
             </BaseCard>
           </BaseElementsContainer>
         </div>

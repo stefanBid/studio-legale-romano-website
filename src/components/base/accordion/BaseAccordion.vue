@@ -8,14 +8,12 @@ interface BaseAccordionProps {
   externalOpen?: boolean;
   id?: string;
   dataTestid?: string;
-  marginAfterButton?: boolean;
 }
 
 const props = withDefaults(defineProps<BaseAccordionProps>(), {
   externalOpen: undefined,
   id: 'base-accordion-id',
   dataTestid: 'base-accordion',
-  marginAfterButton: true,
 });
 
 // Store Declarations
@@ -65,10 +63,7 @@ watch(
       <div
         v-if="isAccordionOpen"
         :data-testid="`${props.dataTestid}-content`"
-        class="w-full px-4"
-        :class="{
-          'mt-8': props.marginAfterButton,
-        }"
+        class="w-full p-8 bg-white shadow-lg"
       >
         <slot name="section-hidden-content"> </slot>
       </div>

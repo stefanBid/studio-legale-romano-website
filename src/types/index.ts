@@ -113,6 +113,15 @@ interface WhoWeArePageContent {
   team: {
     heading: string;
     description: string;
+    members: {
+      id: string;
+      imagePath?: string;
+      name: string;
+      surname: string;
+      birthDate: string;
+      role: string;
+      description: string;
+    }[];
   };
   office: {
     heading: string;

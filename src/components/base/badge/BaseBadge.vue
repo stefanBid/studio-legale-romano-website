@@ -25,7 +25,7 @@ const props = withDefaults(defineProps<BaseBadgeProps>(), {
   <div
     :data-testid="props.dataTestid"
     :aria-label="props.ariaLabel"
-    class="flex bg-white border-2 rounded-md border-rm-secondary"
+    class="flex bg-white border-2 rounded-md shadow-lg border-rm-secondary"
   >
     <div
       class="inline-flex items-center justify-center p-2 rounded-l-sm w-fit bg-rm-secondary shrink-0"

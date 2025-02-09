@@ -8,10 +8,30 @@ const meta = {
   component: BaseCard,
   tags: ['autodocs'],
   argTypes: {
-    default: {
-      description: 'The default slot content',
+    header: {
+      description: 'The card header slot',
       control: {
         type: 'text',
+      },
+    },
+    content: {
+      description: 'The card content slot',
+      control: {
+        type: 'text',
+      },
+    },
+    headerType: {
+      description: 'The card type',
+      control: {
+        type: 'select',
+        options: ['default', 'custom'],
+      },
+    },
+    contentType: {
+      description: 'The card content type',
+      control: {
+        type: 'select',
+        options: ['default', 'custom'],
       },
     },
     title: {
@@ -40,8 +60,6 @@ const meta = {
     },
   },
   args: {
-    default:
-      'Officia voluptate amet tempor deserunt incididunt ipsum laboris excepteur consectetur laboris ea aliqua sit non. Pariatur nostrud labore ut excepteur sit excepteur nulla minim aliquip consequat in. Et culpa exercitation laboris et sunt commodo consequat amet laboris do.',
     dataTestid: 'card-test',
     ariaLabel: 'card',
   },
@@ -53,5 +71,7 @@ type Story = StoryObj<typeof meta>;
 export const DefaultCard: Story = {
   args: {
     title: 'Card Title',
+    textContent:
+      'In voluptate magna cillum quis voluptate amet eiusmod nulla elit aute sint et culpa. Eiusmod esse incididunt sint Lorem duis aliqua deserunt laborum nulla incididunt. Pariatur aute est enim minim deserunt occaecat ipsum incididunt cillum labore Lorem ea magna. Incididunt incididunt incididunt nisi dolor fugiat deserunt est dolore tempor. Culpa pariatur mollit fugiat quis nostrud labore quis proident fugiat elit. Culpa anim labore mollit commodo nostrud exercitation dolor.',
   },
 };
