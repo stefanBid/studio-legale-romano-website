@@ -3,7 +3,7 @@ import { useTitleStore, useI18nStore, useStyleStore } from '@/stores';
 import { ThePageContainer, BaseCard, BaseElementsContainer, BaseBadge } from '@/components';
 import { CONTACT_CHANNEL_ICONS_MAP } from '@/constants';
 import OfficeMap from '@/pages/contact-page/components/office-map/OfficeMap.vue';
-
+import OpeningHourBox from '@/pages/contact-page/components/opening-hour-box/OpeningHourBox.vue';
 // Store Declarations
 const i18nStore = useI18nStore();
 const styleStore = useStyleStore();
@@ -22,6 +22,7 @@ titleStore.setTitleSuffix('Contatti');
     }"
   >
     <template #page-content>
+      <!--Map Section-->
       <div id="map-section" class="flex flex-col">
         <!-- Heading -->
         <div class="mb-8">
@@ -203,6 +204,7 @@ titleStore.setTitleSuffix('Contatti');
         </BaseElementsContainer>
       </div>
 
+      <!--Contact Section-->
       <div id="contact-section" class="flex flex-col">
         <!-- Heading -->
         <div class="mb-8">
@@ -235,6 +237,24 @@ titleStore.setTitleSuffix('Contatti');
             :text-content="channel.value"
           />
         </div>
+      </div>
+
+      <!--Opening Hour Section-->
+      <div id="opening-hour-section" class="flex flex-col">
+        <!-- Heading -->
+        <div class="mb-8">
+          <h1 :class="[styleStore.textSizeXL]" class="font-bold text-left font-playfair">
+            {{ i18nStore.contactPageI18nContent.openingHours.heading }}
+          </h1>
+          <p :class="[styleStore.textSizeS]" class="text-left font-lora">
+            {{ i18nStore.contactPageI18nContent.openingHours.description }}
+          </p>
+        </div>
+        <BaseElementsContainer>
+          <OpeningHourBox
+            :weekly-schedule="i18nStore.contactPageI18nContent.openingHours.weeklySchedule"
+          />
+        </BaseElementsContainer>
       </div>
     </template>
   </ThePageContainer>

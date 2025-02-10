@@ -81,8 +81,8 @@ const styleStore = useStyleStore();
       :is="props.loading ? ArrowPathIcon : props.icon"
       class="shrink-0"
       :class="[
-        props.contentSize === 'medium' ? styleStore.iconSizeS : undefined,
-        props.contentSize === 'small' ? styleStore.iconSizeXS : undefined,
+        props.contentSize === 'medium' ? styleStore.iconSizeM : undefined,
+        props.contentSize === 'small' ? styleStore.iconSizeS : undefined,
         { 'animate-spin': props.loading },
       ]"
     />

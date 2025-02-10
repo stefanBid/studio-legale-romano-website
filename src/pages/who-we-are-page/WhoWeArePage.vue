@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useTitleStore, useI18nStore, useStyleStore } from '@/stores';
-import { ThePageContainer } from '@/components';
+import { ThePageContainer, BaseElementsContainer } from '@/components';
+import { UserCircleIcon, EnvelopeIcon, DocumentArrowDownIcon } from '@heroicons/vue/24/solid';
 import ProfileCard from './components/ProfileCard.vue';
 
 // Store Declarations
@@ -31,16 +32,61 @@ titleStore.setTitleSuffix('Chi Siamo');
             {{ i18nStore.whoWeArePageI18nContent.team.description }}
           </p>
         </div>
-        <ProfileCard
-          v-for="member in i18nStore.whoWeArePageI18nContent.team.members"
-          :key="member.id"
-          :title="`${member.name} ${member.surname}`"
-          :avatar="{
-            initials: `${member.name[0]}${member.surname[0]}`,
-            imageUrl: member.imagePath,
-            alt: member.imagePath ? `${member.name} ${member.surname}` : undefined,
+        <div
+          :class="{
+            'grid-cols-1':
+              styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+            'grid-cols-2':
+              styleStore.activeBreakpoint !== 'xs' && styleStore.activeBreakpoint !== 'sm',
           }"
-        />
+          class="grid gap-8 grid-col"
+        >
+          <!-- By Car Section -->
+          <BaseElementsContainer
+            v-for="member in i18nStore.whoWeArePageI18nContent.team.members"
+            :key="member.id"
+            class=""
+          >
+            <ProfileCard
+              class="h-full"
+              :generality="{
+                name: member.name,
+                surname: member.surname,
+                birthDate: member.birthDate,
+                number: member.number,
+              }"
+              :avatar="
+                member.imagePath ? { imageUrl: member.imagePath, alt: member.name } : undefined
+              "
+              :call-to-actions="[
+                {
+                  id: `${member.id}-open-profile`,
+                  content: 'Apri Profilo',
+                  icon: UserCircleIcon,
+                  onClick: () => {
+                    console.log('Email');
+                  },
+                },
+                {
+                  id: `${member.id}-email`,
+                  content: 'Contatta',
+                  icon: EnvelopeIcon,
+                  onClick: () => {
+                    console.log('Email');
+                  },
+                },
+                {
+                  id: `${member.id}-download-cv`,
+                  content: 'Scarica CV',
+                  icon: DocumentArrowDownIcon,
+                  onClick: () => {
+                    console.log('Email');
+                  },
+                },
+              ]"
+            />
+          </BaseElementsContainer>
+        </div>
       </div>
 
       <div id="office-section" class="flex flex-col">

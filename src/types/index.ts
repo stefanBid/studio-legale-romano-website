@@ -60,6 +60,47 @@ interface PerformancePageContent {
 }
 
 /** CONTACT PAGE **/
+interface TimeRange {
+  start: string; // Formato 'HH:mm'
+  end: string; // Formato 'HH:mm'
+}
+
+interface OpeningHours {
+  morning?: TimeRange;
+  afternoon?: TimeRange;
+}
+
+interface WeeklySchedule {
+  monday: {
+    name: string;
+    openingHours?: OpeningHours;
+  };
+  tuesday: {
+    name: string;
+    openingHours?: OpeningHours;
+  };
+  wednesday: {
+    name: string;
+    openingHours?: OpeningHours;
+  };
+  thursday: {
+    name: string;
+    openingHours?: OpeningHours;
+  };
+  friday: {
+    name: string;
+    openingHours?: OpeningHours;
+  };
+  saturday: {
+    name: string;
+    openingHours?: OpeningHours;
+  };
+  sunday: {
+    name: string;
+    openingHours?: OpeningHours;
+  };
+}
+
 interface ContactPageContent {
   firstHeading: string;
   secondHeading: string;
@@ -103,6 +144,11 @@ interface ContactPageContent {
       value: string;
     }[];
   };
+  openingHours: {
+    heading: string;
+    description: string;
+    weeklySchedule: WeeklySchedule;
+  };
 }
 
 /** WHO WE ARE PAGE **/
@@ -119,6 +165,7 @@ interface WhoWeArePageContent {
       name: string;
       surname: string;
       birthDate: string;
+      number: string;
       role: string;
       description: string;
     }[];
@@ -144,6 +191,7 @@ export type {
   HeaderContent,
   HomePageContent,
   PerformancePageContent,
+  WeeklySchedule,
   ContactPageContent,
   WhoWeArePageContent,
   NotFoundPageContent,

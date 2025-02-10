@@ -142,6 +142,83 @@
           "value": "@studiolegaleromano"
         }
       ]
+    },
+    "openingHours": {
+      "heading": "Orari di Apertura",
+      "description": "Il nostro studio legale è aperto dal lunedì al venerdì, con i seguenti orari di apertura:",
+      "weeklySchedule": {
+        "monday": {
+          "name": "Lunedì",
+          "openingHours": {
+            "morning": {
+              "start": "09:00",
+              "end": "13:00"
+            },
+            "afternoon": {
+              "start": "15:00",
+              "end": "19:00"
+            }
+          }
+        },
+        "tuesday": {
+          "name": "Martedì",
+          "openingHours": {
+            "morning": {
+              "start": "09:00",
+              "end": "13:00"
+            },
+            "afternoon": {
+              "start": "15:00",
+              "end": "19:00"
+            }
+          }
+        },
+        "wednesday": {
+          "name": "Mercoledì",
+          "openingHours": {
+            "morning": {
+              "start": "09:00",
+              "end": "13:00"
+            },
+            "afternoon": {
+              "start": "15:00",
+              "end": "19:00"
+            }
+          }
+        },
+        "thursday": {
+          "name": "Giovedì",
+          "openingHours": {
+            "morning": {
+              "start": "09:00",
+              "end": "13:00"
+            },
+            "afternoon": {
+              "start": "15:00",
+              "end": "19:00"
+            }
+          }
+        },
+        "friday": {
+          "name": "Venerdì",
+          "openingHours": {
+            "morning": {
+              "start": "09:00",
+              "end": "13:00"
+            },
+            "afternoon": {
+              "start": "15:00",
+              "end": "19:00"
+            }
+          }
+        },
+        "saturday": {
+          "name": "Sabato"
+        },
+        "sunday": {
+          "name": "Domenica"
+        }
+      }
     }
   },
   "whoWeArePage": {
@@ -157,6 +234,7 @@
           "name": "Antionio",
           "surname": "Romano",
           "birthDate": "01/01/1970",
+          "number": "+39 0825 123456",
           "role": "Fondatore e Avvocato",
           "description": "Antonio Romano è un avvocato specializzato in diritto civile e penale. Fondatore dello studio legale, si occupa di consulenze legali e assistenza giudiziale per aziende e privati."
         },
@@ -166,6 +244,7 @@
           "name": "Enrico",
           "surname": "Romano",
           "birthDate": "01/01/1975",
+          "number": "+39 0825 123456",
           "role": "Avvocato",
           "description": "Enrico Romano è un avvocato specializzato in diritto amministrativo e del lavoro. Si occupa di consulenze legali e assistenza giudiziale per aziende e privati."
         }
