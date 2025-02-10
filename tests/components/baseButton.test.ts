@@ -98,12 +98,12 @@ describe('BaseButton Unit Tests', () => {
       const icon = button.querySelector('svg');
       if (size === 'small') {
         expect(button).toHaveClass('text-rm-sm');
-        expect(icon).toHaveClass('size-4');
+        expect(icon).toHaveClass('size-6');
       }
 
       if (size === 'medium') {
         expect(button).toHaveClass('text-rm-lg');
-        expect(icon).toHaveClass('size-6');
+        expect(icon).toHaveClass('size-10');
       }
 
       if (size === 'custom') {
