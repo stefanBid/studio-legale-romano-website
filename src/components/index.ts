@@ -1,4 +1,4 @@
-// components/index.ts
+// components/index.ts (Components Barrel Export)
 
 // BASE COMPONENTS
 export { default as BaseAccordion } from '@/components/base/accordion/BaseAccordion.vue';

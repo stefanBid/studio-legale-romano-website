@@ -1,3 +1,4 @@
-// constants/index.ts
+// constants/index.ts (Constants Barrel Export)
 
-export * from './contact-channel-icons/contactChannelIconsConstants';
+export * from '@/constants/iconsConstants';
+export * from '@/constants/mediaConstants';

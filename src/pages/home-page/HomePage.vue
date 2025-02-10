@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
+import { MEDIA } from '@/constants';
 import { useStyleStore, useTitleStore, useI18nStore } from '@/stores';
 import { BaseButton } from '@/components';
 import { useRouter } from 'vue-router';
@@ -27,7 +28,7 @@ onMounted(() => {
   <div class="relative w-full h-screen overflow-x-hidden bg-rm-main">
     <!-- Background -->
     <img
-      src="/images/home-page-cover.jpg"
+      :src="MEDIA.homePageCoverImg"
       class="absolute inset-0 object-cover object-center w-full h-full pointer-events-none"
     />
 

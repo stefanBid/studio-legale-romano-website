@@ -34,7 +34,6 @@
   "performancePage": {
     "firstHeading": "Prestazioni",
     "secondHeading": "Il nostro studio legale offre consulenza e assistenza legale in diversi ambiti del diritto.",
-    "imagePath": "/images/performance-page-cover.jpg",
     "index": {
       "title": "In questa sezione:",
 
@@ -61,7 +60,6 @@
   "contactPage": {
     "firstHeading": "Contatti",
     "secondHeading": "Contattaci per fissare un appuntamento o per richiedere informazioni.",
-    "imagePath": "/images/contacts-page-cover.jpg",
     "reachUs": {
       "heading": "Come raggiungerci?",
       "description": "Per raggiungere il nostro studio legale in Via Partenio, 56, Avellino, ecco alcune indicazioni dettagliate:",
@@ -126,19 +124,19 @@
       "description": "Per fissare un appuntamento o per richiedere informazioni, contattaci tramite i seguenti canali:",
       "channels": [
         {
-          "id": "mobile",
+          "id": "MobileIcon",
           "value": "+39 0825 123456"
         },
         {
-          "id": "telephone",
+          "id": "TelephoneIcon",
           "value": "+39 0825 123456"
         },
         {
-          "id": "email",
+          "id": "EmailIcon",
           "value": "studiolegaleromano@gmail.com"
         },
         {
-          "id": "instagram",
+          "id": "InstagramIcon",
           "value": "@studiolegaleromano"
         }
       ]
@@ -224,7 +222,6 @@
   "whoWeArePage": {
     "firstHeading": "Chi siamo",
     "secondHeading": "Una panoramica sul nostro studio legale e sui professionisti del diritto che lo compongono.",
-    "imagePath": "/images/who-we-are-page-cover.jpg",
     "team": {
       "heading": "Il nostro team",
       "description": "Il nostro studio legale è composto da professionisti del diritto con esperienza pluriennale in diversi ambiti giuridici. Scopri di più sui nostri avvocati e collaboratori:",

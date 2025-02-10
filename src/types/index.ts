@@ -49,7 +49,6 @@ interface HomePageContent {
 interface PerformancePageContent {
   firstHeading: string;
   secondHeading: string;
-  imagePath: string;
   index: {
     title: string;
     items: {
@@ -104,7 +103,6 @@ interface WeeklySchedule {
 interface ContactPageContent {
   firstHeading: string;
   secondHeading: string;
-  imagePath: string;
   reachUs: {
     heading: string;
     description: string;
@@ -155,7 +153,6 @@ interface ContactPageContent {
 interface WhoWeArePageContent {
   firstHeading: string;
   secondHeading: string;
-  imagePath: string;
   team: {
     heading: string;
     description: string;

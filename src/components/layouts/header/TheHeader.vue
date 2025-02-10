@@ -3,7 +3,7 @@ import { XMarkIcon, Bars3Icon } from '@heroicons/vue/24/outline';
 import { computed, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useI18nStore, useStyleStore } from '@/stores';
-import { LogoIcon } from '@/assets';
+import { ICONS } from '@/constants';
 import { TheInlineNavbar, TheSideNavbar } from '@/components';
 
 // Store Declarations
@@ -80,7 +80,8 @@ watch(
           class="flex items-center border border-transparent rounded-md text-rm-secondary gap-x-2 group ring-0 focus-visible:border-rm-main outline-0"
           @click="onChangeMenuVisibility(false)"
         >
-          <LogoIcon
+          <component
+            :is="ICONS.LogoIcon"
             :class="[styleStore.iconSizeM]"
             class="transition-all duration-300 ease-in-out shrink-0"
           />

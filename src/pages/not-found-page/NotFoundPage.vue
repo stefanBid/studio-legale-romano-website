@@ -2,9 +2,9 @@
 import { HomeIcon } from '@heroicons/vue/24/outline';
 import { useRouter } from 'vue-router';
 
+import { ICONS } from '@/constants';
 import { BaseButton } from '@/components';
 import { useI18nStore, useStyleStore, useTitleStore } from '@/stores';
-import { LogoIcon } from '@/assets';
 
 // Stores declarations
 const styleStore = useStyleStore();
@@ -34,7 +34,8 @@ titleStore.setTitleSuffix('404 Pagina non trovata');
     >
       {{ i18nStore.notFoundPageI18nContent.secondHeading }}
     </p>
-    <LogoIcon
+    <component
+      :is="ICONS.LogoIcon"
       class="transition-all duration-300 ease-in-out animate-pulse"
       :class="{
         'size-72':

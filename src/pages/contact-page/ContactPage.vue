@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { MEDIA } from '@/constants';
 import { useTitleStore, useI18nStore, useStyleStore } from '@/stores';
 import { ThePageContainer, BaseCard, BaseElementsContainer, BaseBadge } from '@/components';
 import { CONTACT_CHANNEL_ICONS_MAP } from '@/constants';
@@ -18,7 +19,7 @@ titleStore.setTitleSuffix('Contatti');
     :intro-cover="{
       title: i18nStore.contactPageI18nContent.firstHeading,
       subtitle: i18nStore.contactPageI18nContent.secondHeading,
-      imgPath: i18nStore.contactPageI18nContent.imagePath,
+      imgPath: MEDIA.contactPageCoverImg,
     }"
   >
     <template #page-content>
