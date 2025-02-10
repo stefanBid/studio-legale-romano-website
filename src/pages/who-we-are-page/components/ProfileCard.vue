@@ -129,7 +129,7 @@ const getGeneralityData = computed(() => {
             :aria-label="cta.content"
             :data-testid="cta.id"
             :icon="cta.icon"
-            variant="primary"
+            variant="secondary"
             content-size="small"
             spacing-size="small"
             @click.stop="cta.onClick()"

@@ -23,6 +23,24 @@ titleStore.setTitleSuffix('Contatti');
     }"
   >
     <template #page-content>
+      <!--Opening Hour Section-->
+      <div id="opening-hour-section" class="flex flex-col">
+        <!-- Heading -->
+        <div class="mb-8">
+          <h1 :class="[styleStore.textSizeXL]" class="font-bold text-left font-playfair">
+            {{ i18nStore.contactPageI18nContent.openingHours.heading }}
+          </h1>
+          <p :class="[styleStore.textSizeS]" class="text-left font-lora">
+            {{ i18nStore.contactPageI18nContent.openingHours.description }}
+          </p>
+        </div>
+        <BaseElementsContainer>
+          <OpeningHourBox
+            :weekly-schedule="i18nStore.contactPageI18nContent.openingHours.weeklySchedule"
+          />
+        </BaseElementsContainer>
+      </div>
+
       <!--Map Section-->
       <div id="map-section" class="flex flex-col">
         <!-- Heading -->
@@ -230,32 +248,17 @@ titleStore.setTitleSuffix('Contatti');
           }"
           class="grid gap-8 grid-col"
         >
-          <BaseBadge
+          <BaseElementsContainer
             v-for="channel in i18nStore.contactPageI18nContent.contacts.channels"
             :key="channel.id"
-            :icon="CONTACT_CHANNEL_ICONS_MAP[channel.id]"
-            icon-size="small"
-            :text-content="channel.value"
-          />
+          >
+            <BaseBadge
+              :icon="CONTACT_CHANNEL_ICONS_MAP[channel.id]"
+              icon-size="small"
+              :text-content="channel.value"
+            />
+          </BaseElementsContainer>
         </div>
-      </div>
-
-      <!--Opening Hour Section-->
-      <div id="opening-hour-section" class="flex flex-col">
-        <!-- Heading -->
-        <div class="mb-8">
-          <h1 :class="[styleStore.textSizeXL]" class="font-bold text-left font-playfair">
-            {{ i18nStore.contactPageI18nContent.openingHours.heading }}
-          </h1>
-          <p :class="[styleStore.textSizeS]" class="text-left font-lora">
-            {{ i18nStore.contactPageI18nContent.openingHours.description }}
-          </p>
-        </div>
-        <BaseElementsContainer>
-          <OpeningHourBox
-            :weekly-schedule="i18nStore.contactPageI18nContent.openingHours.weeklySchedule"
-          />
-        </BaseElementsContainer>
       </div>
     </template>
   </ThePageContainer>
