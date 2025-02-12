@@ -20,28 +20,47 @@
     ]
   },
   "footer": {
-    "heading": "Studio Legale Romano",
-    "description": "Offriamo soluzioni legali personalizzate, unendo competenza ed esperienza per affrontare con successo ogni sfida del diritto.",
-    "links": [
-      {
-        "text": "Home",
-        "link": "homePage"
-      },
-      {
-        "text": "Prestazioni",
-        "link": "performancePage"
-      },
-      {
-        "text": "Contatti",
-        "link": "contactPage"
-      },
-      {
-        "text": "Chi siamo",
-        "link": "whoWeArePage"
-      }
-    ],
+    "intro": {
+      "title": "Studio Legale Romano",
+      "description": "Offriamo soluzioni legali personalizzate, unendo competenza ed esperienza per affrontare con successo ogni sfida del diritto.",
+      "socials": [
+        {
+          "id": "InstagramIcon",
+          "value": "@studiolegaleromano"
+        },
+        {
+          "id": "FacebookIcon",
+          "value": "/studiolegaleromano"
+        },
+        {
+          "id": "TwitterIcon",
+          "value": "@studiolegaleromano"
+        }
+      ]
+    },
+    "quickLinks": {
+      "title": "Link veloci",
+      "links": [
+        {
+          "text": "Home",
+          "link": "/"
+        },
+        {
+          "text": "Prestazioni",
+          "link": "/prestazioni"
+        },
+        {
+          "text": "Contatti",
+          "link": "/contatti"
+        },
+        {
+          "text": "Chi siamo",
+          "link": "/chi-siamo"
+        }
+      ]
+    },
     "contacts": {
-      "heading": "Contatti",
+      "title": "Contatti",
       "channels": [
         {
           "id": "MobileIcon",
@@ -54,18 +73,19 @@
         {
           "id": "EmailIcon",
           "value": "studiolegaleromano@gmail.com"
+        }
+      ]
+    },
+    "helpAndSupport": {
+      "title": "Aiuto e Supporto",
+      "links": [
+        {
+          "text": "Termini e Condizioni",
+          "link": "#"
         },
         {
-          "id": "InstagramIcon",
-          "value": "@studiolegaleromano"
-        },
-        {
-          "id": "FacebookIcon",
-          "value": "/studiolegaleromano"
-        },
-        {
-          "id": "TwitterIcon",
-          "value": "@studiolegaleromano"
+          "text": "Privacy Policy",
+          "link": "#"
         }
       ]
     }

@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { computed } from 'vue';
 import { ClockIcon, CalendarDaysIcon } from '@heroicons/vue/24/solid';
 import type { WeeklySchedule } from '@/types';
 import { useStyleStore } from '@/stores';
 import { BaseChip } from '@/components';
+import { useNow } from '@vueuse/core';
 
 interface OpeningHourBoxProps {
   weeklySchedule: WeeklySchedule;
@@ -16,36 +17,9 @@ const props = defineProps<OpeningHourBoxProps>();
 const styleStore = useStyleStore();
 
 // Feature 1: Update the current day
-const today = ref(new Date().getDay());
+const now = useNow({ interval: 60 * 1000 });
+const today = computed(() => now.value.getDay());
 const weekDays = Object.keys(props.weeklySchedule) as Array<keyof WeeklySchedule>;
-
-let midnightTimeout: NodeJS.Timeout;
-
-// Calculate the time until midnight
-const getTimeUntilMidnight = (): number => {
-  const now = new Date();
-  return (
-    new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0).getTime() -
-    now.getTime()
-  );
-};
-
-// Update the current day at midnight
-const scheduleMidnightUpdate = (): void => {
-  midnightTimeout = setTimeout(() => {
-    today.value = new Date().getDay();
-    scheduleMidnightUpdate(); // Richiama ricorsivamente per il prossimo aggiornamento
-  }, getTimeUntilMidnight());
-};
-
-// Lifecycle hook
-onMounted(() => {
-  scheduleMidnightUpdate();
-});
-
-onBeforeUnmount(() => {
-  clearTimeout(midnightTimeout);
-});
 </script>
 
 <template>

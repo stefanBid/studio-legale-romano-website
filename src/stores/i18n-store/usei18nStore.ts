@@ -3,6 +3,7 @@ import { useI18n } from 'vue-i18n';
 import type {
   Locale,
   HeaderContent,
+  FooterContent,
   HomePageContent,
   PerformancePageContent,
   ContactPageContent,
@@ -18,6 +19,9 @@ export const useI18nStore = defineStore('i18n', () => {
 
   // Header content initialization
   const headerI18nContent = ref(messages.value[locale.value].header as HeaderContent);
+
+  // Footer content initialization
+  const footerI18nContent = ref(messages.value[locale.value].footer as FooterContent);
 
   // Home page content initialization
   const homePageI18nContent = ref(messages.value[locale.value].homePage as HomePageContent);
@@ -51,6 +55,9 @@ export const useI18nStore = defineStore('i18n', () => {
       // Header content update
       headerI18nContent.value = messages.value[locale.value].header as HeaderContent;
 
+      // Footer content update
+      footerI18nContent.value = messages.value[locale.value].footer as FooterContent;
+
       // Home page content update
       homePageI18nContent.value = messages.value[locale.value].homePage as HomePageContent;
 
@@ -74,6 +81,7 @@ export const useI18nStore = defineStore('i18n', () => {
   return {
     currentLanguage: locale,
     headerI18nContent,
+    footerI18nContent,
     homePageI18nContent,
     performancePageI18nContent,
     contactPageI18nContent,

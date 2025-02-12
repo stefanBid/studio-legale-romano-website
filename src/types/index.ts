@@ -37,6 +37,39 @@ interface HeaderContent {
   }[];
 }
 
+/** FOOTER **/
+interface FooterContent {
+  intro: {
+    title: string;
+    description: string;
+    socials: {
+      id: string;
+      value: string;
+    }[];
+  };
+  quickLinks: {
+    title: string;
+    links: {
+      text: string;
+      link: string;
+    }[];
+  };
+  contacts: {
+    title: string;
+    channels: {
+      id: string;
+      value: string;
+    }[];
+  };
+  helpAndSupport: {
+    title: string;
+    links: {
+      text: string;
+      link: string;
+    }[];
+  };
+}
+
 /** HOME PAGE **/
 interface HomePageContent {
   firstHeading: string;
@@ -186,6 +219,7 @@ export type {
   Notification,
   NotificationCategory,
   HeaderContent,
+  FooterContent,
   HomePageContent,
   PerformancePageContent,
   WeeklySchedule,

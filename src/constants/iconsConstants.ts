@@ -14,7 +14,7 @@ export const ICONS: Record<IconsName, FunctionalComponent> = {
   TwitterIcon: Twitter,
 };
 
-export const CONTACT_CHANNEL_ICONS_MAP: Record<string, FunctionalComponent | Component | string> = {
+export const CONTACT_CHANNEL_ICONS: Record<string, FunctionalComponent | Component | string> = {
   MobileIcon: DevicePhoneMobileIcon,
   TelephoneIcon: PhoneIcon,
   EmailIcon: EnvelopeIcon,

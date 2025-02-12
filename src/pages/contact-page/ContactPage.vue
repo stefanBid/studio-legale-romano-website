@@ -2,7 +2,7 @@
 import { MEDIA } from '@/constants';
 import { useTitleStore, useI18nStore, useStyleStore } from '@/stores';
 import { ThePageContainer, BaseCard, BaseElementsContainer, BaseBadge } from '@/components';
-import { CONTACT_CHANNEL_ICONS_MAP } from '@/constants';
+import { CONTACT_CHANNEL_ICONS } from '@/constants';
 import OfficeMap from '@/pages/contact-page/components/office-map/OfficeMap.vue';
 import OpeningHourBox from '@/pages/contact-page/components/opening-hour-box/OpeningHourBox.vue';
 // Store Declarations
@@ -253,7 +253,7 @@ titleStore.setTitleSuffix('Contatti');
             :key="channel.id"
           >
             <BaseBadge
-              :icon="CONTACT_CHANNEL_ICONS_MAP[channel.id]"
+              :icon="CONTACT_CHANNEL_ICONS[channel.id]"
               icon-size="small"
               :text-content="channel.value"
             />
