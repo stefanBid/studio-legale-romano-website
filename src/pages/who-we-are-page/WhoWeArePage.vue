@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { MEDIA } from '@/constants';
+import { dowloadFile } from '@/utils';
 import { useTitleStore, useI18nStore, useStyleStore } from '@/stores';
 import { ThePageContainer, BaseElementsContainer } from '@/components';
 import { UserCircleIcon, EnvelopeIcon, DocumentArrowDownIcon } from '@heroicons/vue/24/solid';
@@ -81,7 +82,7 @@ titleStore.setTitleSuffix('Chi Siamo');
                   content: 'Scarica CV',
                   icon: DocumentArrowDownIcon,
                   onClick: () => {
-                    console.log('Email');
+                    if (member.idDoc) dowloadFile(`${member.id}-cv`, MEDIA[member.idDoc]);
                   },
                 },
               ]"

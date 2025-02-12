@@ -1,5 +1,7 @@
 // types/index.ts
 
+import type { MediaName } from '@/constants';
+
 /** GLOBAL **/
 type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 type NotificationCategory = 'info' | 'success' | 'error';
@@ -191,6 +193,7 @@ interface WhoWeArePageContent {
     description: string;
     members: {
       id: string;
+      idDoc?: MediaName;
       imagePath?: string;
       name: string;
       surname: string;

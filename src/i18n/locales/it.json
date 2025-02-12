@@ -288,6 +288,7 @@
       "members": [
         {
           "id": "antonio-romano",
+          "idDoc": "antonioRomanoCvDoc",
           "name": "Antionio",
           "surname": "Romano",
           "birthDate": "01/01/1970",

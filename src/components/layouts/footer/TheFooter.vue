@@ -108,7 +108,7 @@ const i18nStore = useI18nStore();
             :key="link.text"
             :to="link.link"
             tabindex="0"
-            class="text-white transition-all duration-300 ease-in-out font-lora group hover:text-rm-secondary focus-visible:text-rm-secondary"
+            class="text-white transition-all duration-300 ease-in-out outline-none w-fit ring-0 focus-visible:ring-0 focus-visible:outline-none font-lora group hover:text-rm-secondary focus-visible:text-rm-secondary"
             :class="[
               styleStore.textSizeXS,
               {
@@ -195,7 +195,7 @@ const i18nStore = useI18nStore();
             :key="link.text"
             :to="link.link"
             tabindex="0"
-            class="text-white transition-all duration-300 ease-in-out font-lora hover:text-rm-secondary focus-visible:text-rm-secondary"
+            class="text-white transition-all duration-300 ease-in-out outline-none font-lora hover:text-rm-secondary focus-visible:text-rm-secondary w-fit focus-visible:outline-none ring-0 focus-visible:ring-0"
             :class="[
               styleStore.textSizeXS,
               {
@@ -220,7 +220,7 @@ const i18nStore = useI18nStore();
       <a
         href="https://www.linkedin.com/in/stefano-biddau-669149214/"
         target="_blank"
-        class="flex items-center text-white transition-all duration-300 ease-in-out gap-x-1"
+        class="flex items-center text-white transition-all duration-300 ease-in-out gap-x-1 outline-rm-secondary outline-offset-0 ring-0 focus-visible:ring-0"
       >
         <img
           src="/egg.png"
