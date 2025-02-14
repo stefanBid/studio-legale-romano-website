@@ -40,7 +40,7 @@ watch(
   <div class="w-full">
     <BaseButton
       :id="props.id"
-      spacing-size="custom"
+      spacing-size="medium"
       content-size="custom"
       variant="custom"
       :data-testid="`${props.dataTestid}-button`"
@@ -48,7 +48,7 @@ watch(
         'hover:bg-rm-main/20 focus-visible:bg-rm-main/20': !isAccordionOpen,
         'bg-rm-main/20': isAccordionOpen,
       }"
-      class="w-full px-4 py-2 border-b-2 gap-x-4 border-rm-main !rounded-b-none hover:bg-rm-main/20"
+      class="w-full border-b-2 border-rm-main !rounded-b-none hover:bg-rm-main/20"
       @click.stop="changeAccordionVisibility()"
     >
       <div class="flex-1">
@@ -63,7 +63,8 @@ watch(
       <div
         v-if="isAccordionOpen"
         :data-testid="`${props.dataTestid}-content`"
-        class="w-full p-8 bg-white shadow-lg"
+        :class="[styleStore.elementTotalPaddingM]"
+        class="w-full bg-white shadow-lg"
       >
         <slot name="section-hidden-content"> </slot>
       </div>

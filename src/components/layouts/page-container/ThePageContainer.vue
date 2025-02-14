@@ -91,9 +91,8 @@ onMounted(() => {
       class="flex flex-col"
       :class="[
         styleStore.containerPadding,
-        styleStore.containerGapElements,
         {
-          'py-20': slots['page-content'],
+          'py-20 gap-20': slots['page-content'],
         },
       ]"
     >

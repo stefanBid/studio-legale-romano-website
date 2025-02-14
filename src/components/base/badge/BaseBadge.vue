@@ -37,11 +37,11 @@ const props = withDefaults(defineProps<BaseBadgeProps>(), {
         class="text-white"
       />
     </div>
-    <div class="inline-flex items-center justify-center flex-1 w-full overflow-x-hidden">
+    <div class="flex items-center justify-center flex-1 w-full">
       <p
         v-if="props.textContent"
         :class="[styleStore.textSizeS]"
-        class="text-justify truncate font-lora"
+        class="text-justify truncate transition-all duration-300 ease-in-out font-lora"
       >
         {{ props.textContent }}
       </p>

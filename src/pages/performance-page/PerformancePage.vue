@@ -38,7 +38,10 @@ onMounted(() => {
     <template #page-content>
       <BaseElementsContainer>
         <BaseBadge :icon="BookmarkIcon">
-          <div class="w-full p-4">
+          <div
+            :class="[styleStore.elementTotalPaddingS]"
+            class="w-full transition-all duration-300 ease-in-out"
+          >
             <h1
               :class="[styleStore.textSizeL]"
               class="font-medium text-left transition-all duration-300 ease-in-out font-playfair"
@@ -47,16 +50,8 @@ onMounted(() => {
             </h1>
 
             <ol
-              :class="[
-                styleStore.textSizeS,
-                {
-                  'pl-0 text-center':
-                    styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-                  'pl-12 text-justify':
-                    styleStore.activeBreakpoint !== 'xs' && styleStore.activeBreakpoint !== 'sm',
-                },
-              ]"
-              class="list-[upper-roman] font-lora"
+              :class="[styleStore.textSizeS]"
+              class="list-inside list-[upper-roman] font-lora pl-3"
             >
               <li
                 v-for="item in i18nStore.performancePageI18nContent.index.items"
@@ -86,14 +81,14 @@ onMounted(() => {
           "
         >
           <template #section-visibility-content>
-            <div class="inline-flex items-center w-full gap-x-4">
+            <div class="flex items-center w-full gap-2">
               <BookOpenIcon
                 :class="[styleStore.iconSizeM]"
                 class="transition-all duration-300 ease-in-out text-rm-secondary shrink-0 text-kl-icon"
               />
               <h2
                 :class="[styleStore.textSizeL]"
-                class="font-medium text-left text-rm-secondary font-playfair"
+                class="font-medium text-left transition-all duration-300 ease-in-out text-rm-secondary font-playfair"
               >
                 {{ item.title }}
               </h2>

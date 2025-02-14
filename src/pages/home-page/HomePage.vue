@@ -42,7 +42,8 @@ onMounted(() => {
       <transition name="scale-and-fade-slow">
         <div
           v-if="show"
-          class="flex flex-col items-center justify-center w-full h-full transition-all duration-300 ease-in-out gap-y-4"
+          :class="[styleStore.elementTotalGapS]"
+          class="flex flex-col items-center justify-center w-full h-full transition-all duration-300 ease-in-out"
         >
           <h1
             class="font-bold text-center whitespace-normal transition-all duration-300 ease-in-out text-rm-secondary font-playfair"
@@ -57,13 +58,16 @@ onMounted(() => {
             {{ i18nStore.homePageI18nContent.secondHeading }}
           </h2>
           <div
-            :class="{
-              'inline-flex items-center justify-center gap-x-4':
-                styleStore.activeBreakpoint !== 'xs' && styleStore.activeBreakpoint !== 'sm',
-              'flex flex-col items-center justify-center gap-y-4':
-                styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-            }"
-            class="mt-4"
+            :class="[
+              styleStore.elementTotalGapM,
+              {
+                'inline-flex items-center justify-center':
+                  styleStore.activeBreakpoint !== 'xs' && styleStore.activeBreakpoint !== 'sm',
+                'flex flex-col items-center justify-center':
+                  styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+              },
+            ]"
+            class="mt-6"
           >
             <BaseButton
               id="firstCtaButton"

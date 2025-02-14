@@ -89,17 +89,23 @@ const getGeneralityData = computed(() => {
     </template>
     <template #content>
       <div
-        :class="{
-          'p-2.5': styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-          'p-3': styleStore.activeBreakpoint === 'md',
-          'p-6':
-            styleStore.activeBreakpoint !== 'xs' &&
-            styleStore.activeBreakpoint !== 'sm' &&
-            styleStore.activeBreakpoint !== 'md',
-        }"
-        class="flex flex-col h-full transition-all duration-300 ease-in-out gap-y-8"
+        :class="[
+          styleStore.elementTotalGapM,
+          {
+            'p-2.5': styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+            'p-3': styleStore.activeBreakpoint === 'md',
+            'p-6':
+              styleStore.activeBreakpoint !== 'xs' &&
+              styleStore.activeBreakpoint !== 'sm' &&
+              styleStore.activeBreakpoint !== 'md',
+          },
+        ]"
+        class="flex flex-col h-full transition-all duration-300 ease-in-out"
       >
-        <div class="flex flex-col flex-1 gap-y-4">
+        <div
+          :class="[styleStore.elementTotalGapS]"
+          class="flex flex-col flex-1 transition-all duration-300 ease-in-out"
+        >
           <span v-for="data in getGeneralityData" :key="data.label" class="text-rm-main">
             <span :class="[styleStore.textSizeS]" class="font-bold font-playfair">
               {{ `${data.label}: ` }}
@@ -107,7 +113,10 @@ const getGeneralityData = computed(() => {
             <span :class="[styleStore.textSizeS]" class="font-lora">{{ data.value }}</span>
           </span>
         </div>
-        <div class="flex flex-wrap items-center justify-center gap-4">
+        <div
+          :class="[styleStore.elementTotalGapS]"
+          class="flex flex-wrap items-center justify-center mt-4 transition-all duration-300 ease-in-out"
+        >
           <BaseButton
             v-for="cta in props.callToActions"
             :id="cta.id"

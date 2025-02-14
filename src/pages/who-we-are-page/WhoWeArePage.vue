@@ -11,7 +11,7 @@ import {
 } from '@/components';
 import { UserCircleIcon, EnvelopeIcon, DocumentArrowDownIcon } from '@heroicons/vue/24/solid';
 import ProfileCard from './components/ProfileCard.vue';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 
 // Store Declarations
 const i18nStore = useI18nStore();
@@ -20,6 +20,19 @@ const titleStore = useTitleStore();
 
 // Feature 1: Page Title
 titleStore.setTitleSuffix('Chi Siamo');
+
+//Feature 2: Manage spacing based on the breakpoint
+const getMarginBottomOfHeading = computed(() => {
+  switch (styleStore.activeBreakpoint) {
+    case 'xs':
+    case 'sm':
+      return 'mb-7';
+    case 'md':
+      return 'mb-8';
+    default:
+      return 'mb-9';
+  }
+});
 
 //Feature 2: Manage Profile
 
@@ -50,7 +63,7 @@ const handleCloseDialogProfile = (falsyValue: boolean): void => {
     <template #page-content>
       <div id="team-section" class="flex flex-col">
         <!-- Heading -->
-        <div class="mb-8">
+        <div :class="[getMarginBottomOfHeading]">
           <h1 :class="[styleStore.textSizeXL]" class="font-bold text-left font-playfair">
             {{ i18nStore.whoWeArePageI18nContent.team.heading }}
           </h1>
@@ -67,7 +80,6 @@ const handleCloseDialogProfile = (falsyValue: boolean): void => {
           }"
           class="grid gap-8 grid-col"
         >
-          <!-- By Car Section -->
           <BaseElementsContainer
             v-for="member in i18nStore.whoWeArePageI18nContent.team.members"
             :key="member.id"
@@ -117,7 +129,7 @@ const handleCloseDialogProfile = (falsyValue: boolean): void => {
 
       <div id="office-section" class="flex flex-col">
         <!-- Heading -->
-        <div class="mb-8">
+        <div :class="[getMarginBottomOfHeading]">
           <h1 :class="[styleStore.textSizeXL]" class="font-bold text-left font-playfair">
             {{ i18nStore.whoWeArePageI18nContent.office.heading }}
           </h1>
@@ -138,7 +150,8 @@ const handleCloseDialogProfile = (falsyValue: boolean): void => {
     <template #modal-content>
       <div
         v-if="currentMemberProfile"
-        class="flex flex-col items-center w-full h-full overflow-y-hidden gap-y-6"
+        :class="[styleStore.elementTotalGapM]"
+        class="flex flex-col items-center w-full h-full overflow-y-hidden"
       >
         <BaseProfileImageBox
           class="shrink-0"

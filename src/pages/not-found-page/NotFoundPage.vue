@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { HomeIcon } from '@heroicons/vue/24/outline';
 import { useRouter } from 'vue-router';
 
 import { ICONS } from '@/constants';
@@ -19,17 +18,17 @@ titleStore.setTitleSuffix('404 Pagina non trovata');
 
 <template>
   <div
-    :class="[styleStore.containerPadding]"
-    class="flex flex-col items-center justify-center h-screen pt-20 text-center text-rm-main gap-y-4"
+    :class="[styleStore.containerPadding, styleStore.elementTotalGapM]"
+    class="flex flex-col items-center justify-center h-screen pt-20 text-center text-rm-main"
   >
     <h1
-      :class="[styleStore.textSizeXXL]"
+      :class="[styleStore.textSizeXL]"
       class="font-medium whitespace-normal transition-all duration-300 ease-in-out font-playfair"
     >
       {{ i18nStore.notFoundPageI18nContent.firstHeading }}
     </h1>
     <p
-      :class="[styleStore.textSizeL]"
+      :class="[styleStore.textSizeM]"
       class="font-medium whitespace-normal transition-all duration-300 ease-in-out font-lora"
     >
       {{ i18nStore.notFoundPageI18nContent.secondHeading }}
@@ -37,21 +36,14 @@ titleStore.setTitleSuffix('404 Pagina non trovata');
     <component
       :is="ICONS.LogoIcon"
       class="transition-all duration-300 ease-in-out animate-pulse"
-      :class="{
-        'size-72':
-          styleStore.activeBreakpoint !== 'xs' &&
-          styleStore.activeBreakpoint !== 'sm' &&
-          styleStore.activeBreakpoint !== 'md',
-        'size-52': styleStore.activeBreakpoint === 'md',
-        'size-32': styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-      }"
+      :class="[styleStore.iconSizeXXL]"
     />
 
     <BaseButton
       id="goHomeButton"
       name="go_home_button"
+      variant="secondary"
       aria-label="click to go to the home page"
-      :icon="HomeIcon"
       @click.stop="router.push({ name: i18nStore.notFoundPageI18nContent.goHomeButton.link })"
     >
       {{ i18nStore.notFoundPageI18nContent.goHomeButton.text }}

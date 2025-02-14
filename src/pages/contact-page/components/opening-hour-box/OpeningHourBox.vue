@@ -24,7 +24,7 @@ const weekDays = Object.keys(props.weeklySchedule) as Array<keyof WeeklySchedule
 
 <template>
   <div
-    :class="[styleStore.elementTotalPaddingS]"
+    :class="[styleStore.elementTotalPaddingM]"
     class="flex flex-col transition-all duration-300 ease-in-out bg-white border-2 rounded-md shadow-lg border-rm-secondary"
   >
     <div
@@ -38,7 +38,7 @@ const weekDays = Object.keys(props.weeklySchedule) as Array<keyof WeeklySchedule
       ]"
       class="flex items-center justify-between gap-x-4"
     >
-      <div class="inline-flex items-center flex-1 gap-x-2">
+      <div class="inline-flex items-center flex-1 gap-2">
         <CalendarDaysIcon :class="[styleStore.iconSizeS]" class="text-rm-main" />
         <span
           :class="[
@@ -58,7 +58,7 @@ const weekDays = Object.keys(props.weeklySchedule) as Array<keyof WeeklySchedule
         ></span>
       </div>
       <div class="flex items-center">
-        <div v-if="day.openingHours" class="flex flex-wrap items-center justify-end gap-4">
+        <div v-if="day.openingHours" class="flex flex-wrap items-center justify-end gap-2">
           <BaseChip
             v-if="day.openingHours.morning"
             :icon="ClockIcon"

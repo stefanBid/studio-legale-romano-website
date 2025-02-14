@@ -66,6 +66,36 @@ export const useStyleStore = defineStore('style', () => {
     return ' gap-y-28';
   });
 
+  const elementTotalGapXS = computed(() => {
+    if (activeBreakpoint.value === 'xs' || activeBreakpoint.value === 'sm') {
+      return 'gap-1.5';
+    }
+    if (activeBreakpoint.value === 'md') {
+      return 'gap-2';
+    }
+    return 'gap-3';
+  });
+
+  const elementTotalGapS = computed(() => {
+    if (activeBreakpoint.value === 'xs' || activeBreakpoint.value === 'sm') {
+      return 'gap-2.5';
+    }
+    if (activeBreakpoint.value === 'md') {
+      return 'gap-3';
+    }
+    return 'gap-4';
+  });
+
+  const elementTotalGapM = computed(() => {
+    if (activeBreakpoint.value === 'xs' || activeBreakpoint.value === 'sm') {
+      return 'gap-4';
+    }
+    if (activeBreakpoint.value === 'md') {
+      return 'gap-5';
+    }
+    return 'gap-6';
+  });
+
   const firstLetterSize = computed(() => {
     if (activeBreakpoint.value === 'xs' || activeBreakpoint.value === 'sm') {
       return 'first-letter:text-rm-5xl';
@@ -209,6 +239,9 @@ export const useStyleStore = defineStore('style', () => {
     elementTotalPaddingXS,
     elementTotalPaddingS,
     elementTotalPaddingM,
+    elementTotalGapXS,
+    elementTotalGapS,
+    elementTotalGapM,
     firstLetterSize,
     textSizeXXL,
     textSizeXL,
