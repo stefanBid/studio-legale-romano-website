@@ -26,6 +26,36 @@ export const useStyleStore = defineStore('style', () => {
     return 'px-[5%]';
   });
 
+  const elementTotalPaddingXS = computed(() => {
+    if (activeBreakpoint.value === 'xs' || activeBreakpoint.value === 'sm') {
+      return 'p-1.5';
+    }
+    if (activeBreakpoint.value === 'md') {
+      return 'p-2';
+    }
+    return 'p-2.5';
+  });
+
+  const elementTotalPaddingS = computed(() => {
+    if (activeBreakpoint.value === 'xs' || activeBreakpoint.value === 'sm') {
+      return 'p-2.5';
+    }
+    if (activeBreakpoint.value === 'md') {
+      return 'p-3';
+    }
+    return 'p-4';
+  });
+
+  const elementTotalPaddingM = computed(() => {
+    if (activeBreakpoint.value === 'xs' || activeBreakpoint.value === 'sm') {
+      return 'p-4';
+    }
+    if (activeBreakpoint.value === 'md') {
+      return 'p-5';
+    }
+    return 'p-6';
+  });
+
   const containerGapElements = computed(() => {
     if (activeBreakpoint.value === 'xs' || activeBreakpoint.value === 'sm') {
       return 'gap-y-20';
@@ -176,6 +206,9 @@ export const useStyleStore = defineStore('style', () => {
     activeBreakpoint,
     containerPadding,
     containerGapElements,
+    elementTotalPaddingXS,
+    elementTotalPaddingS,
+    elementTotalPaddingM,
     firstLetterSize,
     textSizeXXL,
     textSizeXL,

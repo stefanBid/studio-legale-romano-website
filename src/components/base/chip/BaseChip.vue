@@ -33,7 +33,7 @@ const styleStore = useStyleStore();
       'h-7': styleStore.activeBreakpoint === 'md',
       'h-6': styleStore.activeBreakpoint === 'sm' || styleStore.activeBreakpoint === 'xs',
     }"
-    class="inline-flex items-center h-8 px-2 transition-all duration-300 ease-in-out rounded-md gap-x-2"
+    class="inline-flex items-center px-2 transition-all duration-300 ease-in-out rounded-md gap-x-2"
   >
     <component :is="props.icon" v-if="props.icon" :class="[styleStore.iconSizeS]" />
     <span :class="[styleStore.textSizeXS]" class="font-lora">{{ props.text }}</span>

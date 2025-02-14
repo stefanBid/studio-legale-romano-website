@@ -185,23 +185,25 @@ interface ContactPageContent {
 }
 
 /** WHO WE ARE PAGE **/
+interface Member {
+  id: string;
+  idDoc?: MediaName;
+  imagePath?: string;
+  name: string;
+  surname: string;
+  birthDate: string;
+  number: string;
+  role: string;
+  description: string;
+}
+
 interface WhoWeArePageContent {
   firstHeading: string;
   secondHeading: string;
   team: {
     heading: string;
     description: string;
-    members: {
-      id: string;
-      idDoc?: MediaName;
-      imagePath?: string;
-      name: string;
-      surname: string;
-      birthDate: string;
-      number: string;
-      role: string;
-      description: string;
-    }[];
+    members: Member[];
   };
   office: {
     heading: string;
@@ -227,6 +229,7 @@ export type {
   PerformancePageContent,
   WeeklySchedule,
   ContactPageContent,
+  Member,
   WhoWeArePageContent,
   NotFoundPageContent,
 };

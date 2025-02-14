@@ -8,13 +8,27 @@ const i18nStore = useI18nStore();
 </script>
 
 <template>
-  <footer :class="[styleStore.containerPadding]" class="w-screen py-8 text-white bg-rm-main">
+  <footer
+    :class="[
+      styleStore.containerPadding,
+      {
+        'py-6': styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+        'py-7': styleStore.activeBreakpoint === 'md',
+        'py-8':
+          styleStore.activeBreakpoint !== 'xs' &&
+          styleStore.activeBreakpoint !== 'sm' &&
+          styleStore.activeBreakpoint !== 'md',
+      },
+    ]"
+    class="w-full text-white bg-rm-main"
+  >
     <div
-      class="grid w-full gap-8 px-8 pb-8 grid-col"
+      class="grid w-full transition-all duration-300 ease-in-out grid-col"
       :class="{
-        'grid-cols-1': styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-        'grid-cols-[2fr_1fr]': styleStore.activeBreakpoint === 'md',
-        'grid-cols-[2fr_1fr_1fr_1fr]':
+        'grid-cols-1 gap-6 px-6 pb-6':
+          styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+        'grid-cols-[2fr_1fr] gap-7 px-7 pb-7': styleStore.activeBreakpoint === 'md',
+        'grid-cols-[2fr_1fr_1fr_1fr] gap-8 px-8 pb-8':
           styleStore.activeBreakpoint !== 'xs' &&
           styleStore.activeBreakpoint !== 'sm' &&
           styleStore.activeBreakpoint !== 'md',
@@ -102,7 +116,13 @@ const i18nStore = useI18nStore();
         </span>
 
         <!--Links-->
-        <div class="flex flex-col gap-y-1">
+        <div
+          :class="{
+            'items-center':
+              styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+          }"
+          class="flex flex-col gap-y-1"
+        >
           <router-link
             v-for="link in i18nStore.footerI18nContent.quickLinks.links"
             :key="link.text"
@@ -144,7 +164,13 @@ const i18nStore = useI18nStore();
           {{ i18nStore.footerI18nContent.contacts.title }}
         </span>
         <!--Contact Info-->
-        <div class="flex flex-col gap-y-1">
+        <div
+          :class="{
+            'items-center':
+              styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+          }"
+          class="flex flex-col gap-y-1"
+        >
           <span
             v-for="channel in i18nStore.footerI18nContent.contacts.channels"
             :key="channel.id"
@@ -189,7 +215,13 @@ const i18nStore = useI18nStore();
           {{ i18nStore.footerI18nContent.helpAndSupport.title }}
         </span>
         <!--Links-->
-        <div class="flex flex-col gap-y-1">
+        <div
+          :class="{
+            'items-center':
+              styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+          }"
+          class="flex flex-col gap-y-1"
+        >
           <router-link
             v-for="link in i18nStore.footerI18nContent.helpAndSupport.links"
             :key="link.text"
@@ -212,15 +244,15 @@ const i18nStore = useI18nStore();
     <!--Easter Egg-->
     <div
       id="easter-egg"
-      class="inline-flex items-center justify-center w-full px-8 pt-8 border-t border-white gap-x-2"
+      class="inline-flex items-center justify-center w-full px-8 pt-8 border-t border-white gap-x-1"
     >
-      <span :class="[styleStore.textSizeXS]" class="text-white font-lora">
+      <span :class="[styleStore.textSizeXS]" class="text-center text-white font-lora">
         Designed and Developed by
       </span>
       <a
         href="https://www.linkedin.com/in/stefano-biddau-669149214/"
         target="_blank"
-        class="flex items-center text-white transition-all duration-300 ease-in-out gap-x-1 outline-rm-secondary outline-offset-0 ring-0 focus-visible:ring-0"
+        class="inline-flex items-center text-white transition-all duration-300 ease-in-out gap-x-1 outline-rm-secondary outline-offset-0 ring-0 focus-visible:ring-0"
       >
         <img
           src="/egg.png"

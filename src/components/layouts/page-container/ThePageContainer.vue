@@ -32,8 +32,19 @@ onMounted(() => {
   <div class="flex flex-col min-h-0">
     <div
       v-if="props.introCover"
-      :class="[styleStore.containerPadding]"
-      class="relative flex flex-col items-center justify-center h-[600px] pt-20 pb-8"
+      :class="[
+        styleStore.containerPadding,
+        {
+          'pb-9 h-[600px]':
+            styleStore.activeBreakpoint !== 'xs' &&
+            styleStore.activeBreakpoint !== 'sm' &&
+            styleStore.activeBreakpoint !== 'md',
+          'pb-8 h-[550px]': styleStore.activeBreakpoint === 'md',
+          'pb-7 h-[500px]':
+            styleStore.activeBreakpoint === 'sm' || styleStore.activeBreakpoint === 'xs',
+        },
+      ]"
+      class="relative flex flex-col items-center justify-center pt-20 transition-all duration-300 ease-in-out"
     >
       <!-- Overlay -->
       <div class="absolute inset-0 bg-rm-main z-rm-base-1 opacity-55"></div>
@@ -48,7 +59,16 @@ onMounted(() => {
         <transition name="scale-and-fade-slow">
           <div
             v-if="show"
-            class="flex flex-col items-center justify-center w-full h-full transition-all duration-300 ease-in-out gap-y-4"
+            :class="{
+              'gap-y-2.5':
+                styleStore.activeBreakpoint == 'xs' || styleStore.activeBreakpoint == 'sm',
+              'gap-y-3': styleStore.activeBreakpoint == 'md',
+              'gap-y-4':
+                styleStore.activeBreakpoint != 'xs' &&
+                styleStore.activeBreakpoint != 'sm' &&
+                styleStore.activeBreakpoint != 'md',
+            }"
+            class="flex flex-col items-center justify-center w-full h-full transition-all duration-300 ease-in-out"
           >
             <h1
               class="font-bold text-center text-white whitespace-normal transition-all duration-300 ease-in-out font-playfair"

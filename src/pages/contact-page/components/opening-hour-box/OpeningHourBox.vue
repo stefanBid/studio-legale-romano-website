@@ -24,23 +24,19 @@ const weekDays = Object.keys(props.weeklySchedule) as Array<keyof WeeklySchedule
 
 <template>
   <div
-    :class="{
-      'p-2.5': styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-      'p-3': styleStore.activeBreakpoint === 'md',
-      'p-4':
-        styleStore.activeBreakpoint !== 'xs' &&
-        styleStore.activeBreakpoint !== 'sm' &&
-        styleStore.activeBreakpoint !== 'md',
-    }"
+    :class="[styleStore.elementTotalPaddingS]"
     class="flex flex-col transition-all duration-300 ease-in-out bg-white border-2 rounded-md shadow-lg border-rm-secondary"
   >
     <div
       v-for="(day, index) in props.weeklySchedule"
       :key="index"
-      :class="{
-        'border-b-2 border-rm-main': index !== 'sunday',
-      }"
-      class="flex items-center justify-between p-4 gap-x-4"
+      :class="[
+        styleStore.elementTotalPaddingS,
+        {
+          'border-b-2 border-rm-main': index !== 'sunday',
+        },
+      ]"
+      class="flex items-center justify-between gap-x-4"
     >
       <div class="inline-flex items-center flex-1 gap-x-2">
         <CalendarDaysIcon :class="[styleStore.iconSizeS]" class="text-rm-main" />

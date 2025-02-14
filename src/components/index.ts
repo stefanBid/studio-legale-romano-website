@@ -8,6 +8,7 @@ export { default as BaseElementsContainer } from '@/components/base/elements-con
 export { default as BaseCard } from '@/components/base/card/BaseCard.vue';
 export { default as BaseChip } from '@/components/base/chip/BaseChip.vue';
 export { default as BaseDialog } from '@/components/base/dialog/BaseDialog.vue';
+export { default as BaseProfileImageBox } from '@/components/base/profile-image-box/BaseProfileImageBox.vue';
 // LAYOUTS COMPONENTS
 export { default as TheAppContainer } from '@/components/layouts/app-container/TheAppContainer.vue';
 export { default as TheFooter } from '@/components/layouts/footer/TheFooter.vue';

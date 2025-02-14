@@ -5,6 +5,7 @@ import { ThePageContainer, BaseCard, BaseElementsContainer, BaseBadge } from '@/
 import { CONTACT_CHANNEL_ICONS } from '@/constants';
 import OfficeMap from '@/pages/contact-page/components/office-map/OfficeMap.vue';
 import OpeningHourBox from '@/pages/contact-page/components/opening-hour-box/OpeningHourBox.vue';
+import { computed } from 'vue';
 // Store Declarations
 const i18nStore = useI18nStore();
 const styleStore = useStyleStore();
@@ -12,6 +13,19 @@ const titleStore = useTitleStore();
 
 // Feature 1: Page Title
 titleStore.setTitleSuffix('Contatti');
+
+//Feature 2: Manage spacing based on the breakpoint
+const getMarginBottomOfHeading = computed(() => {
+  switch (styleStore.activeBreakpoint) {
+    case 'xs':
+    case 'sm':
+      return 'mb-7';
+    case 'md':
+      return 'mb-8';
+    default:
+      return 'mb-9';
+  }
+});
 </script>
 
 <template>
@@ -26,7 +40,7 @@ titleStore.setTitleSuffix('Contatti');
       <!--Opening Hour Section-->
       <div id="opening-hour-section" class="flex flex-col">
         <!-- Heading -->
-        <div class="mb-8">
+        <div :class="[getMarginBottomOfHeading]" class="transition-all duration-300 ease-in-out">
           <h1 :class="[styleStore.textSizeXL]" class="font-bold text-left font-playfair">
             {{ i18nStore.contactPageI18nContent.openingHours.heading }}
           </h1>
@@ -44,7 +58,16 @@ titleStore.setTitleSuffix('Contatti');
       <!--Map Section-->
       <div id="map-section" class="flex flex-col">
         <!-- Heading -->
-        <div class="mb-8">
+        <div
+          :class="{
+            'mb-7': styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+            'mb-8': styleStore.activeBreakpoint === 'md',
+            'mb-9':
+              styleStore.activeBreakpoint !== 'xs' &&
+              styleStore.activeBreakpoint !== 'sm' &&
+              styleStore.activeBreakpoint !== 'md',
+          }"
+        >
           <h1 :class="[styleStore.textSizeXL]" class="font-bold text-left font-playfair">
             {{ i18nStore.contactPageI18nContent.reachUs.heading }}
           </h1>
@@ -56,17 +79,17 @@ titleStore.setTitleSuffix('Contatti');
         <!-- Reach Us Sections -->
         <div
           :class="{
-            'grid-cols-1':
+            'grid-cols-1 gap-6':
               styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-            'grid-cols-2':
+            'grid-cols-2 gap-7':
               styleStore.activeBreakpoint === 'md' || styleStore.activeBreakpoint === 'lg',
-            'grid-cols-3':
+            'grid-cols-3 gap-8':
               styleStore.activeBreakpoint !== 'xs' &&
               styleStore.activeBreakpoint !== 'sm' &&
               styleStore.activeBreakpoint !== 'md' &&
               styleStore.activeBreakpoint !== 'lg',
           }"
-          class="grid gap-8 grid-col"
+          class="grid grid-col"
         >
           <!-- By Car Section -->
           <BaseElementsContainer class="min-h-[375px]">
@@ -78,17 +101,7 @@ titleStore.setTitleSuffix('Contatti');
             >
               <template #content>
                 <!-- Parking -->
-                <div
-                  :class="{
-                    'p-2.5':
-                      styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-                    'p-3': styleStore.activeBreakpoint === 'md',
-                    'p-4':
-                      styleStore.activeBreakpoint !== 'xs' &&
-                      styleStore.activeBreakpoint !== 'sm' &&
-                      styleStore.activeBreakpoint !== 'md',
-                  }"
-                >
+                <div :class="[styleStore.elementTotalPaddingS]">
                   <p :class="[styleStore.textSizeXS]" class="font-lora">
                     {{ i18nStore.contactPageI18nContent.reachUs.withCar.description }}
                   </p>
@@ -126,17 +139,7 @@ titleStore.setTitleSuffix('Contatti');
             >
               <template #content>
                 <!-- Bus Stops -->
-                <div
-                  :class="{
-                    'p-2.5':
-                      styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-                    'p-3': styleStore.activeBreakpoint === 'md',
-                    'p-4':
-                      styleStore.activeBreakpoint !== 'xs' &&
-                      styleStore.activeBreakpoint !== 'sm' &&
-                      styleStore.activeBreakpoint !== 'md',
-                  }"
-                >
+                <div :class="[styleStore.elementTotalPaddingS]">
                   <p :class="[styleStore.textSizeXS]" class="font-lora">
                     {{ i18nStore.contactPageI18nContent.reachUs.withPublicTransport.description }}
                   </p>
@@ -180,17 +183,7 @@ titleStore.setTitleSuffix('Contatti');
             >
               <template #content>
                 <!-- Landmars -->
-                <div
-                  :class="{
-                    'p-2.5':
-                      styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-                    'p-3': styleStore.activeBreakpoint === 'md',
-                    'p-4':
-                      styleStore.activeBreakpoint !== 'xs' &&
-                      styleStore.activeBreakpoint !== 'sm' &&
-                      styleStore.activeBreakpoint !== 'md',
-                  }"
-                >
+                <div :class="[styleStore.elementTotalPaddingS]">
                   <p :class="[styleStore.textSizeXS]" class="font-lora">
                     {{ i18nStore.contactPageI18nContent.reachUs.withFoot.description }}
                   </p>
@@ -218,7 +211,16 @@ titleStore.setTitleSuffix('Contatti');
           </BaseElementsContainer>
         </div>
         <!--Map Section-->
-        <BaseElementsContainer class="mt-8">
+        <BaseElementsContainer
+          :class="{
+            'mt-6': styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+            'mt-7': styleStore.activeBreakpoint === 'md',
+            'mt-8':
+              styleStore.activeBreakpoint !== 'xs' &&
+              styleStore.activeBreakpoint !== 'sm' &&
+              styleStore.activeBreakpoint !== 'md',
+          }"
+        >
           <OfficeMap />
         </BaseElementsContainer>
       </div>
@@ -226,7 +228,7 @@ titleStore.setTitleSuffix('Contatti');
       <!--Contact Section-->
       <div id="contact-section" class="flex flex-col">
         <!-- Heading -->
-        <div class="mb-8">
+        <div :class="[getMarginBottomOfHeading]" class="transition-all duration-300 ease-in-out">
           <h1 :class="[styleStore.textSizeXL]" class="font-bold text-left font-playfair">
             {{ i18nStore.contactPageI18nContent.contacts.heading }}
           </h1>
@@ -236,17 +238,17 @@ titleStore.setTitleSuffix('Contatti');
         </div>
         <div
           :class="{
-            'grid-cols-1':
+            'grid-cols-1 gap-6':
               styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-            'grid-cols-2':
+            'grid-cols-2 gap-7':
               styleStore.activeBreakpoint === 'md' || styleStore.activeBreakpoint === 'lg',
-            'grid-cols-3':
+            'grid-cols-3 gap-8':
               styleStore.activeBreakpoint !== 'xs' &&
               styleStore.activeBreakpoint !== 'sm' &&
               styleStore.activeBreakpoint !== 'md' &&
               styleStore.activeBreakpoint !== 'lg',
           }"
-          class="grid gap-8 grid-col"
+          class="grid grid-col"
         >
           <BaseElementsContainer
             v-for="channel in i18nStore.contactPageI18nContent.contacts.channels"

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useStyleStore } from '@/stores';
-import { BaseButton, BaseCard } from '@/components';
+import { BaseButton, BaseCard, BaseProfileImageBox } from '@/components';
 import { type FunctionalComponent, type Component, computed } from 'vue';
 
 interface Generality {
@@ -70,34 +70,21 @@ const getGeneralityData = computed(() => {
         >
           {{ `${props.generality.name} ${props.generality.surname}` }}
         </h2>
-        <div
-          :class="[
-            {
-              '-bottom-8 right-2.5':
-                styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-              '-bottom-10 right-3': styleStore.activeBreakpoint === 'md',
-              '-bottom-16 right-6':
-                styleStore.activeBreakpoint !== 'xs' &&
-                styleStore.activeBreakpoint !== 'sm' &&
-                styleStore.activeBreakpoint !== 'md',
-            },
-            styleStore.iconSizeXXL,
-          ]"
-          class="absolute inline-flex items-center overflow-hidden transition-all duration-300 ease-in-out border-4 border-white rounded-full"
-        >
-          <img
-            v-if="props.avatar"
-            :src="props.avatar.imageUrl"
-            :alt="props.avatar.alt"
-            class="object-cover size-full"
-          />
-          <span
-            v-else
-            :class="[styleStore.textSizeL]"
-            class="inline-flex items-center justify-center font-bold text-white bg-rm-main font-lora size-full"
-            >{{ `${props.generality.name[0]} ${props.generality.surname[0]}` }}</span
-          >
-        </div>
+        <BaseProfileImageBox
+          :class="{
+            '-bottom-8 right-2.5':
+              styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+            '-bottom-10 right-3': styleStore.activeBreakpoint === 'md',
+            '-bottom-16 right-6':
+              styleStore.activeBreakpoint !== 'xs' &&
+              styleStore.activeBreakpoint !== 'sm' &&
+              styleStore.activeBreakpoint !== 'md',
+          }"
+          class="absolute"
+          :avatar="props.avatar"
+          :name="props.generality.name"
+          :surname="props.generality.surname"
+        />
       </div>
     </template>
     <template #content>

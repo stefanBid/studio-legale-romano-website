@@ -1,10 +1,17 @@
 <script setup lang="ts">
+import type { Member } from '@/types';
 import { MEDIA } from '@/constants';
 import { dowloadFile } from '@/utils';
 import { useTitleStore, useI18nStore, useStyleStore } from '@/stores';
-import { ThePageContainer, BaseElementsContainer } from '@/components';
+import {
+  ThePageContainer,
+  BaseElementsContainer,
+  BaseDialog,
+  BaseProfileImageBox,
+} from '@/components';
 import { UserCircleIcon, EnvelopeIcon, DocumentArrowDownIcon } from '@heroicons/vue/24/solid';
 import ProfileCard from './components/ProfileCard.vue';
+import { ref } from 'vue';
 
 // Store Declarations
 const i18nStore = useI18nStore();
@@ -13,6 +20,23 @@ const titleStore = useTitleStore();
 
 // Feature 1: Page Title
 titleStore.setTitleSuffix('Chi Siamo');
+
+//Feature 2: Manage Profile
+
+const isOpenProfileDialog = ref(false);
+const currentMemberProfile = ref<Member>();
+
+const handleOpenDialogProfile = (id: string): void => {
+  currentMemberProfile.value = i18nStore.whoWeArePageI18nContent.team.members.find(
+    (member) => member.id === id,
+  );
+  if (!currentMemberProfile.value) return;
+  isOpenProfileDialog.value = true;
+};
+
+const handleCloseDialogProfile = (falsyValue: boolean): void => {
+  isOpenProfileDialog.value = falsyValue;
+};
 </script>
 
 <template>
@@ -66,7 +90,7 @@ titleStore.setTitleSuffix('Chi Siamo');
                   content: 'Apri Profilo',
                   icon: UserCircleIcon,
                   onClick: () => {
-                    console.log('Email');
+                    handleOpenDialogProfile(member.id);
                   },
                 },
                 {
@@ -104,4 +128,36 @@ titleStore.setTitleSuffix('Chi Siamo');
       </div>
     </template>
   </ThePageContainer>
+
+  <BaseDialog
+    :dialog-title="`Profilo professionale di ${currentMemberProfile?.name} ${currentMemberProfile?.surname}`"
+    block-dialog-height
+    :is-open="isOpenProfileDialog"
+    :on-close-modal="(falsyValue) => handleCloseDialogProfile(falsyValue)"
+  >
+    <template #modal-content>
+      <div
+        v-if="currentMemberProfile"
+        class="flex flex-col items-center w-full h-full overflow-y-hidden gap-y-6"
+      >
+        <BaseProfileImageBox
+          class="shrink-0"
+          :avatar="
+            currentMemberProfile?.imagePath
+              ? { imageUrl: currentMemberProfile.imagePath, alt: currentMemberProfile.name }
+              : undefined
+          "
+          :name="currentMemberProfile.name"
+          :surname="currentMemberProfile.surname"
+        />
+        <div class="h-full overflow-y-auto">
+          <p
+            :class="[styleStore.textSizeS]"
+            class="text-rm-main font-lora"
+            v-html="currentMemberProfile.description"
+          ></p>
+        </div>
+      </div>
+    </template>
+  </BaseDialog>
 </template>

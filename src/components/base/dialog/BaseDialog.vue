@@ -4,7 +4,7 @@ import { XMarkIcon } from '@heroicons/vue/24/outline';
 import { BaseButton } from '@/components';
 import { useStyleStore } from '@/stores';
 
-interface DialogProps {
+interface BaseDialogProps {
   dataTestid?: string;
   isOpen: boolean;
   headerOrientation?: 'left' | 'center' | 'right';
@@ -14,7 +14,7 @@ interface DialogProps {
   onCloseModal: (falsyValue: false) => void;
 }
 
-const props = withDefaults(defineProps<DialogProps>(), {
+const props = withDefaults(defineProps<BaseDialogProps>(), {
   dataTestid: 'base-dialog',
   dialogSize: 'large',
   blockDialogHeight: false,
@@ -63,25 +63,29 @@ const handleCloseModal = (): void => {
           >
             <DialogPanel
               :data-testid="`${props.dataTestid}-panel`"
-              :class="{
-                'w-[45%]':
-                  props.dialogSize === 'small' &&
-                  styleStore.activeBreakpoint !== 'xs' &&
-                  styleStore.activeBreakpoint !== 'sm',
-                'w-[65%]':
-                  props.dialogSize === 'medium' &&
-                  styleStore.activeBreakpoint !== 'xs' &&
-                  styleStore.activeBreakpoint !== 'sm',
-                'w-[85%]':
-                  props.dialogSize === 'large' &&
-                  styleStore.activeBreakpoint !== 'xs' &&
-                  styleStore.activeBreakpoint !== 'sm',
-                'w-full':
-                  styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-                'h-fit max-h-full': !props.blockDialogHeight,
-                'h-full': props.blockDialogHeight,
-              }"
-              class="flex flex-col p-6 overflow-hidden transition-all duration-300 ease-in-out transform bg-white border-2 rounded-md shadow-lg gap-y-6 border-rm-secondary"
+              :class="[
+                styleStore.elementTotalPaddingM,
+                {
+                  'w-[45%]':
+                    props.dialogSize === 'small' &&
+                    styleStore.activeBreakpoint !== 'xs' &&
+                    styleStore.activeBreakpoint !== 'sm',
+                  'w-[65%]':
+                    props.dialogSize === 'medium' &&
+                    styleStore.activeBreakpoint !== 'xs' &&
+                    styleStore.activeBreakpoint !== 'sm',
+                  'w-[85%]':
+                    props.dialogSize === 'large' &&
+                    styleStore.activeBreakpoint !== 'xs' &&
+                    styleStore.activeBreakpoint !== 'sm',
+                  'w-full':
+                    styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+
+                  'h-fit max-h-full': !props.blockDialogHeight,
+                  'h-full': props.blockDialogHeight,
+                },
+              ]"
+              class="flex flex-col overflow-hidden transition-all duration-300 ease-in-out transform bg-white border-2 rounded-md shadow-lg gap-y-6 border-rm-secondary"
             >
               <div class="flex justify-between overflow-hidden cursor-default shrink-0 gap-x-6">
                 <div
@@ -108,7 +112,7 @@ const handleCloseModal = (): void => {
                   :aria-label="`close ${props.dialogTitle} modal`"
                   :icon="XMarkIcon"
                   variant="custom"
-                  content-size="medium"
+                  content-size="small"
                   spacing-size="custom"
                   @click.stop="handleCloseModal"
                   @keydown.enter.stop="handleCloseModal"
