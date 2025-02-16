@@ -64,7 +64,7 @@ watch(
         v-if="isAccordionOpen"
         :data-testid="`${props.dataTestid}-content`"
         :class="[styleStore.elementTotalPaddingM]"
-        class="w-full bg-white shadow-lg"
+        class="w-full transition-all duration-300 ease-in-out bg-white shadow-lg"
       >
         <slot name="section-hidden-content"> </slot>
       </div>

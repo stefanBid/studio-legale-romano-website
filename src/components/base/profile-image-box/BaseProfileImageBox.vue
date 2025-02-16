@@ -45,7 +45,7 @@ const styleStore = useStyleStore();
     <span
       v-else
       :class="[styleStore.textSizeL]"
-      class="inline-flex items-center justify-center font-bold text-white bg-rm-main font-lora size-full"
+      class="inline-flex items-center justify-center font-bold text-white transition-all duration-300 ease-in-out bg-rm-main font-lora size-full"
       >{{ `${props.name[0]} ${props.surname[0]}` }}</span
     >
   </div>

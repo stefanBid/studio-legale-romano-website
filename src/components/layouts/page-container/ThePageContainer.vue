@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, useSlots } from 'vue';
+import { onMounted, ref, SetupContext, useSlots } from 'vue';
 import { useStyleStore } from '@/stores';
 
 interface PageContainerProps {
@@ -18,7 +18,7 @@ const props = withDefaults(defineProps<PageContainerProps>(), {
 const styleStore = useStyleStore();
 
 // Hooks Declarations
-const slots = useSlots();
+const slots: SetupContext['slots'] = useSlots();
 
 // Feature 1: Transition
 const show = ref(false);

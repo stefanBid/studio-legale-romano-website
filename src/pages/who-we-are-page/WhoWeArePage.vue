@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Member } from '@/types';
 import { MEDIA } from '@/constants';
-import { dowloadFile } from '@/utils';
+import { dowloadFile, emailTo, stringPurifier } from '@/utils';
 import { useTitleStore, useI18nStore, useStyleStore } from '@/stores';
 import {
   ThePageContainer,
@@ -64,26 +64,39 @@ const handleCloseDialogProfile = (falsyValue: boolean): void => {
       <div id="team-section" class="flex flex-col">
         <!-- Heading -->
         <div :class="[getMarginBottomOfHeading]">
-          <h1 :class="[styleStore.textSizeXL]" class="font-bold text-left font-playfair">
+          <h1
+            :class="[styleStore.textSizeXL]"
+            class="font-bold text-left transition-all duration-300 ease-in-out font-playfair"
+          >
             {{ i18nStore.whoWeArePageI18nContent.team.heading }}
           </h1>
-          <p :class="[styleStore.textSizeS]" class="text-left font-lora">
+          <p
+            :class="[styleStore.textSizeS]"
+            class="text-left transition-all duration-300 ease-in-out font-lora"
+          >
             {{ i18nStore.whoWeArePageI18nContent.team.description }}
           </p>
         </div>
         <div
-          :class="{
-            'grid-cols-1':
-              styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-            'grid-cols-2':
-              styleStore.activeBreakpoint !== 'xs' && styleStore.activeBreakpoint !== 'sm',
-          }"
-          class="grid gap-8 grid-col"
+          :class="[
+            styleStore.elementTotalGapM,
+            {
+              'grid-cols-1':
+                styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+              'grid-cols-2':
+                styleStore.activeBreakpoint !== 'xs' && styleStore.activeBreakpoint !== 'sm',
+            },
+          ]"
+          class="grid transition-all duration-300 ease-in-out"
         >
           <BaseElementsContainer
             v-for="member in i18nStore.whoWeArePageI18nContent.team.members"
             :key="member.id"
-            class=""
+            :class="
+              i18nStore.whoWeArePageI18nContent.team.members.length === 1
+                ? 'col-span-2'
+                : 'col-span-1'
+            "
           >
             <ProfileCard
               class="h-full"
@@ -110,7 +123,7 @@ const handleCloseDialogProfile = (falsyValue: boolean): void => {
                   content: 'Contatta',
                   icon: EnvelopeIcon,
                   onClick: () => {
-                    console.log('Email');
+                    emailTo(member.email);
                   },
                 },
                 {
@@ -130,10 +143,16 @@ const handleCloseDialogProfile = (falsyValue: boolean): void => {
       <div id="office-section" class="flex flex-col">
         <!-- Heading -->
         <div :class="[getMarginBottomOfHeading]">
-          <h1 :class="[styleStore.textSizeXL]" class="font-bold text-left font-playfair">
+          <h1
+            :class="[styleStore.textSizeXL]"
+            class="font-bold text-left transition-all duration-300 ease-in-out font-playfair"
+          >
             {{ i18nStore.whoWeArePageI18nContent.office.heading }}
           </h1>
-          <p :class="[styleStore.textSizeS]" class="text-left font-lora">
+          <p
+            :class="[styleStore.textSizeS]"
+            class="text-left transition-all duration-300 ease-in-out font-lora"
+          >
             {{ i18nStore.whoWeArePageI18nContent.office.description }}
           </p>
         </div>
@@ -151,7 +170,7 @@ const handleCloseDialogProfile = (falsyValue: boolean): void => {
       <div
         v-if="currentMemberProfile"
         :class="[styleStore.elementTotalGapM]"
-        class="flex flex-col items-center w-full h-full overflow-y-hidden"
+        class="flex flex-col items-center w-full h-full overflow-y-hidden transition-all duration-300 ease-in-out"
       >
         <BaseProfileImageBox
           class="shrink-0"
@@ -166,8 +185,8 @@ const handleCloseDialogProfile = (falsyValue: boolean): void => {
         <div class="h-full overflow-y-auto">
           <p
             :class="[styleStore.textSizeS]"
-            class="text-rm-main font-lora"
-            v-html="currentMemberProfile.description"
+            class="transition-all duration-300 ease-in-out text-rm-main font-lora"
+            v-html="stringPurifier(currentMemberProfile.description)"
           ></p>
         </div>
       </div>

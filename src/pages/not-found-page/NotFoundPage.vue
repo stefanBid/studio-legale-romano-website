@@ -19,7 +19,7 @@ titleStore.setTitleSuffix('404 Pagina non trovata');
 <template>
   <div
     :class="[styleStore.containerPadding, styleStore.elementTotalGapM]"
-    class="flex flex-col items-center justify-center h-screen pt-20 text-center text-rm-main"
+    class="flex flex-col items-center justify-center h-screen py-20 text-center transition-all duration-300 ease-in-out text-rm-main"
   >
     <h1
       :class="[styleStore.textSizeXL]"

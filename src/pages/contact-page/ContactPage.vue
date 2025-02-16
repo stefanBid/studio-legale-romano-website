@@ -41,10 +41,16 @@ const getMarginBottomOfHeading = computed(() => {
       <div id="opening-hour-section" class="flex flex-col">
         <!-- Heading -->
         <div :class="[getMarginBottomOfHeading]" class="transition-all duration-300 ease-in-out">
-          <h1 :class="[styleStore.textSizeXL]" class="font-bold text-left font-playfair">
+          <h1
+            :class="[styleStore.textSizeXL]"
+            class="font-bold text-left transition-all duration-300 ease-in-out font-playfair"
+          >
             {{ i18nStore.contactPageI18nContent.openingHours.heading }}
           </h1>
-          <p :class="[styleStore.textSizeS]" class="text-left font-lora">
+          <p
+            :class="[styleStore.textSizeS]"
+            class="text-left transition-all duration-300 ease-in-out font-lora"
+          >
             {{ i18nStore.contactPageI18nContent.openingHours.description }}
           </p>
         </div>
@@ -67,29 +73,39 @@ const getMarginBottomOfHeading = computed(() => {
               styleStore.activeBreakpoint !== 'sm' &&
               styleStore.activeBreakpoint !== 'md',
           }"
+          class="transition-all duration-300 ease-in-out"
         >
-          <h1 :class="[styleStore.textSizeXL]" class="font-bold text-left font-playfair">
+          <h1
+            :class="[styleStore.textSizeXL]"
+            class="font-bold text-left transition-all duration-300 ease-in-out font-playfair"
+          >
             {{ i18nStore.contactPageI18nContent.reachUs.heading }}
           </h1>
-          <p :class="[styleStore.textSizeS]" class="text-left font-lora">
+          <p
+            :class="[styleStore.textSizeS]"
+            class="text-left transition-all duration-300 ease-in-out font-lora"
+          >
             {{ i18nStore.contactPageI18nContent.reachUs.description }}
           </p>
         </div>
 
         <!-- Reach Us Sections -->
         <div
-          :class="{
-            'grid-cols-1 gap-6':
-              styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-            'grid-cols-2 gap-7':
-              styleStore.activeBreakpoint === 'md' || styleStore.activeBreakpoint === 'lg',
-            'grid-cols-3 gap-8':
-              styleStore.activeBreakpoint !== 'xs' &&
-              styleStore.activeBreakpoint !== 'sm' &&
-              styleStore.activeBreakpoint !== 'md' &&
-              styleStore.activeBreakpoint !== 'lg',
-          }"
-          class="grid grid-col"
+          :class="[
+            styleStore.elementTotalGapM,
+            {
+              'grid-cols-1':
+                styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+              'grid-cols-2':
+                styleStore.activeBreakpoint === 'md' || styleStore.activeBreakpoint === 'lg',
+              'grid-cols-3':
+                styleStore.activeBreakpoint !== 'xs' &&
+                styleStore.activeBreakpoint !== 'sm' &&
+                styleStore.activeBreakpoint !== 'md' &&
+                styleStore.activeBreakpoint !== 'lg',
+            },
+          ]"
+          class="grid transition-all duration-300 ease-in-out"
         >
           <!-- By Car Section -->
           <BaseElementsContainer class="min-h-[375px]">
@@ -101,8 +117,14 @@ const getMarginBottomOfHeading = computed(() => {
             >
               <template #content>
                 <!-- Parking -->
-                <div :class="[styleStore.elementTotalPaddingS]">
-                  <p :class="[styleStore.textSizeXS]" class="font-lora">
+                <div
+                  :class="[styleStore.elementTotalPaddingS]"
+                  class="transition-all duration-300 ease-in-out"
+                >
+                  <p
+                    :class="[styleStore.textSizeXS]"
+                    class="transition-all duration-300 ease-in-out font-lora"
+                  >
                     {{ i18nStore.contactPageI18nContent.reachUs.withCar.description }}
                   </p>
                   <ul class="mt-3 ml-6 list-disc">
@@ -111,13 +133,21 @@ const getMarginBottomOfHeading = computed(() => {
                       :key="parking.name"
                       class="mb-2"
                     >
-                      <h4 :class="[styleStore.textSizeS]" class="font-bold font-playfair">
+                      <h4
+                        :class="[styleStore.textSizeS]"
+                        class="font-bold transition-all duration-300 ease-in-out font-playfair"
+                      >
                         {{ parking.name }}
-                        <span v-if="parking.distance" class="font-normal"
+                        <span
+                          v-if="parking.distance"
+                          class="font-normal transition-all duration-300 ease-in-out"
                           >({{ parking.distance }})</span
                         >
                       </h4>
-                      <p :class="[styleStore.textSizeXS]" class="font-lora">
+                      <p
+                        :class="[styleStore.textSizeXS]"
+                        class="transition-all duration-300 ease-in-out font-lora"
+                      >
                         {{ parking.description }}
                       </p>
                     </li>
@@ -140,7 +170,10 @@ const getMarginBottomOfHeading = computed(() => {
               <template #content>
                 <!-- Bus Stops -->
                 <div :class="[styleStore.elementTotalPaddingS]">
-                  <p :class="[styleStore.textSizeXS]" class="font-lora">
+                  <p
+                    :class="[styleStore.textSizeXS]"
+                    class="transition-all duration-300 ease-in-out font-lora"
+                  >
                     {{ i18nStore.contactPageI18nContent.reachUs.withPublicTransport.description }}
                   </p>
 
@@ -151,13 +184,21 @@ const getMarginBottomOfHeading = computed(() => {
                       :key="busStop.name"
                       class="mb-2"
                     >
-                      <h4 :class="[styleStore.textSizeS]" class="font-bold font-playfair">
+                      <h4
+                        :class="[styleStore.textSizeS]"
+                        class="font-bold transition-all duration-300 ease-in-out font-playfair"
+                      >
                         {{ busStop.name }}
-                        <span v-if="busStop.distance" class="font-normal"
+                        <span
+                          v-if="busStop.distance"
+                          class="font-normal transition-all duration-300 ease-in-out"
                           >({{ busStop.distance }})</span
                         >
                       </h4>
-                      <p :class="[styleStore.textSizeXS]" class="font-lora">
+                      <p
+                        :class="[styleStore.textSizeXS]"
+                        class="transition-all duration-300 ease-in-out font-lora"
+                      >
                         {{ busStop.description }}
                       </p>
                     </li>
@@ -184,7 +225,10 @@ const getMarginBottomOfHeading = computed(() => {
               <template #content>
                 <!-- Landmars -->
                 <div :class="[styleStore.elementTotalPaddingS]">
-                  <p :class="[styleStore.textSizeXS]" class="font-lora">
+                  <p
+                    :class="[styleStore.textSizeXS]"
+                    class="transition-all duration-300 ease-in-out font-lora"
+                  >
                     {{ i18nStore.contactPageI18nContent.reachUs.withFoot.description }}
                   </p>
                   <ul class="mt-3 ml-6 list-disc">
@@ -194,13 +238,21 @@ const getMarginBottomOfHeading = computed(() => {
                       :key="landmark.name"
                       class="mb-2"
                     >
-                      <h4 :class="[styleStore.textSizeS]" class="font-bold font-playfair">
+                      <h4
+                        :class="[styleStore.textSizeS]"
+                        class="font-bold transition-all duration-300 ease-in-out font-playfair"
+                      >
                         {{ landmark.name }}
-                        <span v-if="landmark.distance" class="font-normal"
+                        <span
+                          v-if="landmark.distance"
+                          class="font-normal transition-all duration-300 ease-in-out"
                           >({{ landmark.distance }})</span
                         >
                       </h4>
-                      <p :class="[styleStore.textSizeXS]" class="font-lora">
+                      <p
+                        :class="[styleStore.textSizeXS]"
+                        class="transition-all duration-300 ease-in-out font-lora"
+                      >
                         {{ landmark.description }}
                       </p>
                     </li>
@@ -213,9 +265,9 @@ const getMarginBottomOfHeading = computed(() => {
         <!--Map Section-->
         <BaseElementsContainer
           :class="{
-            'mt-6': styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-            'mt-7': styleStore.activeBreakpoint === 'md',
-            'mt-8':
+            'mt-4': styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+            'mt-5': styleStore.activeBreakpoint === 'md',
+            'mt-6':
               styleStore.activeBreakpoint !== 'xs' &&
               styleStore.activeBreakpoint !== 'sm' &&
               styleStore.activeBreakpoint !== 'md',
@@ -229,26 +281,35 @@ const getMarginBottomOfHeading = computed(() => {
       <div id="contact-section" class="flex flex-col">
         <!-- Heading -->
         <div :class="[getMarginBottomOfHeading]" class="transition-all duration-300 ease-in-out">
-          <h1 :class="[styleStore.textSizeXL]" class="font-bold text-left font-playfair">
+          <h1
+            :class="[styleStore.textSizeXL]"
+            class="font-bold text-left transition-all duration-300 ease-in-out font-playfair"
+          >
             {{ i18nStore.contactPageI18nContent.contacts.heading }}
           </h1>
-          <p :class="[styleStore.textSizeS]" class="text-left font-lora">
+          <p
+            :class="[styleStore.textSizeS]"
+            class="text-left transition-all duration-300 ease-in-out font-lora"
+          >
             {{ i18nStore.contactPageI18nContent.contacts.description }}
           </p>
         </div>
         <div
-          :class="{
-            'grid-cols-1 gap-6':
-              styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-            'grid-cols-2 gap-7':
-              styleStore.activeBreakpoint === 'md' || styleStore.activeBreakpoint === 'lg',
-            'grid-cols-3 gap-8':
-              styleStore.activeBreakpoint !== 'xs' &&
-              styleStore.activeBreakpoint !== 'sm' &&
-              styleStore.activeBreakpoint !== 'md' &&
-              styleStore.activeBreakpoint !== 'lg',
-          }"
-          class="grid grid-col"
+          :class="[
+            styleStore.elementTotalGapM,
+            {
+              'grid-cols-1':
+                styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+              'grid-cols-2':
+                styleStore.activeBreakpoint === 'md' || styleStore.activeBreakpoint === 'lg',
+              'grid-cols-3':
+                styleStore.activeBreakpoint !== 'xs' &&
+                styleStore.activeBreakpoint !== 'sm' &&
+                styleStore.activeBreakpoint !== 'md' &&
+                styleStore.activeBreakpoint !== 'lg',
+            },
+          ]"
+          class="grid transition-all duration-300 ease-in-out"
         >
           <BaseElementsContainer
             v-for="channel in i18nStore.contactPageI18nContent.contacts.channels"

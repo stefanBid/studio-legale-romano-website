@@ -19,7 +19,15 @@ const styleStore = useStyleStore();
 // Feature 1: Update the current day
 const now = useNow({ interval: 60 * 1000 });
 const today = computed(() => now.value.getDay());
-const weekDays = Object.keys(props.weeklySchedule) as Array<keyof WeeklySchedule>;
+const weekDays = [
+  'sunday',
+  'monday',
+  'tuesday',
+  'wednesday',
+  'thursday',
+  'friday',
+  'saturday',
+] as Array<keyof WeeklySchedule>;
 </script>
 
 <template>
@@ -36,23 +44,23 @@ const weekDays = Object.keys(props.weeklySchedule) as Array<keyof WeeklySchedule
           'border-b-2 border-rm-main': index !== 'sunday',
         },
       ]"
-      class="flex items-center justify-between gap-x-4"
+      class="flex items-center justify-between transition-all duration-300 ease-in-out gap-x-4"
     >
-      <div class="inline-flex items-center flex-1 gap-2">
+      <div class="flex items-center flex-1 gap-2">
         <CalendarDaysIcon :class="[styleStore.iconSizeS]" class="text-rm-main" />
         <span
           :class="[
             styleStore.textSizeS,
             {
-              'font-bold': index === weekDays[today - 1],
+              'font-bold': index === weekDays[today],
             },
           ]"
-          class="text-rm-main font-lora"
+          class="transition-all duration-300 ease-in-out text-rm-main font-lora"
         >
           {{ day.name }}
         </span>
         <span
-          v-if="index === weekDays[today - 1]"
+          v-if="index === weekDays[today]"
           :class="[styleStore.iconSizeXS]"
           class="transition-all duration-300 ease-in-out rounded-full bg-rm-secondary animate-pulse"
         ></span>

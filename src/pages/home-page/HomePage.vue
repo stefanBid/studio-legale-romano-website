@@ -36,7 +36,7 @@ onMounted(() => {
     <div class="absolute inset-0 bg-rm-main z-rm-base-1 opacity-55"></div>
 
     <div
-      class="absolute inset-0 flex w-full h-full pt-20 z-rm-base-2"
+      class="absolute inset-0 flex w-full h-full pt-20 transition-all duration-300 ease-in-out z-rm-base-2"
       :class="[styleStore.containerPadding]"
     >
       <transition name="scale-and-fade-slow">

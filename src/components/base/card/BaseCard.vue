@@ -35,7 +35,10 @@ const props = withDefaults(defineProps<BaseCardProps>(), {
         :class="[styleStore.elementTotalPaddingS]"
         class="inline-flex items-center justify-center w-full transition-all duration-300 ease-in-out"
       >
-        <h2 :class="[styleStore.textSizeL]" class="font-bold text-white font-playfair">
+        <h2
+          :class="[styleStore.textSizeL]"
+          class="font-bold text-white transition-all duration-300 ease-in-out font-playfair"
+        >
           {{ props.title }}
         </h2>
       </div>
@@ -49,7 +52,10 @@ const props = withDefaults(defineProps<BaseCardProps>(), {
         :class="[styleStore.elementTotalPaddingS]"
         class="inline-flex items-center justify-center w-full h-full transition-all duration-300 ease-in-out"
       >
-        <p :class="[styleStore.textSizeXS]" class="text-justify font-lora">
+        <p
+          :class="[styleStore.textSizeXS]"
+          class="text-justify transition-all duration-300 ease-in-out font-lora"
+        >
           {{ props.textContent }}
         </p>
       </div>

@@ -48,9 +48,19 @@ const handleCloseModal = (): void => {
 
       <div class="fixed inset-0 overflow-y-auto z-rm-dialog scrollbar-gutter-stable">
         <div
-          :class="[styleStore.containerPadding]"
+          :class="[
+            styleStore.containerPadding,
+            {
+              'py-6':
+                styleStore.activeBreakpoint !== 'xs' &&
+                styleStore.activeBreakpoint !== 'sm' &&
+                styleStore.activeBreakpoint !== 'md',
+              'py-5': styleStore.activeBreakpoint === 'md',
+              'py-4': styleStore.activeBreakpoint === 'sm' || styleStore.activeBreakpoint === 'xs',
+            },
+          ]"
           :data-testid="`${props.dataTestid}-overlay`"
-          class="flex items-center justify-center h-screen py-8"
+          class="flex items-center justify-center h-screen transition-all duration-300 ease-in-out"
         >
           <TransitionChild
             as="template"
@@ -95,7 +105,7 @@ const handleCloseModal = (): void => {
                     'text-center': props.headerOrientation === 'center',
                     'text-right': props.headerOrientation === 'right',
                   }"
-                  class="flex-1 overflow-x-hidden"
+                  class="flex-1 overflow-x-hidden transition-all duration-300 ease-in-out"
                 >
                   <h3
                     v-show="props.dialogTitle"

@@ -7,7 +7,7 @@ const isLoading = inject<Ref<boolean>>('isLoading');
 
 const route = useRoute();
 
-const showRouterView = computed(() => {
+const showFooter = computed(() => {
   return route.name !== 'homePage' && route.name !== 'notFoundPage';
 });
 </script>
@@ -17,6 +17,6 @@ const showRouterView = computed(() => {
   <TheHeader />
   <div v-if="!isLoading" class="min-h-screen">
     <RouterView />
-    <TheFooter v-if="showRouterView" />
+    <TheFooter v-if="showFooter" />
   </div>
 </template>

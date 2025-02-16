@@ -12,23 +12,23 @@ const i18nStore = useI18nStore();
     :class="[
       styleStore.containerPadding,
       {
-        'py-6': styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-        'py-7': styleStore.activeBreakpoint === 'md',
-        'py-8':
+        'py-4': styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+        'py-5': styleStore.activeBreakpoint === 'md',
+        'py-6':
           styleStore.activeBreakpoint !== 'xs' &&
           styleStore.activeBreakpoint !== 'sm' &&
           styleStore.activeBreakpoint !== 'md',
       },
     ]"
-    class="w-full text-white bg-rm-main"
+    class="w-full text-white transition-all duration-300 ease-in-out bg-rm-main"
   >
     <div
       class="grid w-full transition-all duration-300 ease-in-out grid-col"
       :class="{
-        'grid-cols-1 gap-6 px-6 pb-6':
+        'grid-cols-1 gap-6 px-4 pb-4':
           styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-        'grid-cols-[2fr_1fr] gap-7 px-7 pb-7': styleStore.activeBreakpoint === 'md',
-        'grid-cols-[2fr_1fr_1fr_1fr] gap-8 px-8 pb-8':
+        'grid-cols-[2fr_1fr] gap-7 px-5 pb-5': styleStore.activeBreakpoint === 'md',
+        'grid-cols-[2fr_1fr_1fr_1fr] gap-8 px-6 pb-6':
           styleStore.activeBreakpoint !== 'xs' &&
           styleStore.activeBreakpoint !== 'sm' &&
           styleStore.activeBreakpoint !== 'md',
@@ -46,7 +46,7 @@ const i18nStore = useI18nStore();
         <!--Logo-->
         <div
           id="logo"
-          class="flex items-center transition-all duration-300 ease-in-out text-rm-secondary gap-x-2"
+          class="flex items-center gap-2 transition-all duration-300 ease-in-out text-rm-secondary"
         >
           <component
             :is="ICONS.LogoIcon"
@@ -54,7 +54,7 @@ const i18nStore = useI18nStore();
             class="transition-all duration-300 ease-in-out shrink-0"
           />
           <span
-            class="flex-1 font-medium transition-all duration-300 ease-in-out font-playfair group-hover:text-shadow-luminous"
+            class="flex-1 font-medium transition-all duration-300 ease-in-out font-playfair"
             :class="[styleStore.textSizeM]"
           >
             {{ i18nStore.footerI18nContent.intro.title }}
@@ -70,7 +70,7 @@ const i18nStore = useI18nStore();
                 styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
             },
           ]"
-          class="text-white font-lora"
+          class="text-white transition-all duration-300 ease-in-out font-lora"
         >
           {{ i18nStore.footerI18nContent.intro.description }}
         </p>
@@ -99,11 +99,11 @@ const i18nStore = useI18nStore();
           'items-center':
             styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
         }"
-        class="flex flex-col w-full gap-y-3"
+        class="flex flex-col w-full transition-all duration-300 ease-in-out gap-y-3"
       >
         <!--Title-->
         <span
-          class="font-medium text-rm-secondary font-playfair"
+          class="font-medium transition-all duration-300 ease-in-out text-rm-secondary font-playfair"
           :class="[
             styleStore.textSizeS,
             {
@@ -121,7 +121,7 @@ const i18nStore = useI18nStore();
             'items-center':
               styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
           }"
-          class="flex flex-col gap-y-1"
+          class="flex flex-col transition-all duration-300 ease-in-out gap-y-1"
         >
           <router-link
             v-for="link in i18nStore.footerI18nContent.quickLinks.links"
@@ -148,11 +148,11 @@ const i18nStore = useI18nStore();
           'items-center':
             styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
         }"
-        class="flex flex-col w-full gap-y-3"
+        class="flex flex-col w-full transition-all duration-300 ease-in-out gap-y-3"
       >
         <!--Title-->
         <span
-          class="font-medium text-rm-secondary font-playfair"
+          class="font-medium transition-all duration-300 ease-in-out text-rm-secondary font-playfair"
           :class="[
             styleStore.textSizeS,
             {
@@ -169,7 +169,7 @@ const i18nStore = useI18nStore();
             'items-center':
               styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
           }"
-          class="flex flex-col gap-y-1"
+          class="flex flex-col transition-all duration-300 ease-in-out gap-y-1"
         >
           <span
             v-for="channel in i18nStore.footerI18nContent.contacts.channels"
@@ -181,7 +181,7 @@ const i18nStore = useI18nStore();
                   styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
               },
             ]"
-            class="inline-flex items-center text-white font-lora gap-x-2"
+            class="inline-flex items-center gap-2 text-white transition-all duration-300 ease-in-out font-lora"
           >
             <component
               :is="CONTACT_CHANNEL_ICONS[channel.id]"
@@ -199,11 +199,11 @@ const i18nStore = useI18nStore();
           'items-center':
             styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
         }"
-        class="flex flex-col w-full gap-y-3"
+        class="flex flex-col w-full transition-all duration-300 ease-in-out gap-y-3"
       >
         <!--Title-->
         <span
-          class="font-medium text-rm-secondary font-playfair"
+          class="font-medium transition-all duration-300 ease-in-out text-rm-secondary font-playfair"
           :class="[
             styleStore.textSizeS,
             {
@@ -220,7 +220,7 @@ const i18nStore = useI18nStore();
             'items-center':
               styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
           }"
-          class="flex flex-col gap-y-1"
+          class="flex flex-col transition-all duration-300 ease-in-out gap-y-1"
         >
           <router-link
             v-for="link in i18nStore.footerI18nContent.helpAndSupport.links"
@@ -244,9 +244,20 @@ const i18nStore = useI18nStore();
     <!--Easter Egg-->
     <div
       id="easter-egg"
-      class="inline-flex items-center justify-center w-full px-8 pt-8 border-t border-white gap-x-1"
+      :class="{
+        'px-4 pt-4': styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+        'px-5 pt-5': styleStore.activeBreakpoint === 'md',
+        'px-6 pt-6':
+          styleStore.activeBreakpoint !== 'xs' &&
+          styleStore.activeBreakpoint !== 'sm' &&
+          styleStore.activeBreakpoint !== 'md',
+      }"
+      class="inline-flex items-center justify-center w-full transition-all duration-300 ease-in-out border-t border-white gap-x-1"
     >
-      <span :class="[styleStore.textSizeXS]" class="text-center text-white font-lora">
+      <span
+        :class="[styleStore.textSizeXS]"
+        class="text-center text-white transition-all duration-300 ease-in-out font-lora"
+      >
         Designed and Developed by
       </span>
       <a
