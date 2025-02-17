@@ -41,7 +41,7 @@ const i18nStore = useI18nStore();
           'items-center':
             styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
         }"
-        class="flex flex-col w-full gap-y-3"
+        class="flex flex-col w-full gap-y-2.5 transition-all duration-300 ease-in-out"
       >
         <!--Logo-->
         <div
@@ -99,11 +99,11 @@ const i18nStore = useI18nStore();
           'items-center':
             styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
         }"
-        class="flex flex-col w-full transition-all duration-300 ease-in-out gap-y-3"
+        class="flex flex-col w-full transition-all duration-300 ease-in-out"
       >
         <!--Title-->
         <span
-          class="font-medium transition-all duration-300 ease-in-out text-rm-secondary font-playfair"
+          class="mb-2.5 font-medium transition-all duration-300 ease-in-out text-rm-secondary font-playfair"
           :class="[
             styleStore.textSizeS,
             {
@@ -116,30 +116,23 @@ const i18nStore = useI18nStore();
         </span>
 
         <!--Links-->
-        <div
-          :class="{
-            'items-center':
-              styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-          }"
-          class="flex flex-col transition-all duration-300 ease-in-out gap-y-1"
+        <router-link
+          v-for="(link, index) in i18nStore.footerI18nContent.quickLinks.links"
+          :key="link.text"
+          :to="link.link"
+          tabindex="0"
+          class="text-white transition-all duration-300 ease-in-out outline-none w-fit ring-0 focus-visible:ring-0 focus-visible:outline-none font-lora group hover:text-rm-secondary focus-visible:text-rm-secondary"
+          :class="[
+            styleStore.textSizeXS,
+            {
+              'mb-1': index !== i18nStore.footerI18nContent.quickLinks.links.length - 1,
+              'text-center':
+                styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+            },
+          ]"
         >
-          <router-link
-            v-for="link in i18nStore.footerI18nContent.quickLinks.links"
-            :key="link.text"
-            :to="link.link"
-            tabindex="0"
-            class="text-white transition-all duration-300 ease-in-out outline-none w-fit ring-0 focus-visible:ring-0 focus-visible:outline-none font-lora group hover:text-rm-secondary focus-visible:text-rm-secondary"
-            :class="[
-              styleStore.textSizeXS,
-              {
-                'text-center':
-                  styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-              },
-            ]"
-          >
-            {{ link.text }}
-          </router-link>
-        </div>
+          {{ link.text }}
+        </router-link>
       </div>
       <!--Contact and Info-->
       <div
@@ -148,11 +141,11 @@ const i18nStore = useI18nStore();
           'items-center':
             styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
         }"
-        class="flex flex-col w-full transition-all duration-300 ease-in-out gap-y-3"
+        class="flex flex-col w-full transition-all duration-300 ease-in-out"
       >
         <!--Title-->
         <span
-          class="font-medium transition-all duration-300 ease-in-out text-rm-secondary font-playfair"
+          class="font-medium transition-all duration-300 ease-in-out text-rm-secondary font-playfair mb-2.5"
           :class="[
             styleStore.textSizeS,
             {
@@ -164,33 +157,26 @@ const i18nStore = useI18nStore();
           {{ i18nStore.footerI18nContent.contacts.title }}
         </span>
         <!--Contact Info-->
-        <div
-          :class="{
-            'items-center':
-              styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-          }"
-          class="flex flex-col transition-all duration-300 ease-in-out gap-y-1"
+        <span
+          v-for="(channel, index) in i18nStore.footerI18nContent.contacts.channels"
+          :key="channel.id"
+          :class="[
+            styleStore.textSizeXS,
+            {
+              'mb-1': index !== i18nStore.footerI18nContent.contacts.channels.length - 1,
+              'text-center':
+                styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+            },
+          ]"
+          class="inline-flex items-center gap-2 text-white transition-all duration-300 ease-in-out font-lora"
         >
-          <span
-            v-for="channel in i18nStore.footerI18nContent.contacts.channels"
-            :key="channel.id"
-            :class="[
-              styleStore.textSizeXS,
-              {
-                'justify-center':
-                  styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-              },
-            ]"
-            class="inline-flex items-center gap-2 text-white transition-all duration-300 ease-in-out font-lora"
-          >
-            <component
-              :is="CONTACT_CHANNEL_ICONS[channel.id]"
-              :class="[styleStore.iconSizeXS]"
-              class="transition-all duration-300 ease-in-out shrink-0"
-            />
-            {{ channel.value }}
-          </span>
-        </div>
+          <component
+            :is="CONTACT_CHANNEL_ICONS[channel.id]"
+            :class="[styleStore.iconSizeXS]"
+            class="transition-all duration-300 ease-in-out shrink-0"
+          />
+          {{ channel.value }}
+        </span>
       </div>
       <!--Help And Support-->
       <div
@@ -199,11 +185,11 @@ const i18nStore = useI18nStore();
           'items-center':
             styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
         }"
-        class="flex flex-col w-full transition-all duration-300 ease-in-out gap-y-3"
+        class="flex flex-col w-full transition-all duration-300 ease-in-out"
       >
         <!--Title-->
         <span
-          class="font-medium transition-all duration-300 ease-in-out text-rm-secondary font-playfair"
+          class="font-medium transition-all duration-300 ease-in-out text-rm-secondary font-playfair mb-2.5"
           :class="[
             styleStore.textSizeS,
             {
@@ -215,30 +201,23 @@ const i18nStore = useI18nStore();
           {{ i18nStore.footerI18nContent.helpAndSupport.title }}
         </span>
         <!--Links-->
-        <div
-          :class="{
-            'items-center':
-              styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-          }"
-          class="flex flex-col transition-all duration-300 ease-in-out gap-y-1"
+        <router-link
+          v-for="(link, index) in i18nStore.footerI18nContent.helpAndSupport.links"
+          :key="link.text"
+          :to="link.link"
+          tabindex="0"
+          class="text-white transition-all duration-300 ease-in-out outline-none font-lora hover:text-rm-secondary focus-visible:text-rm-secondary w-fit focus-visible:outline-none ring-0 focus-visible:ring-0"
+          :class="[
+            styleStore.textSizeXS,
+            {
+              'mb-1': index !== i18nStore.footerI18nContent.helpAndSupport.links.length - 1,
+              'text-center':
+                styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+            },
+          ]"
         >
-          <router-link
-            v-for="link in i18nStore.footerI18nContent.helpAndSupport.links"
-            :key="link.text"
-            :to="link.link"
-            tabindex="0"
-            class="text-white transition-all duration-300 ease-in-out outline-none font-lora hover:text-rm-secondary focus-visible:text-rm-secondary w-fit focus-visible:outline-none ring-0 focus-visible:ring-0"
-            :class="[
-              styleStore.textSizeXS,
-              {
-                'text-center':
-                  styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-              },
-            ]"
-          >
-            {{ link.text }}
-          </router-link>
-        </div>
+          {{ link.text }}
+        </router-link>
       </div>
     </div>
     <!--Easter Egg-->
