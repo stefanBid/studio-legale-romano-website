@@ -98,12 +98,12 @@ export const useStyleStore = defineStore('style', () => {
 
   const firstLetterSize = computed(() => {
     if (activeBreakpoint.value === 'xs' || activeBreakpoint.value === 'sm') {
-      return 'first-letter:text-rm-5xl';
+      return 'first-letter:text-rm-3xl';
     }
     if (activeBreakpoint.value === 'md') {
-      return 'first-letter:text-rm-6xl';
+      return 'first-letter:text-rm-4xl';
     }
-    return 'first-letter:text-rm-7xl';
+    return 'first-letter:text-rm-5xl';
   });
 
   // Common style for text elements

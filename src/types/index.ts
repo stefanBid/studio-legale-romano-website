@@ -89,6 +89,7 @@ interface PerformancePageContent {
     items: {
       title: string;
       shortcutId: string;
+      description: string;
     }[];
   };
 }
