@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Member } from '@/types';
 import { MEDIA } from '@/constants';
-import { dowloadFile, emailTo, stringPurifier } from '@/utils';
+import { dowloadFile, sendEmail, stringPurifier } from '@/utils';
 import { useTitleStore, useI18nStore, useStyleStore } from '@/stores';
 import {
   ThePageContainer,
@@ -123,7 +123,7 @@ const handleCloseDialogProfile = (falsyValue: boolean): void => {
                   content: 'Contatta',
                   icon: EnvelopeIcon,
                   onClick: () => {
-                    emailTo(member.email);
+                    sendEmail(member.email, 'legalConsultation');
                   },
                 },
                 {

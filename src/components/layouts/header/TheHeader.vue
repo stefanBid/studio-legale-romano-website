@@ -77,7 +77,7 @@ watch(
       <div class="inline-flex items-center flex-1 transition-all duration-300 ease-in-out">
         <router-link
           to="/"
-          class="flex items-center border border-transparent rounded-md text-rm-secondary gap-x-2 group ring-0 focus-visible:border-rm-main outline-0"
+          class="flex items-center border border-transparent rounded-md text-rm-secondary gap-x-2 group ring-0 focus-visible:border-rm-main outline-none"
           @click="onChangeMenuVisibility(false)"
         >
           <component
@@ -117,7 +117,7 @@ watch(
       <div
         v-if="isMenuCollapsed"
         tabindex="0"
-        class="transition-all duration-300 ease-in-out border border-transparent rounded-md w-fit h-fit focus-visible:border-white active:rotate-90 ring-0 outline-0"
+        class="transition-all duration-300 ease-in-out border border-transparent rounded-md w-fit h-fit focus-visible:border-white active:rotate-90 ring-0 outline-none"
         :aria-label="`click for ${isMenuOpen ? 'close' : 'open'} menu`"
         @click.stop="onChangeMenuVisibility(!isMenuOpen)"
         @keydown.enter="onChangeMenuVisibility(!isMenuOpen)"

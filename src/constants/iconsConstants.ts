@@ -4,8 +4,7 @@ import Facebook from '@/assets/icons/fecebook.svg?component';
 import Twitter from '@/assets/icons/twitter.svg?component';
 import { PhoneIcon, DevicePhoneMobileIcon, EnvelopeIcon } from '@heroicons/vue/24/solid';
 import type { Component, FunctionalComponent } from 'vue';
-
-export type IconsName = 'LogoIcon' | 'InstagramIcon' | 'FacebookIcon' | 'TwitterIcon';
+import type { IconsName } from '@/types';
 
 export const ICONS: Record<IconsName, FunctionalComponent> = {
   LogoIcon: Logo,

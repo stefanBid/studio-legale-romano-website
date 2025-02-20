@@ -241,27 +241,33 @@
       "channels": [
         {
           "id": "MobileIcon",
-          "value": "+39 330 40 0201"
+          "value": "+39 330 400 201",
+          "operation": "sendWhatsAppMessage"
         },
         {
           "id": "TelephoneIcon",
-          "value": "+39 0825 26555"
+          "value": "+39 0825 26555",
+          "operation": "callNumber"
         },
         {
           "id": "EmailIcon",
-          "value": "romanolaw@alice.it"
+          "value": "romanolaw@alice.it",
+          "operation": "sendEmail"
         },
         {
           "id": "InstagramIcon",
-          "value": "@studiolegaleromano"
+          "value": "@studiolegaleromano",
+          "operation": "openLink"
         },
         {
           "id": "FacebookIcon",
-          "value": "/studiolegaleromano"
+          "value": "/studiolegaleromano",
+          "operation": "openLink"
         },
         {
           "id": "TwitterIcon",
-          "value": "@studiolegaleromano"
+          "value": "@studiolegaleromano",
+          "operation": "openLink"
         }
       ]
     },

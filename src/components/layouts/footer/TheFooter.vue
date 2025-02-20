@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { CONTACT_CHANNEL_ICONS, ICONS } from '@/constants';
 import { useStyleStore, useI18nStore } from '@/stores';
+import { openLink } from '@/utils';
 
 //Store Declarations
 const styleStore = useStyleStore();
@@ -76,20 +77,16 @@ const i18nStore = useI18nStore();
         </p>
         <!--Social Media-->
         <div id="social-media" class="flex gap-x-4">
-          <a
+          <component
+            :is="CONTACT_CHANNEL_ICONS[social.id]"
             v-for="social in i18nStore.footerI18nContent.intro.socials"
             :key="social.id"
             :tabindex="0"
-            :href="social.value"
-            target="_blank"
-            class="transition-all duration-300 ease-in-out outline-none group ring-0 focus-visible:ring-0 focus-visible:outline-none"
-          >
-            <component
-              :is="CONTACT_CHANNEL_ICONS[social.id]"
-              :class="[styleStore.iconSizeS]"
-              class="text-white transition-all duration-300 ease-in-out group-hover:text-rm-secondary group-focus-visible:text-rm-secondary"
-            />
-          </a>
+            :class="[styleStore.iconSizeS]"
+            class="text-white transition-all duration-300 ease-in-out outline-none hover:text-rm-secondary focus-visible:text-rm-secondary ring-0 focus-visible:ring-0 focus-visible:outline-none"
+            @click.stop="openLink(social.value)"
+            @keypress.enter.stop="openLink(social.value)"
+          />
         </div>
       </div>
       <!--Quik Links-->

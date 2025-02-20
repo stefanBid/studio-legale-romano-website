@@ -1,11 +1,23 @@
 // types/index.ts
 
-import type { MediaName } from '@/constants';
-
 /** GLOBAL **/
 type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 type NotificationCategory = 'info' | 'success' | 'error';
 type Locale = 'it';
+type IconsName = 'LogoIcon' | 'InstagramIcon' | 'FacebookIcon' | 'TwitterIcon';
+type MediaName =
+  | 'contactPageCoverImg'
+  | 'homePageCoverImg'
+  | 'performancePageCoverImg'
+  | 'whoWeArePageCoverImg'
+  | 'antonioRomanoCvDoc'
+  | 'accordionTestImg';
+type ExternalOperation = 'openLink' | 'sendEmail' | 'sendWhatsAppMessage' | 'callNumber';
+type ExternalMessageInfo =
+  | 'legalConsultation'
+  | 'appointment'
+  | 'generalInformation'
+  | 'professionalCollaboration';
 
 interface Notification {
   id: string;
@@ -176,6 +188,7 @@ interface ContactPageContent {
     channels: {
       id: string;
       value: string;
+      operation: ExternalOperation;
     }[];
   };
   openingHours: {
@@ -223,8 +236,12 @@ interface NotFoundPageContent {
 export type {
   Breakpoint,
   Locale,
-  Notification,
+  IconsName,
+  MediaName,
+  ExternalOperation,
+  ExternalMessageInfo,
   NotificationCategory,
+  Notification,
   HeaderContent,
   FooterContent,
   HomePageContent,

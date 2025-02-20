@@ -4,7 +4,7 @@ import { BookOpenIcon, BookmarkIcon } from '@heroicons/vue/24/solid';
 import { MEDIA } from '@/constants';
 import { useStyleStore, useTitleStore, useI18nStore } from '@/stores';
 import { BaseAccordion, BaseElementsContainer, ThePageContainer, BaseBadge } from '@/components';
-import { navigateTo, stringPurifier } from '@/utils';
+import { scrollToElement, stringPurifier } from '@/utils';
 import { onMounted, ref } from 'vue';
 
 // Store Declarations
@@ -57,9 +57,9 @@ onMounted(() => {
                 v-for="item in i18nStore.performancePageI18nContent.index.items"
                 :key="item.shortcutId"
                 tabindex="0"
-                class="transition-all duration-300 ease-in-out cursor-pointer outline-0 ring-0 w-fit hover:text-rm-secondary hover:underline focus-visible:text-rm-secondary focus-visible:underline focus-visible:ring-0"
-                @click.stop="navigateTo(item.shortcutId)"
-                @keypress.enter.stop="navigateTo(item.shortcutId)"
+                class="transition-all duration-300 ease-in-out cursor-pointer outline-none ring-0 w-fit hover:text-rm-secondary hover:underline focus-visible:text-rm-secondary focus-visible:underline focus-visible:ring-0"
+                @click.stop="scrollToElement(item.shortcutId.slice(1))"
+                @keypress.enter.stop="scrollToElement(item.shortcutId.slice(1))"
               >
                 {{ item.title }}
               </li>
@@ -76,8 +76,8 @@ onMounted(() => {
           threshold: 0.05,
         }"
       >
-        <span :id="item.shortcutId.slice(1)" tabindex="-1"></span>
         <BaseAccordion
+          :id="item.shortcutId.slice(1)"
           tabindex="0"
           :external-open="
             defaultAccordionIdOpen

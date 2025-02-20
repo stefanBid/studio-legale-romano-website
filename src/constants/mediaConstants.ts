@@ -4,14 +4,7 @@ import performancePageCover from '@/assets/images/performance-page-cover.jpg';
 import whoWeArePageCover from '@/assets/images/who-we-are-page-cover.jpg';
 import antonioRomanoCv from '@/assets/docs/antonio-romano-cv.pdf';
 import accordionTestImg from '@/assets/images/accordion-test.jpg';
-
-export type MediaName =
-  | 'contactPageCoverImg'
-  | 'homePageCoverImg'
-  | 'performancePageCoverImg'
-  | 'whoWeArePageCoverImg'
-  | 'antonioRomanoCvDoc'
-  | 'accordionTestImg';
+import type { MediaName } from '@/types';
 
 export const MEDIA: Record<MediaName, string> = {
   contactPageCoverImg: contactPageCover,

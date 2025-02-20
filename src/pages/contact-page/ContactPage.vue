@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import { MEDIA } from '@/constants';
+import { computed } from 'vue';
+import type { ExternalOperation } from '@/types';
 import { useTitleStore, useI18nStore, useStyleStore } from '@/stores';
+import { CONTACT_CHANNEL_ICONS, MEDIA } from '@/constants';
+import { openLink, sendEmail, sendWhatsAppMessage } from '@/utils';
 import { ThePageContainer, BaseCard, BaseElementsContainer, BaseBadge } from '@/components';
-import { CONTACT_CHANNEL_ICONS } from '@/constants';
 import OfficeMap from '@/pages/contact-page/components/office-map/OfficeMap.vue';
 import OpeningHourBox from '@/pages/contact-page/components/opening-hour-box/OpeningHourBox.vue';
-import { computed } from 'vue';
+
 // Store Declarations
 const i18nStore = useI18nStore();
 const styleStore = useStyleStore();
@@ -26,6 +28,25 @@ const getMarginBottomOfHeading = computed(() => {
       return 'mb-9';
   }
 });
+
+const executeChannelOperation = (operation: ExternalOperation, value: string): void => {
+  switch (operation) {
+    case 'sendEmail':
+      sendEmail(value, 'generalInformation');
+      break;
+    case 'openLink':
+      openLink(value);
+      break;
+    case 'callNumber':
+      openLink(`tel:${value}`);
+      break;
+    case 'sendWhatsAppMessage':
+      sendWhatsAppMessage(value, 'generalInformation');
+      break;
+    default:
+      break;
+  }
+};
 </script>
 
 <template>
@@ -316,9 +337,12 @@ const getMarginBottomOfHeading = computed(() => {
             :key="channel.id"
           >
             <BaseBadge
+              class="transition-all duration-300 ease-in-out hover:cursor-pointer hover:scale-105"
               :icon="CONTACT_CHANNEL_ICONS[channel.id]"
               icon-size="small"
               :text-content="channel.value"
+              @click.stop="executeChannelOperation(channel.operation, channel.value)"
+              @keypress.enter.stop="executeChannelOperation(channel.operation, channel.value)"
             />
           </BaseElementsContainer>
         </div>

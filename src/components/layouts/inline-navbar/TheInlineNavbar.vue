@@ -59,7 +59,7 @@ const getVisibleRoutes = computed<ManagedRoutes>(() => {
       <router-link
         :to="routeItemV.path"
         tabindex="0"
-        class="transition-all duration-300 ease-in-out outline-0 font-lora ring-0 focus-visible:ring-0 underline-offset-2"
+        class="transition-all duration-300 ease-in-out outline-none font-lora ring-0 focus-visible:ring-0 underline-offset-2"
         :class="[
           styleStore.textSizeS,
           {
@@ -83,7 +83,7 @@ const getVisibleRoutes = computed<ManagedRoutes>(() => {
       >
         <span
           :class="[styleStore.textSizeS]"
-          class="transition-all duration-300 ease-in-out underline-offset-2 group-hover:cursor-pointer outline-0 font-lora ring-0 group-focus-visible:ring-0 text-rm-main group-hover:text-rm-secondary group-hover:underline group-focus-visible:text-rm-secondary group-focus-visible:underline"
+          class="transition-all duration-300 ease-in-out underline-offset-2 group-hover:cursor-pointer outline-none font-lora ring-0 group-focus-visible:ring-0 text-rm-main group-hover:text-rm-secondary group-hover:underline group-focus-visible:text-rm-secondary group-focus-visible:underline"
         >
           Altro
         </span>
@@ -117,7 +117,7 @@ const getVisibleRoutes = computed<ManagedRoutes>(() => {
             v-for="routeItemC in getVisibleRoutes.collapsedRoutes"
             :to="routeItemC.path"
             tabindex="0"
-            class="transition-all duration-300 ease-in-out outline-0 font-lora ring-0 focus-visible:ring-0 underline-offset-2"
+            class="transition-all duration-300 ease-in-out outline-none font-lora ring-0 focus-visible:ring-0 underline-offset-2"
             :class="[
               styleStore.textSizeS,
               {
