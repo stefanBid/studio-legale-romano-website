@@ -1,9 +1,10 @@
 {
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
   "compilerOptions": {
-    "target": "ES2023",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
     "skipLibCheck": true,
+    
+    /* Bundler mode */
+    "moduleResolution": "Bundler",
     "noEmit": true,
 
     "baseUrl": ".",
@@ -12,18 +13,18 @@
     }
   },
   "include": [
-    ".storybook/**/*", // Includi i file di Storybook
-    "src/**/*.json", // Includi i file JSON
-    "src/**/*", // Includi tutti i file della cartella src
-    "vite.config.ts", // Includi file di configurazione o altri file specifici da lintare
-    "vitest.config.ts", // Includi file di configurazione o altri file specifici da lintare
-    "scripts/**/*", // Se hai una cartella con script TypeScript che vuoi lintare
-    "tests/**/*" // Se hai dei test TypeScript che vuoi lintare
+    ".storybook/**/*",
+    "src/**/*.json", 
+    "src/**/*",
+    "vite.config.ts",
+    "vitest.config.ts",
+    "scripts/**/*",
+    "tests/**/*"
   ],
   "exclude": [
-    "node_modules", // Escludi le dipendenze
-    "dist", // Escludi la cartella di build
-    "**/*.js", // Escludi eventuali file JavaScript (se non vuoi lintarli)
-    "**/*.svg" // Escludi i file SVG
+    "node_modules",
+    "dist",
+    "**/*.js",
+    "**/*.svg",
   ]
 }

@@ -1,4 +1,4 @@
-import { ExternalMessageInfo } from '@/types';
+import type { ExternalMessageInfo } from '@/types';
 
 export const MAIL_MESSAGES_MAP: Record<ExternalMessageInfo, { subject: string; body: string }> = {
   legalConsultation: {

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import 'leaflet/dist/leaflet.css';
-import L, { LatLngTuple } from 'leaflet'; // Import Leaflet library
+import L, { type LatLngTuple } from 'leaflet'; // Import Leaflet library
 import { onMounted, ref } from 'vue';
 import { BaseButton } from '@/components';
 import { LockOpenIcon, LockClosedIcon } from '@heroicons/vue/24/outline';
@@ -59,7 +59,7 @@ const handleManageScroll = (): void => {
   >
     <div
       id="office-map"
-      class="absolute rounded-md w-full h-[400px] z-rm-base-1 border-rm-secondary border-2"
+      class="absolute rounded-md w-full h-[400px] z-rm-base-1 border-rm-secondary border-2 focus-visible:outline-rm-secondary"
     ></div>
     <transition name="fade">
       <div

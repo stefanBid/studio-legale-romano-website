@@ -333,10 +333,13 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
           class="grid transition-all duration-300 ease-in-out"
         >
           <BaseElementsContainer
-            v-for="channel in i18nStore.contactPageI18nContent.contacts.channels"
+            v-for="(channel, index) in i18nStore.contactPageI18nContent.contacts.channels"
             :key="channel.id"
           >
             <BaseBadge
+              :class="{
+                'grayscale pointer-events-none opacity-40': index >= 3,
+              }"
               class="transition-all duration-300 ease-in-out hover:cursor-pointer hover:scale-105"
               :icon="CONTACT_CHANNEL_ICONS[channel.id]"
               icon-size="small"
