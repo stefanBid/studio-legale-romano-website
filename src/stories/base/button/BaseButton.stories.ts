@@ -55,12 +55,6 @@ const meta = {
         type: 'boolean',
       },
     },
-    dataTestid: {
-      description: 'The button data-testid attribute',
-      control: {
-        type: 'text',
-      },
-    },
     ariaLabel: {
       description: 'The button aria-label attribute',
       control: {
@@ -69,7 +63,6 @@ const meta = {
     },
   },
   args: {
-    dataTestid: 'button-test',
     ariaLabel: 'button',
   },
 } satisfies Meta<typeof BaseButton>;

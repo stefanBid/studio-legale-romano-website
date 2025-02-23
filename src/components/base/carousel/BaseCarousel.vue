@@ -9,7 +9,6 @@ interface BaseCarouselProps {
   autoPlay?: boolean;
   bulletList?: boolean;
   autoPlayInterval?: number;
-  dataTestid?: string;
   ariaLabel?: string;
 }
 
@@ -17,7 +16,6 @@ const props = withDefaults(defineProps<BaseCarouselProps>(), {
   autoPlay: false,
   bulletList: true,
   autoPlayInterval: 3000,
-  dataTestid: 'carousel',
   ariaLabel: 'Carousel',
 });
 
@@ -84,7 +82,6 @@ onBeforeUnmount(() => stopAutoPlay());
 <template>
   <div
     class="relative w-full overflow-hidden border-2 rounded-md shadow-lg border-rm-secondary"
-    :data-testid="props.dataTestid"
     :aria-label="props.ariaLabel"
   >
     <!--Black Filter-->
@@ -108,7 +105,6 @@ onBeforeUnmount(() => stopAutoPlay());
       spacing-size="custom"
       variant="primary"
       aria-label="Previous"
-      data-testid="carousel-prev"
       class="absolute transform -translate-y-1/2 top-1/2 z-rm-base-3"
       :class="[
         styleStore.elementTotalPaddingXS,
@@ -130,7 +126,6 @@ onBeforeUnmount(() => stopAutoPlay());
       spacing-size="custom"
       variant="primary"
       aria-label="Next"
-      data-testid="carousel-next"
       class="absolute transform -translate-y-1/2 top-1/2 z-rm-base-3"
       :class="[
         styleStore.elementTotalPaddingXS,

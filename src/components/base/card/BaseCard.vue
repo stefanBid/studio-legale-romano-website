@@ -7,7 +7,6 @@ interface BaseCardProps {
   title?: string;
   textContent?: string;
   ariaLabel?: string;
-  dataTestid?: string;
 }
 
 // stores declaration
@@ -18,14 +17,12 @@ const props = withDefaults(defineProps<BaseCardProps>(), {
   contentType: 'default',
   title: undefined,
   textContent: undefined,
-  dataTestid: 'base-card',
   ariaLabel: 'general card',
 });
 </script>
 
 <template>
   <div
-    :data-testid="props.dataTestid"
     :aria-label="props.ariaLabel"
     class="flex flex-col bg-white border-2 rounded-md shadow-lg border-rm-secondary"
   >

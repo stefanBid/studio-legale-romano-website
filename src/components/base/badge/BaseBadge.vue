@@ -7,7 +7,6 @@ interface BaseBadgeProps {
   iconSize?: 'medium' | 'small';
   textContent?: string;
   ariaLabel?: string;
-  dataTestid?: string;
 }
 
 // stores declaration
@@ -16,14 +15,12 @@ const styleStore = useStyleStore();
 const props = withDefaults(defineProps<BaseBadgeProps>(), {
   iconSize: 'medium',
   textContent: undefined,
-  dataTestid: 'base-badge',
   ariaLabel: 'general badge',
 });
 </script>
 
 <template>
   <div
-    :data-testid="props.dataTestid"
     :aria-label="props.ariaLabel"
     class="flex bg-white border-2 rounded-md shadow-lg border-rm-secondary"
   >

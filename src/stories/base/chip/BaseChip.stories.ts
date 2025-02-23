@@ -27,12 +27,6 @@ const meta = {
         options: ['main', 'secondary'],
       },
     },
-    dataTestid: {
-      description: 'The chip data-testid attribute',
-      control: {
-        type: 'text',
-      },
-    },
     ariaLabel: {
       description: 'The chip aria-label attribute',
       control: {
@@ -42,7 +36,6 @@ const meta = {
   },
   args: {
     text: 'Chip text',
-    dataTestid: 'chip-test',
     ariaLabel: 'chip',
   },
 } satisfies Meta<typeof BaseChip>;

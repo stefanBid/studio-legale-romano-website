@@ -123,7 +123,6 @@ const getGeneralityData = computed(() => {
             :key="cta.id"
             class="w-36"
             :aria-label="cta.content"
-            :data-testid="cta.id"
             :icon="cta.icon"
             variant="secondary"
             content-size="small"

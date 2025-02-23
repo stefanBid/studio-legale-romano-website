@@ -34,12 +34,6 @@ const meta = {
         type: 'text',
       },
     },
-    dataTestid: {
-      description: 'The badge data-testid attribute',
-      control: {
-        type: 'text',
-      },
-    },
     ariaLabel: {
       description: 'The badge aria-label attribute',
       control: {
@@ -49,7 +43,6 @@ const meta = {
   },
   args: {
     icon: TagIcon,
-    dataTestid: 'badge-test',
     ariaLabel: 'badge',
   },
 } satisfies Meta<typeof BaseBadge>;

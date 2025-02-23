@@ -38,12 +38,6 @@ const meta = {
         type: 'boolean',
       },
     },
-    dataTestid: {
-      description: 'The profile image box data-testid attribute',
-      control: {
-        type: 'text',
-      },
-    },
     ariaLabel: {
       description: 'The profile image box aria-label attribute',
       control: {
@@ -54,7 +48,6 @@ const meta = {
   args: {
     name: 'John',
     surname: 'Doe',
-    dataTestid: 'profile-image-box-test',
     ariaLabel: 'profile-image-box',
   },
 } satisfies Meta<typeof BaseProfileImageBox>;

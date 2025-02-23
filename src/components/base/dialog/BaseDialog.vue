@@ -5,7 +5,6 @@ import { BaseButton } from '@/components';
 import { useStyleStore } from '@/stores';
 
 interface BaseDialogProps {
-  dataTestid?: string;
   isOpen: boolean;
   headerOrientation?: 'left' | 'center' | 'right';
   dialogSize?: 'small' | 'medium' | 'large';
@@ -15,7 +14,6 @@ interface BaseDialogProps {
 }
 
 const props = withDefaults(defineProps<BaseDialogProps>(), {
-  dataTestid: 'base-dialog',
   dialogSize: 'large',
   blockDialogHeight: false,
   dialogTitle: undefined,
@@ -59,7 +57,6 @@ const handleCloseModal = (): void => {
               'py-4': styleStore.activeBreakpoint === 'sm' || styleStore.activeBreakpoint === 'xs',
             },
           ]"
-          :data-testid="`${props.dataTestid}-overlay`"
           class="flex items-center justify-center h-screen transition-all duration-300 ease-in-out"
         >
           <TransitionChild
@@ -72,7 +69,6 @@ const handleCloseModal = (): void => {
             leave-to="opacity-0 scale-95"
           >
             <DialogPanel
-              :data-testid="`${props.dataTestid}-panel`"
               :class="[
                 styleStore.elementTotalPaddingM,
                 {
@@ -99,7 +95,6 @@ const handleCloseModal = (): void => {
             >
               <div class="flex justify-between overflow-hidden cursor-default shrink-0 gap-x-6">
                 <div
-                  :data-testid="`${props.dataTestid}-header-title`"
                   :class="{
                     'text-left': props.headerOrientation === 'left',
                     'text-center': props.headerOrientation === 'center',
@@ -117,7 +112,6 @@ const handleCloseModal = (): void => {
                   </h3>
                 </div>
                 <BaseButton
-                  :data-testid="`${props.dataTestid}-close-button`"
                   class="border border-transparent rounded-md text-rm-main w-fit h-fit hover:rotate-90 focus-visible:border-rm-main"
                   :aria-label="`close ${props.dialogTitle} modal`"
                   :icon="XMarkIcon"

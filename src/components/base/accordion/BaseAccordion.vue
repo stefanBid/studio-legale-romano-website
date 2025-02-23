@@ -7,13 +7,11 @@ import { ref, watch } from 'vue';
 interface BaseAccordionProps {
   externalOpen?: boolean;
   id?: string;
-  dataTestid?: string;
 }
 
 const props = withDefaults(defineProps<BaseAccordionProps>(), {
   externalOpen: undefined,
   id: 'base-accordion-id',
-  dataTestid: 'base-accordion',
 });
 
 // Store Declarations
@@ -43,7 +41,6 @@ watch(
       spacing-size="medium"
       content-size="custom"
       variant="custom"
-      :data-testid="`${props.dataTestid}-button`"
       :class="{
         'hover:bg-rm-main/20 focus-visible:bg-rm-main/20': !isAccordionOpen,
         'bg-rm-main/20': isAccordionOpen,
@@ -64,7 +61,6 @@ watch(
     <transition name="stretch">
       <div
         v-if="isAccordionOpen"
-        :data-testid="`${props.dataTestid}-content`"
         :class="[styleStore.elementTotalPaddingM]"
         class="w-full transition-all duration-300 ease-in-out bg-white shadow-lg"
       >

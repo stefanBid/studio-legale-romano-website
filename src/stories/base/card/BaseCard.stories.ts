@@ -46,12 +46,6 @@ const meta = {
         type: 'text',
       },
     },
-    dataTestid: {
-      description: 'The card data-testid attribute',
-      control: {
-        type: 'text',
-      },
-    },
     ariaLabel: {
       description: 'The card aria-label attribute',
       control: {
@@ -60,7 +54,6 @@ const meta = {
     },
   },
   args: {
-    dataTestid: 'card-test',
     ariaLabel: 'card',
   },
 } satisfies Meta<typeof BaseCard>;

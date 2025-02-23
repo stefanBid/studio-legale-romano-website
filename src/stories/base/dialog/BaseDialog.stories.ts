@@ -34,13 +34,6 @@ const meta = {
         type: 'boolean',
       },
     },
-    dataTestid: {
-      description: 'The dialog data-testid attribute',
-      control: {
-        type: 'text',
-      },
-    },
-
     onCloseModal: {
       description: 'The dialog close event',
       action: 'close',
@@ -49,7 +42,6 @@ const meta = {
   args: {
     isOpen: false,
     onCloseModal: () => {},
-    dataTestid: 'dialog-test',
   },
 } satisfies Meta<typeof BaseDialog>;
 
@@ -63,8 +55,17 @@ export const DefaultDialog: Story = {
     dialogSize: 'medium',
     blockDialogHeight: false,
   },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  render: ({ isOpen, onCloseModal, ...filteredArgs }) => ({
+
+  render: ({
+    _,
+    __,
+    ...filteredArgs
+  }: {
+    isOpen: boolean;
+    onCloseModal: () => void;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    [key: string]: any;
+  }) => ({
     components: { BaseDialog, BaseButton },
     setup() {
       const open = ref(false);

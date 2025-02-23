@@ -10,7 +10,6 @@ interface BaseprofileImageBoxProps {
   type?: 'circle' | 'square';
   ciustomSize?: boolean;
   ariaLabel?: string;
-  dataTestid?: string;
 }
 
 const props = withDefaults(defineProps<BaseprofileImageBoxProps>(), {
@@ -18,7 +17,6 @@ const props = withDefaults(defineProps<BaseprofileImageBoxProps>(), {
   type: 'circle',
   ciustomSize: false,
   ariaLabel: 'profile-image-box',
-  dataTestid: 'base-profile-image-box',
 });
 
 // Store Declarations

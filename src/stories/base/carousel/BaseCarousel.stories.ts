@@ -42,12 +42,6 @@ const meta = {
         type: 'number',
       },
     },
-    dataTestid: {
-      description: 'The carousel data-testid attribute',
-      control: {
-        type: 'text',
-      },
-    },
     ariaLabel: {
       description: 'The carousel aria-label attribute',
       control: {
@@ -58,7 +52,6 @@ const meta = {
   args: {
     'carousel-item': createSlotComponent(),
     numberOfItems: 3,
-    dataTestid: 'carousel-test',
     ariaLabel: 'carousel',
   },
 } satisfies Meta<typeof BaseCarousel>;

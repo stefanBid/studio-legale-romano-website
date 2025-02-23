@@ -6,13 +6,11 @@ interface BaseChipProps {
   icon?: FunctionalComponent | Component | string;
   variant?: 'main' | 'secondary';
   ariaLabel?: string;
-  dataTestid?: string;
 }
 const props = withDefaults(defineProps<BaseChipProps>(), {
   icon: undefined,
   variant: 'main',
   ariaLabel: 'general chip',
-  dataTestid: 'base-chip',
 });
 
 // Store Declarations
@@ -21,7 +19,6 @@ const styleStore = useStyleStore();
 
 <template>
   <span
-    :data-testid="props.dataTestid"
     :aria-label="props.ariaLabel"
     :class="{
       'bg-rm-main text-rm-secondary': props.variant === 'main',
