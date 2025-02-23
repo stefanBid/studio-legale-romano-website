@@ -31,7 +31,7 @@ const props = withDefaults(defineProps<BaseBadgeProps>(), {
       <component
         :is="props.icon"
         :class="[props.iconSize === 'medium' ? styleStore.iconSizeL : styleStore.iconSizeM]"
-        class="text-white"
+        class="text-white transition-all duration-300 ease-in-out"
       />
     </div>
     <div class="flex items-center justify-center flex-1 w-full">

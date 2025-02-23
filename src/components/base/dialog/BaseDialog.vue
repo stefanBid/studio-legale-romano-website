@@ -120,7 +120,9 @@ const handleCloseModal = (): void => {
                   spacing-size="custom"
                   @click.stop="handleCloseModal"
                   @keydown.enter.stop="handleCloseModal"
-                />
+                >
+                  <span class="sr-only">Close</span>
+                </BaseButton>
               </div>
               <slot name="modal-content"></slot>
             </DialogPanel>
