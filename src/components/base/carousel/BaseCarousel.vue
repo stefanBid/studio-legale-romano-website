@@ -120,9 +120,7 @@ onBeforeUnmount(() => stopAutoPlay());
       :icon="ChevronLeftIcon"
       @click.stop="prev()"
       @keydown.enter.stop="prev()"
-    >
-      <span class="sr-only">Previous</span>
-    </BaseButton>
+    />
     <BaseButton
       content-size="medium"
       spacing-size="custom"
@@ -143,9 +141,7 @@ onBeforeUnmount(() => stopAutoPlay());
       :icon="ChevronRightIcon"
       @click.stop="next()"
       @keydown.enter.stop="next()"
-    >
-      <span class="sr-only">Next</span>
-    </BaseButton>
+    />
     <!--Bullet List-->
     <div
       v-if="props.navigationDots"
@@ -183,9 +179,7 @@ onBeforeUnmount(() => stopAutoPlay());
         ]"
         @click.stop="goTo(index - 1)"
         @keydown.enter.stop="goTo(index - 1)"
-      >
-        <span class="sr-only">Slide {{ index }}</span>
-      </BaseButton>
+      />
     </div>
   </div>
 </template>
