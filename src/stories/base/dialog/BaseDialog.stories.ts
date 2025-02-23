@@ -62,7 +62,7 @@ export const DefaultDialog: Story = {
     ...filteredArgs
   }: {
     isOpen: boolean;
-    onCloseModal: () => void;
+    onCloseModal: (falsyValue: false) => void;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [key: string]: any;
   }) => ({
