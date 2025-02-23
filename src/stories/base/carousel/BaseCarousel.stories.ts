@@ -11,7 +11,7 @@ const createSlotComponent = (): VNode => {
     },
     [
       h('img', {
-        src: 'https://picsum.photos/2000/500',
+        src: 'https://picsum.photos/id/237/3000/300',
         alt: 'placeholder',
         class: 'object-cover w-full h-full',
       }),

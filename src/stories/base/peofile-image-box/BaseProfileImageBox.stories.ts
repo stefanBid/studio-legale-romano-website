@@ -73,7 +73,7 @@ export const WithAvatarProfileImageBox: Story = {
   args: {
     ...meta.args,
     avatar: {
-      imageUrl: 'https://picsum.photos/200/300',
+      imageUrl: 'https://picsum.photos/id/237/200/300',
       alt: 'John Doe',
     },
   },
