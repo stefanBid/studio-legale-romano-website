@@ -20,7 +20,7 @@ onMounted(() => {
 
   // Custom icon for the office location
   const customIcon = L.icon({
-    iconUrl: '/public/map-logo.svg',
+    iconUrl: '/map-logo.svg',
     iconSize: [50, 50], // Dimensione dell'icona in pixel
     iconAnchor: [25, 50], // Punto di ancoraggio (centro alla base)
     popupAnchor: [0, -50], // Posizione del popup rispetto al marker

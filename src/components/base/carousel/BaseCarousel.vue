@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onBeforeUnmount, defineProps, watch } from 'vue';
+import { ref, onBeforeUnmount, watch } from 'vue';
 import { useStyleStore } from '@/stores';
 import { BaseButton } from '@/components';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/24/outline';
