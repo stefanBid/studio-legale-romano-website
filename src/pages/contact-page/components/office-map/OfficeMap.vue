@@ -29,7 +29,9 @@ onMounted(() => {
   // Add a marker to the map for the office location
   L.marker(officeLocation, { icon: customIcon })
     .addTo(map.value)
-    .bindPopup('<strong>Studio Legale Romano</strong><br>Via Partenio, 56, Avellino')
+    .bindPopup(
+      '<a href="https://maps.app.goo.gl/owcGowBbw1GumvNNA" target="_blank" class="!text-rm-main !font-lora !text-center flex flex-col justify-center items-center hover:!text-rm-secondary focus-visible:!text-rm-secondary transition-all duration-300 ease-in-out"><strong>Studio Legale Romano</strong><span class="block !text-center">Via Partenio, 56, Avellino</span></a>',
+    )
     .openPopup();
 });
 
