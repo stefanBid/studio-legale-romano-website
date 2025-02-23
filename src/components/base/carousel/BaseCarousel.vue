@@ -7,14 +7,14 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/24/outline';
 interface BaseCarouselProps {
   numberOfItems: number;
   autoPlay?: boolean;
-  bulletList?: boolean;
+  navigationDots?: boolean;
   autoPlayInterval?: number;
   ariaLabel?: string;
 }
 
 const props = withDefaults(defineProps<BaseCarouselProps>(), {
   autoPlay: false,
-  bulletList: true,
+  navigationDots: true,
   autoPlayInterval: 3000,
   ariaLabel: 'Carousel',
 });
@@ -144,6 +144,7 @@ onBeforeUnmount(() => stopAutoPlay());
     />
     <!--Bullet List-->
     <div
+      v-if="props.navigationDots"
       :class="{
         'bottom-4':
           styleStore.activeBreakpoint !== 'xs' &&

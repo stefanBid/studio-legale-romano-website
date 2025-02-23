@@ -30,6 +30,12 @@ const meta = {
         type: 'number',
       },
     },
+    navigationDots: {
+      description: 'Whether to show the navigation dots',
+      control: {
+        type: 'boolean',
+      },
+    },
     autoPlay: {
       description: 'Whether the carousel should auto-play',
       control: {
@@ -70,5 +76,12 @@ export const AutoPlayCarousel: Story = {
     ...meta.args,
     autoPlay: true,
     autoPlayInterval: 3000,
+  },
+};
+
+export const NavigationDotsCarousel: Story = {
+  args: {
+    ...meta.args,
+    navigationDots: true,
   },
 };
