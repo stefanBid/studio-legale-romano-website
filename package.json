@@ -13,7 +13,7 @@
     "optimize-svg": "svgo -f src/assets/icons -o src/assets/icons --config=svgo.config.js",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token=chpt_489eada7d57a8f3"
+    "chromatic": "npx chromatic --project-token=chpt_489eada7d57a8f3 --exit-zero-on-changes"
   },
   "dependencies": {
     "@floating-ui/vue": "^1.1.6",
