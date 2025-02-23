@@ -38,11 +38,9 @@ const styleStore = useStyleStore();
     :type="props.type"
     :disabled="props.disabled || props.loading"
     :aria-label="props.ariaLabel"
-    class="inline-flex items-center justify-center gap-2 font-bold transition-all duration-300 ease-in-out rounded outline-none ring-0 focus-visible:ring-0 font-playfair"
+    class="inline-flex items-center justify-center gap-2 transition-all duration-300 ease-in-out rounded outline-none ring-0 focus-visible:ring-0 group"
     :tabindex="props.disabled || props.loading ? -1 : 0"
     :class="[
-      props.contentSize === 'medium' ? styleStore.textSizeS : undefined,
-      props.contentSize === 'small' ? styleStore.textSizeXS : undefined,
       {
         'px-6 py-4':
           props.spacingSize === 'medium' &&
@@ -66,22 +64,40 @@ const styleStore = useStyleStore();
           (styleStore.activeBreakpoint === 'sm' || styleStore.activeBreakpoint === 'xs'),
       },
       {
-        'bg-rm-secondary text-rm-main border border-rm-secondary hover:text-rm-secondary hover:border-white hover:bg-white focus-visible:text-rm-secondary focus-visible:border-white focus-visible:bg-white':
+        'bg-rm-secondary border border-rm-secondary hover:border-white hover:bg-white  focus-visible:border-white focus-visible:bg-white':
           props.variant === 'primary',
-        'bg-rm-secondary text-rm-main border border-rm-secondary hover:text-rm-secondary hover:border-rm-main hover:bg-rm-main focus-visible:text-rm-secondary focus-visible:border-rm-main focus-visible:bg-rm-main':
+        'bg-rm-secondary border border-rm-secondary hover:border-rm-main hover:bg-rm-main  focus-visible:border-rm-main focus-visible:bg-rm-main':
           props.variant === 'secondary',
         'pointer-events-none opacity-50': props.disabled || props.loading,
+        'cursor-pointer': !props.disabled && !props.loading,
       },
     ]"
   >
-    <slot></slot>
+    <span
+      v-if="$slots.default"
+      class="flex-1 font-bold transition-all duration-300 ease-in-out font-playfair"
+      :class="[
+        props.contentSize === 'medium' ? styleStore.textSizeS : undefined,
+        props.contentSize === 'small' ? styleStore.textSizeXS : undefined,
+        {
+          'text-rm-main group-hover:text-rm-secondary group-focus-visible:text-rm-secondary':
+            props.variant !== 'custom',
+        },
+      ]"
+    >
+      <slot></slot>
+    </span>
     <component
       :is="props.loading ? ArrowPathIcon : props.icon"
-      class="shrink-0"
+      class="transition-all duration-300 ease-in-out shrink-0"
       :class="[
         props.contentSize === 'medium' ? styleStore.iconSizeM : undefined,
         props.contentSize === 'small' ? styleStore.iconSizeS : undefined,
-        { 'animate-spin': props.loading },
+        {
+          'text-rm-main group-hover:text-rm-secondary group-focus-visible:text-rm-secondary':
+            props.variant !== 'custom',
+          'animate-spin': props.loading,
+        },
       ]"
     />
   </button>

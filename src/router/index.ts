@@ -37,6 +37,23 @@ const routes = [
       ),
   },
   {
+    path: '/privacy-policy',
+    name: 'privacyPolicyPage',
+    component: () =>
+      import(
+        /* webpackPrefetch: true, webpackPreload: true */ '@/pages/privacy-policy-page/PrivacyPolicyPage.vue'
+      ),
+  },
+
+  {
+    path: '/terms-and-conditions',
+    name: 'termsAndConditionsPage',
+    component: () =>
+      import(
+        /* webpackPrefetch: true, webpackPreload: true */ '@/pages/terms-and-conditions-page/TermsAndConditionsPage.vue'
+      ),
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'notFoundPage',
     component: () =>

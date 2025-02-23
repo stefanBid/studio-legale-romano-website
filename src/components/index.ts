@@ -6,6 +6,7 @@ export { default as BaseBadge } from '@/components/base/badge/BaseBadge.vue';
 export { default as BaseButton } from '@/components/base/button/BaseButton.vue';
 export { default as BaseElementsContainer } from '@/components/base/elements-container/BaseElementsContainer.vue';
 export { default as BaseCard } from '@/components/base/card/BaseCard.vue';
+export { default as BaseCarousel } from '@/components/base/carousel/BaseCarousel.vue';
 export { default as BaseChip } from '@/components/base/chip/BaseChip.vue';
 export { default as BaseDialog } from '@/components/base/dialog/BaseDialog.vue';
 export { default as BaseProfileImageBox } from '@/components/base/profile-image-box/BaseProfileImageBox.vue';

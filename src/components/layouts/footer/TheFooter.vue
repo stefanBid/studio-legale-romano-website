@@ -82,8 +82,8 @@ const i18nStore = useI18nStore();
             v-for="social in i18nStore.footerI18nContent.intro.socials"
             :key="social.id"
             :tabindex="0"
-            :class="[styleStore.iconSizeS]"
-            class="text-white transition-all duration-300 ease-in-out outline-none hover:text-rm-secondary focus-visible:text-rm-secondary ring-0 focus-visible:ring-0 focus-visible:outline-none"
+            :class="[styleStore.iconSizeS, { 'pointer-events-none opacity-50': true }]"
+            class="text-white transition-all duration-300 ease-in-out outline-none cursor-pointer hover:text-rm-secondary focus-visible:text-rm-secondary ring-0 focus-visible:ring-0 focus-visible:outline-none"
             @click.stop="openLink(social.value)"
             @keypress.enter.stop="openLink(social.value)"
           />

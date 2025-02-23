@@ -57,7 +57,7 @@ onMounted(() => {
                 v-for="item in i18nStore.performancePageI18nContent.index.items"
                 :key="item.shortcutId"
                 tabindex="0"
-                class="transition-all duration-300 ease-in-out cursor-pointer outline-none ring-0 w-fit hover:text-rm-secondary hover:underline focus-visible:text-rm-secondary focus-visible:underline focus-visible:ring-0"
+                class="transition-all duration-300 ease-in-out outline-none cursor-pointer ring-0 w-fit hover:text-rm-secondary hover:underline focus-visible:text-rm-secondary focus-visible:underline focus-visible:ring-0"
                 @click.stop="scrollToElement(item.shortcutId.slice(1))"
                 @keypress.enter.stop="scrollToElement(item.shortcutId.slice(1))"
               >
@@ -89,7 +89,7 @@ onMounted(() => {
             <div class="flex items-center w-full gap-2">
               <BookOpenIcon
                 :class="[styleStore.iconSizeM]"
-                class="transition-all duration-300 ease-in-out text-rm-secondary shrink-0 text-kl-icon"
+                class="transition-all duration-300 ease-in-out text-rm-secondary shrink-0"
               />
               <h2
                 :class="[styleStore.textSizeL]"

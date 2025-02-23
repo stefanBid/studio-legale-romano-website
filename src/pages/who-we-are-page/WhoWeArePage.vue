@@ -8,6 +8,7 @@ import {
   BaseElementsContainer,
   BaseDialog,
   BaseProfileImageBox,
+  BaseCarousel,
 } from '@/components';
 import { UserCircleIcon, EnvelopeIcon, DocumentArrowDownIcon } from '@heroicons/vue/24/solid';
 import ProfileCard from './components/ProfileCard.vue';
@@ -156,6 +157,30 @@ const handleCloseDialogProfile = (falsyValue: boolean): void => {
             {{ i18nStore.whoWeArePageI18nContent.office.description }}
           </p>
         </div>
+        <BaseElementsContainer>
+          <BaseCarousel :number-of-items="10" auto-play>
+            <template #carousel-item>
+              <div
+                :class="{
+                  'h-[400px]':
+                    styleStore.activeBreakpoint !== 'xs' &&
+                    styleStore.activeBreakpoint !== 'sm' &&
+                    styleStore.activeBreakpoint !== 'md',
+                  'h-[375px]': styleStore.activeBreakpoint === 'md',
+                  'h-[300px]':
+                    styleStore.activeBreakpoint === 'sm' || styleStore.activeBreakpoint === 'xs',
+                }"
+                class="flex w-full transition-all duration-300 ease-in-out"
+              >
+                <img
+                  class="object-cover w-full h-full"
+                  src="https://picsum.photos/3000"
+                  alt="placeholder"
+                />
+              </div>
+            </template>
+          </BaseCarousel>
+        </BaseElementsContainer>
       </div>
     </template>
   </ThePageContainer>
