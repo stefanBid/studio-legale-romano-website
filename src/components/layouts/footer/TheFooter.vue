@@ -165,7 +165,7 @@ const i18nStore = useI18nStore();
                 styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
             },
           ]"
-          class="inline-flex items-center gap-2 text-white transition-all duration-300 ease-in-out font-lora"
+          class="inline-flex items-center gap-1 text-white transition-all duration-300 ease-in-out font-lora"
         >
           <component
             :is="CONTACT_CHANNEL_ICONS[channel.id]"
