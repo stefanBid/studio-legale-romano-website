@@ -2,16 +2,32 @@
 import 'leaflet/dist/leaflet.css';
 import L, { type LatLngTuple } from 'leaflet'; // Import Leaflet library
 import { onMounted, ref } from 'vue';
+import { openLink } from '@/utils';
 import { BaseButton } from '@/components';
-import { LockOpenIcon, LockClosedIcon } from '@heroicons/vue/24/outline';
+import { LockOpenIcon, LockClosedIcon, MapIcon } from '@heroicons/vue/24/outline';
+
+interface OfficeMapProps {
+  latCoordinate: number;
+  lngCoordinate: number;
+  zoomLevel?: number;
+  googleMapsLink: string;
+  pointIconPublicPath: string;
+}
+
+const props = withDefaults(defineProps<OfficeMapProps>(), {
+  zoomLevel: 15,
+});
 
 // Feature 1: Office Location
-const officeLocation: LatLngTuple = [40.9150884, 14.79021];
+const officeLocation: LatLngTuple = [props.latCoordinate, props.lngCoordinate];
 const map = ref<L.Map>();
 
 onMounted(() => {
   // Initialize the map and set its center to the office location with a zoom level of 15
-  map.value = L.map('office-map', { scrollWheelZoom: false }).setView(officeLocation, 19);
+  map.value = L.map('office-map', { scrollWheelZoom: false }).setView(
+    officeLocation,
+    props.zoomLevel,
+  );
 
   // Add OpenStreetMap tiles as the map layer
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -20,7 +36,7 @@ onMounted(() => {
 
   // Custom icon for the office location
   const customIcon = L.icon({
-    iconUrl: '/map-logo.svg',
+    iconUrl: props.pointIconPublicPath,
     iconSize: [50, 50], // Dimensione dell'icona in pixel
     iconAnchor: [25, 50], // Punto di ancoraggio (centro alla base)
     popupAnchor: [0, -50], // Posizione del popup rispetto al marker
@@ -30,7 +46,7 @@ onMounted(() => {
   L.marker(officeLocation, { icon: customIcon })
     .addTo(map.value)
     .bindPopup(
-      '<a href="https://maps.app.goo.gl/owcGowBbw1GumvNNA" target="_blank" class="!text-rm-main !font-lora !text-center flex flex-col justify-center items-center hover:!text-rm-secondary focus-visible:!text-rm-secondary transition-all duration-300 ease-in-out"><strong>Studio Legale Romano</strong><span class="block !text-center">Via Partenio, 56, Avellino</span></a>',
+      '<span class="!text-rm-main !font-lora !text-center flex flex-col justify-center items-center transition-all duration-300 ease-in-out"><strong>Studio Legale Romano</strong><span class="block !text-center">Via Partenio, 56, Avellino</span></span>',
     )
     .openPopup();
 });
@@ -63,19 +79,25 @@ const handleManageScroll = (): void => {
       id="office-map"
       class="absolute rounded-md w-full h-[400px] z-rm-base-1 border-rm-secondary border-2 focus-visible:outline-rm-secondary"
     ></div>
-    <transition name="fade">
-      <div
-        v-if="showEnableScrollPanel"
-        id="scroll-panel"
-        class="absolute flex flex-col items-end justify-start w-fit bg-transparent z-rm-base-2 right-2.5 top-2.5 bottom-2-5 h-fit"
-      >
+    <div
+      id="extra-panel"
+      class="absolute gap-2 flex flex-col items-end justify-start w-fit bg-transparent z-rm-base-2 right-2.5 top-2.5 bottom-2-5 h-fit transition-all duration-300 ease-in-out"
+    >
+      <BaseButton
+        content-size="small"
+        spacing-size="small"
+        :icon="MapIcon"
+        @click="openLink(props.googleMapsLink)"
+      />
+      <transition name="fade">
         <BaseButton
+          v-if="showEnableScrollPanel"
           content-size="small"
           spacing-size="small"
           :icon="isScrollEnabled ? LockOpenIcon : LockClosedIcon"
           @click="handleManageScroll"
         />
-      </div>
-    </transition>
+      </transition>
+    </div>
   </div>
 </template>

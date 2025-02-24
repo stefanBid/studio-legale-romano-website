@@ -31,14 +31,14 @@ const props = withDefaults(defineProps<BaseBadgeProps>(), {
       <component
         :is="props.icon"
         :class="[props.iconSize === 'medium' ? styleStore.iconSizeL : styleStore.iconSizeM]"
-        class="text-white transition-all duration-300 ease-in-out"
+        class="text-white no-underline transition-all duration-300 ease-in-out"
       />
     </div>
     <div class="flex items-center justify-center flex-1 w-full">
       <p
         v-if="props.textContent"
         :class="[styleStore.textSizeS]"
-        class="text-justify truncate transition-all duration-300 ease-in-out font-lora"
+        class="text-justify no-underline truncate transition-all duration-300 ease-in-out font-lora"
       >
         {{ props.textContent }}
       </p>

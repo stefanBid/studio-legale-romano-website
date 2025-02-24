@@ -294,7 +294,13 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
               styleStore.activeBreakpoint !== 'md',
           }"
         >
-          <OfficeMap />
+          <OfficeMap
+            :lat-coordinate="40.9150884"
+            :lng-coordinate="14.79021"
+            :zoom-level="19"
+            google-maps-link="https://maps.app.goo.gl/owcGowBbw1GumvNNA"
+            point-icon-public-path="/map-logo.svg"
+          />
         </BaseElementsContainer>
       </div>
 
@@ -340,7 +346,7 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
               :class="{
                 'grayscale pointer-events-none opacity-40': index >= 3,
               }"
-              class="transition-all duration-300 ease-in-out hover:cursor-pointer hover:scale-105"
+              class="no-underline transition-all duration-300 ease-in-out hover:cursor-pointer hover:scale-105"
               :icon="CONTACT_CHANNEL_ICONS[channel.id]"
               icon-size="small"
               :text-content="channel.value"
