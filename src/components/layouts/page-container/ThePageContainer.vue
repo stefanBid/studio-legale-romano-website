@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { ref } from 'vue';
 import { useStyleStore } from '@/stores';
 
 interface PageContainerProps {
@@ -19,10 +19,6 @@ const styleStore = useStyleStore();
 
 // Feature 1: Transition
 const show = ref(false);
-
-onMounted(() => {
-  show.value = true;
-});
 </script>
 
 <template>
@@ -41,13 +37,14 @@ onMounted(() => {
             styleStore.activeBreakpoint === 'sm' || styleStore.activeBreakpoint === 'xs',
         },
       ]"
-      class="relative flex flex-col items-center justify-center pt-20 transition-all duration-300 ease-in-out"
+      class="relative flex flex-col items-center justify-center pt-20 transition-all duration-300 ease-in-out bg-rm-secondary"
     >
       <!-- Overlay -->
       <div class="absolute inset-0 bg-rm-main z-rm-base-1 opacity-55"></div>
       <img
         :src="props.introCover.imgPath"
         class="absolute inset-0 object-cover object-center w-full h-full pointer-events-none"
+        @load="show = true"
       />
       <div
         class="absolute inset-0 flex w-full h-full pt-20 z-rm-base-2"
