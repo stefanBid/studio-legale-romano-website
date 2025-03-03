@@ -21,11 +21,17 @@ const props = withDefaults(defineProps<PageContainerProps>(), {
 const styleStore = useStyleStore();
 
 // Feature 1: Transition
+const imageRef = ref<HTMLImageElement | null>(null);
 const isImageLoaded = ref(false);
 const show = ref(false);
 
 onMounted(() => {
   show.value = true;
+  if (imageRef.value) {
+    imageRef.value.onload = () => {
+      isImageLoaded.value = true;
+    };
+  }
 });
 </script>
 
@@ -55,11 +61,11 @@ onMounted(() => {
       >
         <source :srcset="props.introCover.imgPath.webp" type="image/webp" />
         <img
+          ref="imageRef"
           :src="props.introCover.imgPath.jpg"
           class="absolute inset-0 object-cover object-center w-full h-full pointer-events-none"
           loading="lazy"
           decoding="async"
-          @load="isImageLoaded = true"
         />
       </picture>
       <transition name="scale-and-fade-slow">

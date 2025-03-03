@@ -18,10 +18,16 @@ titleStore.setTitleSuffix('Home');
 
 // Feature 2: Manage effects
 const show = ref(false);
+const imageRef = ref<HTMLImageElement | null>(null);
 const isImageLoaded = ref(false);
 
 onMounted(() => {
   show.value = true;
+  if (imageRef.value) {
+    imageRef.value.onload = () => {
+      isImageLoaded.value = true;
+    };
+  }
 });
 </script>
 
@@ -34,12 +40,12 @@ onMounted(() => {
     >
       <source :srcset="IMAGES.homePageCoverImg.webp" type="image/webp" />
       <img
+        ref="imageRef"
         :src="IMAGES.homePageCoverImg.jpg"
         class="absolute inset-0 object-cover object-center w-full h-full pointer-events-none"
         alt="Home Page Cover"
         loading="lazy"
         decoding="async"
-        @load="isImageLoaded = true"
       />
     </picture>
     <!-- Overlay -->
