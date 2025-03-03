@@ -5,13 +5,14 @@ type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 type NotificationCategory = 'info' | 'success' | 'error';
 type Locale = 'it';
 type IconsName = 'LogoIcon' | 'InstagramIcon' | 'FacebookIcon' | 'TwitterIcon';
-type MediaName =
+type ImageName =
   | 'contactPageCoverImg'
   | 'homePageCoverImg'
   | 'performancePageCoverImg'
   | 'whoWeArePageCoverImg'
-  | 'antonioRomanoCvDoc'
   | 'accordionTestImg';
+
+type DocName = 'antonioRomanoCvDoc';
 type ExternalOperation = 'openLink' | 'sendEmail' | 'sendWhatsAppMessage' | 'callNumber';
 type ExternalMessageInfo =
   | 'legalConsultation'
@@ -201,7 +202,7 @@ interface ContactPageContent {
 /** WHO WE ARE PAGE **/
 interface Member {
   id: string;
-  idDoc?: MediaName;
+  idDoc?: DocName;
   imagePath?: string;
   name: string;
   surname: string;
@@ -237,7 +238,8 @@ export type {
   Breakpoint,
   Locale,
   IconsName,
-  MediaName,
+  ImageName,
+  DocName,
   ExternalOperation,
   ExternalMessageInfo,
   NotificationCategory,

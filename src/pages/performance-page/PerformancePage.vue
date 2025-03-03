@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
 import { BookOpenIcon, BookmarkIcon } from '@heroicons/vue/24/solid';
-import { MEDIA } from '@/constants';
+import { IMAGES } from '@/constants';
 import { useStyleStore, useTitleStore, useI18nStore } from '@/stores';
 import { BaseAccordion, BaseElementsContainer, ThePageContainer, BaseBadge } from '@/components';
 import { scrollToElement, stringPurifier } from '@/utils';
@@ -32,7 +32,7 @@ onMounted(() => {
     :intro-cover="{
       title: i18nStore.performancePageI18nContent.firstHeading,
       subtitle: i18nStore.performancePageI18nContent.secondHeading,
-      imgPath: MEDIA.performancePageCoverImg,
+      imgPath: IMAGES.performancePageCoverImg,
     }"
   >
     <template #page-content>
@@ -116,11 +116,16 @@ onMounted(() => {
                 <div
                   class="absolute inset-0 m-2 rounded-md bg-rm-main z-rm-base-1 opacity-20"
                 ></div>
-                <img
-                  :src="MEDIA.accordionTestImg"
-                  alt="Descrizione dell'immagine"
-                  class="object-cover object-center w-full h-full rounded-md"
-                />
+                <picture>
+                  <source :srcset="IMAGES.accordionTestImg.webp" type="image/webp" />
+                  <img
+                    :src="IMAGES.accordionTestImg.jpg"
+                    :alt="item.title"
+                    loading="lazy"
+                    decoding="async"
+                    class="object-cover object-center w-full h-full rounded-md"
+                  />
+                </picture>
               </div>
               <p
                 :class="[styleStore.textSizeS, styleStore.firstLetterSize]"

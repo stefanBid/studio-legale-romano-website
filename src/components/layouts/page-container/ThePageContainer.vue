@@ -1,12 +1,15 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useStyleStore } from '@/stores';
 
 interface PageContainerProps {
   introCover?: {
     title: string;
     subtitle?: string;
-    imgPath: string;
+    imgPath: {
+      jpg: string;
+      webp: string;
+    };
   };
 }
 
@@ -18,7 +21,12 @@ const props = withDefaults(defineProps<PageContainerProps>(), {
 const styleStore = useStyleStore();
 
 // Feature 1: Transition
+const isImageLoaded = ref(false);
 const show = ref(false);
+
+onMounted(() => {
+  show.value = true;
+});
 </script>
 
 <template>
@@ -41,18 +49,26 @@ const show = ref(false);
     >
       <!-- Overlay -->
       <div class="absolute inset-0 bg-rm-main z-rm-base-1 opacity-55"></div>
-      <img
-        :src="props.introCover.imgPath"
-        class="absolute inset-0 object-cover object-center w-full h-full pointer-events-none"
-        @load="show = true"
-      />
-      <div
-        class="absolute inset-0 flex w-full h-full pt-20 z-rm-base-2"
-        :class="[styleStore.containerPadding]"
+      <picture
+        :class="{ 'opacity-100': isImageLoaded, 'opacity-0': !isImageLoaded }"
+        class="transition-all duration-300 ease-in-out"
       >
-        <transition name="scale-and-fade-slow">
+        <source :srcset="props.introCover.imgPath.webp" type="image/webp" />
+        <img
+          :src="props.introCover.imgPath.jpg"
+          class="absolute inset-0 object-cover object-center w-full h-full pointer-events-none"
+          loading="lazy"
+          decoding="async"
+          @load="isImageLoaded = true"
+        />
+      </picture>
+      <transition name="scale-and-fade-slow">
+        <div
+          v-if="show"
+          class="absolute inset-0 flex w-full h-full pt-20 z-rm-base-2"
+          :class="[styleStore.containerPadding]"
+        >
           <div
-            v-if="show"
             :class="{
               'gap-y-2.5':
                 styleStore.activeBreakpoint == 'xs' || styleStore.activeBreakpoint == 'sm',
@@ -78,8 +94,8 @@ const show = ref(false);
               {{ props.introCover.subtitle }}
             </h2>
           </div>
-        </transition>
-      </div>
+        </div>
+      </transition>
     </div>
     <div
       class="flex flex-col"

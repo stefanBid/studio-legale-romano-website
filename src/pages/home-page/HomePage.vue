@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import { MEDIA } from '@/constants';
+import { IMAGES } from '@/constants';
 import { useStyleStore, useTitleStore, useI18nStore } from '@/stores';
 import { BaseButton } from '@/components';
 import { useRouter } from 'vue-router';
@@ -18,6 +18,7 @@ titleStore.setTitleSuffix('Home');
 
 // Feature 2: Manage effects
 const show = ref(false);
+const isImageLoaded = ref(false);
 
 onMounted(() => {
   show.value = true;
@@ -27,11 +28,20 @@ onMounted(() => {
 <template>
   <div class="relative w-full h-screen overflow-x-hidden bg-rm-main">
     <!-- Background -->
-    <img
-      :src="MEDIA.homePageCoverImg"
-      class="absolute inset-0 object-cover object-center w-full h-full pointer-events-none"
-    />
-
+    <picture
+      :class="{ 'opacity-100': isImageLoaded, 'opacity-0': !isImageLoaded }"
+      class="transition-all duration-300 ease-in-out"
+    >
+      <source :srcset="IMAGES.homePageCoverImg.webp" type="image/webp" />
+      <img
+        :src="IMAGES.homePageCoverImg.jpg"
+        class="absolute inset-0 object-cover object-center w-full h-full pointer-events-none"
+        alt="Home Page Cover"
+        loading="lazy"
+        decoding="async"
+        @load="isImageLoaded = true"
+      />
+    </picture>
     <!-- Overlay -->
     <div class="absolute inset-0 bg-rm-main z-rm-base-1 opacity-55"></div>
 

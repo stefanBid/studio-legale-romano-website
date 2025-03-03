@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Member } from '@/types';
-import { MEDIA } from '@/constants';
+import { IMAGES, DOCS } from '@/constants';
 import { dowloadFile, sendEmail, stringPurifier } from '@/utils';
 import { useTitleStore, useI18nStore, useStyleStore } from '@/stores';
 import {
@@ -58,7 +58,7 @@ const handleCloseDialogProfile = (falsyValue: boolean): void => {
     :intro-cover="{
       title: i18nStore.whoWeArePageI18nContent.firstHeading,
       subtitle: i18nStore.whoWeArePageI18nContent.secondHeading,
-      imgPath: MEDIA.whoWeArePageCoverImg,
+      imgPath: IMAGES.whoWeArePageCoverImg,
     }"
   >
     <template #page-content>
@@ -132,7 +132,7 @@ const handleCloseDialogProfile = (falsyValue: boolean): void => {
                   content: 'Scarica CV',
                   icon: DocumentArrowDownIcon,
                   onClick: () => {
-                    if (member.idDoc) dowloadFile(`${member.id}-cv`, MEDIA[member.idDoc]);
+                    if (member.idDoc) dowloadFile(`${member.id}-cv`, DOCS[member.idDoc]);
                   },
                 },
               ]"

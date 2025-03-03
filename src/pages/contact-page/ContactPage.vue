@@ -2,7 +2,7 @@
 import { computed } from 'vue';
 import type { ExternalOperation } from '@/types';
 import { useTitleStore, useI18nStore, useStyleStore } from '@/stores';
-import { CONTACT_CHANNEL_ICONS, MEDIA } from '@/constants';
+import { CONTACT_CHANNEL_ICONS, IMAGES } from '@/constants';
 import { openLink, sendEmail, sendWhatsAppMessage } from '@/utils';
 import { ThePageContainer, BaseCard, BaseElementsContainer, BaseBadge } from '@/components';
 import OfficeMap from '@/pages/contact-page/components/office-map/OfficeMap.vue';
@@ -54,7 +54,7 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
     :intro-cover="{
       title: i18nStore.contactPageI18nContent.firstHeading,
       subtitle: i18nStore.contactPageI18nContent.secondHeading,
-      imgPath: MEDIA.contactPageCoverImg,
+      imgPath: IMAGES.contactPageCoverImg,
     }"
   >
     <template #page-content>
