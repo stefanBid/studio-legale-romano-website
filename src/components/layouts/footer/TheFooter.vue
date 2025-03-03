@@ -243,7 +243,16 @@ const i18nStore = useI18nStore();
       >
         <img
           src="/egg.png"
-          :class="[styleStore.iconSizeXS]"
+          :class="{
+            'w-4 h-[19px]':
+              styleStore.activeBreakpoint !== 'xs' &&
+              styleStore.activeBreakpoint !== 'sm' &&
+              styleStore.activeBreakpoint !== 'md',
+            'w-3 h-[14px]':
+              styleStore.activeBreakpoint === 'md' ||
+              styleStore.activeBreakpoint === 'sm' ||
+              styleStore.activeBreakpoint === 'xs',
+          }"
           class="transition-all duration-300 ease-in-out shrink-0"
         />
         <span
