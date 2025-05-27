@@ -101,7 +101,7 @@ onBeforeUnmount(() => stopAutoPlay());
     </div>
     <!-- Buttons for navigation -->
     <BaseButton
-      size="medium"
+      size="small"
       variant="primary"
       aria-label="Previous"
       class="absolute transform -translate-y-1/2 top-1/2 z-rm-base-3"
@@ -118,10 +118,9 @@ onBeforeUnmount(() => stopAutoPlay());
       ]"
       :icon="ChevronLeftIcon"
       @click.stop="prev()"
-      @keydown.enter.stop="prev()"
     />
     <BaseButton
-      size="medium"
+      size="small"
       variant="primary"
       aria-label="Next"
       class="absolute transform -translate-y-1/2 top-1/2 z-rm-base-3"
@@ -138,7 +137,6 @@ onBeforeUnmount(() => stopAutoPlay());
       ]"
       :icon="ChevronRightIcon"
       @click.stop="next()"
-      @keydown.enter.stop="next()"
     />
     <!--Bullet List-->
     <div
@@ -175,7 +173,6 @@ onBeforeUnmount(() => stopAutoPlay());
           },
         ]"
         @click.stop="goTo(index - 1)"
-        @keydown.enter.stop="goTo(index - 1)"
       />
     </div>
   </div>

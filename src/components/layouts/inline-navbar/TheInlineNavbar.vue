@@ -83,7 +83,7 @@ const getVisibleRoutes = computed<ManagedRoutes>(() => {
       >
         <span
           :class="[styleStore.textSizeS]"
-          class="transition-all duration-300 ease-in-out underline-offset-2 group-hover:cursor-pointer outline-none font-lora ring-0 group-focus-visible:ring-0 text-rm-main group-hover:text-rm-secondary group-hover:underline group-focus-visible:text-rm-secondary group-focus-visible:underline"
+          class="transition-all duration-300 ease-in-out outline-none underline-offset-2 group-hover:cursor-pointer font-lora ring-0 group-focus-visible:ring-0 text-rm-main group-hover:text-rm-secondary group-hover:underline group-focus-visible:text-rm-secondary group-focus-visible:underline"
         >
           Altro
         </span>
@@ -111,7 +111,7 @@ const getVisibleRoutes = computed<ManagedRoutes>(() => {
             },
           ]"
           :style="floatingStyles"
-          class="box-border flex flex-col items-center justify-center p-4 bg-white border-2 rounded-md shadow-2xl min-w-36 gap-y-4 z-rm-dropdown border-rm-secondary shadow-black"
+          class="box-border flex flex-col items-center justify-center p-4 bg-white border-2 rounded shadow-2xl min-w-36 gap-y-4 z-rm-dropdown border-rm-secondary shadow-black"
         >
           <router-link
             v-for="routeItemC in getVisibleRoutes.collapsedRoutes"

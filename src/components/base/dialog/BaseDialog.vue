@@ -91,7 +91,7 @@ const handleCloseModal = (): void => {
                   'h-full': props.blockDialogHeight,
                 },
               ]"
-              class="flex flex-col overflow-hidden transition-all duration-300 ease-in-out transform bg-white border-2 rounded-md shadow-lg gap-y-6 border-rm-secondary"
+              class="flex flex-col overflow-hidden transition-all duration-300 ease-in-out transform bg-white border-2 rounded shadow-lg gap-y-6 border-rm-secondary"
             >
               <div class="flex justify-between overflow-hidden cursor-default shrink-0 gap-x-6">
                 <div
@@ -112,15 +112,15 @@ const handleCloseModal = (): void => {
                   </h3>
                 </div>
                 <BaseButton
-                  class="border border-transparent rounded-md text-rm-main w-fit h-fit hover:rotate-90 focus-visible:border-rm-main"
+                  class="border border-transparent rounded text-rm-main w-fit h-fit hover:rotate-90 focus-visible:border-rm-main"
                   :aria-label="`close ${props.dialogTitle} modal`"
-                  :icon="XMarkIcon"
                   variant="custom"
-                  content-size="small"
-                  spacing-size="custom"
+                  size="custom"
                   @click.stop="handleCloseModal"
                   @keydown.enter.stop="handleCloseModal"
-                />
+                >
+                  <XMarkIcon :class="[styleStore.iconSizeS]" class="stroke-[2.5px]" />
+                </BaseButton>
               </div>
               <slot name="modal-content"></slot>
             </DialogPanel>

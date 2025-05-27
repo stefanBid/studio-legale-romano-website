@@ -207,7 +207,7 @@ const handleCloseDialogProfile = (falsyValue: boolean): void => {
           :name="currentMemberProfile.name"
           :surname="currentMemberProfile.surname"
         />
-        <div class="h-full overflow-y-auto">
+        <div class="h-full overflow-y-auto outline-none ring-0">
           <p
             :class="[styleStore.textSizeS]"
             class="transition-all duration-300 ease-in-out text-rm-main font-lora"
