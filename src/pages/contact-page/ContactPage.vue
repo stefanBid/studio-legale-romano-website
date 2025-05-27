@@ -82,7 +82,7 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
         </BaseElementsContainer>
       </div>
 
-      <!--Map Section-->
+      <!-- Reach Us Sections -->
       <div id="map-section" class="flex flex-col">
         <!-- Heading -->
         <div
@@ -109,8 +109,7 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
             {{ i18nStore.contactPageI18nContent.reachUs.description }}
           </p>
         </div>
-
-        <!-- Reach Us Sections -->
+        <!-- Reach Us Cards Section -->
         <div
           :class="[
             styleStore.elementTotalGapM,
@@ -133,7 +132,6 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
             <BaseCard
               class="h-full"
               :aria-label="i18nStore.contactPageI18nContent.reachUs.withCar.title"
-              content-type="custom"
               :title="i18nStore.contactPageI18nContent.reachUs.withCar.title"
             >
               <template #content>
@@ -182,7 +180,6 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
             <BaseCard
               class="h-full"
               :aria-label="i18nStore.contactPageI18nContent.reachUs.withPublicTransport.title"
-              content-type="custom"
               :title="i18nStore.contactPageI18nContent.reachUs.withPublicTransport.title"
               :text-content="
                 i18nStore.contactPageI18nContent.reachUs.withPublicTransport.description
@@ -239,7 +236,6 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
             <BaseCard
               class="h-full"
               :aria-label="i18nStore.contactPageI18nContent.reachUs.withFoot.title"
-              content-type="custom"
               :title="i18nStore.contactPageI18nContent.reachUs.withFoot.title"
               :text-content="i18nStore.contactPageI18nContent.reachUs.withFoot.description"
             >
@@ -347,8 +343,8 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
                 'grayscale pointer-events-none opacity-40': index >= 3,
               }"
               class="no-underline transition-all duration-300 ease-in-out hover:cursor-pointer hover:scale-105"
+              :aria-label="`Contact us via ${channel.value}`"
               :icon="CONTACT_CHANNEL_ICONS[channel.id]"
-              icon-size="small"
               :text-content="channel.value"
               @click.stop="executeChannelOperation(channel.operation, channel.value)"
               @keypress.enter.stop="executeChannelOperation(channel.operation, channel.value)"

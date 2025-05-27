@@ -88,8 +88,7 @@ onMounted(() => {
             <BaseButton
               id="firstCtaButton"
               variant="primary"
-              content-size="medium"
-              spacing-size="medium"
+              :aria-label="i18nStore.homePageI18nContent.firstCta.text"
               :class="{
                 'min-w-80':
                   styleStore.activeBreakpoint !== 'xs' && styleStore.activeBreakpoint !== 'sm',
@@ -103,8 +102,7 @@ onMounted(() => {
             <BaseButton
               id="secondCtaButton"
               variant="primary"
-              content-size="medium"
-              spacing-size="medium"
+              :aria-label="i18nStore.homePageI18nContent.secondCta.text"
               :class="{
                 'min-w-80':
                   styleStore.activeBreakpoint !== 'xs' && styleStore.activeBreakpoint !== 'sm',

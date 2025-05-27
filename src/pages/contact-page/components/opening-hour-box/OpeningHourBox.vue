@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { ClockIcon, CalendarDaysIcon } from '@heroicons/vue/24/solid';
+import { ClockIcon, CalendarDaysIcon } from '@heroicons/vue/24/outline';
 import type { WeeklySchedule } from '@/types';
 import { useStyleStore } from '@/stores';
 import { BaseChip } from '@/components';
@@ -33,7 +33,7 @@ const weekDays = [
 <template>
   <div
     :class="[styleStore.elementTotalPaddingM]"
-    class="flex flex-col transition-all duration-300 ease-in-out bg-white border-2 rounded-md shadow-lg border-rm-secondary"
+    class="flex flex-col transition-all duration-300 ease-in-out bg-white border-2 rounded shadow-lg border-rm-secondary"
   >
     <div
       v-for="(day, index) in props.weeklySchedule"
@@ -47,7 +47,7 @@ const weekDays = [
       class="flex items-center justify-between transition-all duration-300 ease-in-out gap-x-4"
     >
       <div class="flex items-center flex-1 gap-2">
-        <CalendarDaysIcon :class="[styleStore.iconSizeS]" class="text-rm-main" />
+        <CalendarDaysIcon :class="[styleStore.iconSizeS]" class="stroke-2 text-rm-main" />
         <span
           :class="[
             styleStore.textSizeS,

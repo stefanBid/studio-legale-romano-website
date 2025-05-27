@@ -37,7 +37,7 @@ onMounted(() => {
   >
     <template #page-content>
       <BaseElementsContainer>
-        <BaseBadge :icon="BookmarkIcon">
+        <BaseBadge :icon="BookmarkIcon" aria-label="Performance Page Index">
           <div
             :class="[styleStore.elementTotalPaddingS]"
             class="w-full transition-all duration-300 ease-in-out"
@@ -78,7 +78,6 @@ onMounted(() => {
       >
         <BaseAccordion
           :id="item.shortcutId.slice(1)"
-          tabindex="0"
           :external-open="
             defaultAccordionIdOpen
               ? item.shortcutId.slice(1) === defaultAccordionIdOpen
@@ -102,7 +101,7 @@ onMounted(() => {
           <template #section-hidden-content>
             <div class="w-full">
               <div
-                class="relative border-2 rounded-md border-rm-secondary p-2 h-[300px] w-full transition-all duration-300 ease-in-out"
+                class="relative border-2 rounded border-rm-secondary p-2 h-[300px] w-full transition-all duration-300 ease-in-out"
                 :class="{
                   'mb-4':
                     styleStore.activeBreakpoint !== 'xs' &&
@@ -113,9 +112,7 @@ onMounted(() => {
                     styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
                 }"
               >
-                <div
-                  class="absolute inset-0 m-2 rounded-md bg-rm-main z-rm-base-1 opacity-20"
-                ></div>
+                <div class="absolute inset-0 m-2 rounded bg-rm-main z-rm-base-1 opacity-20"></div>
                 <picture>
                   <source :srcset="IMAGES.accordionTestImg.webp" type="image/webp" />
                   <img
@@ -123,7 +120,7 @@ onMounted(() => {
                     :alt="item.title"
                     loading="lazy"
                     decoding="async"
-                    class="object-cover object-center w-full h-full rounded-md"
+                    class="object-cover object-center w-full h-full rounded"
                   />
                 </picture>
               </div>

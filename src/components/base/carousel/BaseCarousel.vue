@@ -81,7 +81,7 @@ onBeforeUnmount(() => stopAutoPlay());
 
 <template>
   <div
-    class="relative w-full overflow-hidden border-2 rounded-md shadow-lg border-rm-secondary"
+    class="relative w-full overflow-hidden border-2 rounded shadow-lg border-rm-secondary"
     :aria-label="props.ariaLabel"
   >
     <!--Black Filter-->
@@ -101,8 +101,7 @@ onBeforeUnmount(() => stopAutoPlay());
     </div>
     <!-- Buttons for navigation -->
     <BaseButton
-      content-size="medium"
-      spacing-size="custom"
+      size="medium"
       variant="primary"
       aria-label="Previous"
       class="absolute transform -translate-y-1/2 top-1/2 z-rm-base-3"
@@ -122,8 +121,7 @@ onBeforeUnmount(() => stopAutoPlay());
       @keydown.enter.stop="prev()"
     />
     <BaseButton
-      content-size="medium"
-      spacing-size="custom"
+      size="medium"
       variant="primary"
       aria-label="Next"
       class="absolute transform -translate-y-1/2 top-1/2 z-rm-base-3"
@@ -158,8 +156,7 @@ onBeforeUnmount(() => stopAutoPlay());
       <BaseButton
         v-for="index in props.numberOfItems"
         :key="index"
-        content-size="custom"
-        spacing-size="custom"
+        size="custom"
         variant="custom"
         :aria-label="`Go to ${index}`"
         class="rounded-full"

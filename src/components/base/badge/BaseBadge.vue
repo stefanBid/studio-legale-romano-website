@@ -4,9 +4,7 @@ import type { Component, FunctionalComponent } from 'vue';
 
 interface BaseBadgeProps {
   icon: Component | FunctionalComponent | string;
-  iconSize?: 'medium' | 'small';
   textContent?: string;
-  ariaLabel?: string;
 }
 
 // stores declaration
@@ -20,17 +18,14 @@ const props = withDefaults(defineProps<BaseBadgeProps>(), {
 </script>
 
 <template>
-  <div
-    :aria-label="props.ariaLabel"
-    class="flex bg-white border-2 rounded-md shadow-lg border-rm-secondary"
-  >
+  <div v-bind="$attrs" class="flex bg-white border-2 rounded shadow-lg border-rm-secondary">
     <div
       :class="[styleStore.elementTotalPaddingXS]"
-      class="inline-flex items-center justify-center transition-all duration-300 ease-in-out rounded-l-sm w-fit bg-rm-secondary shrink-0"
+      class="inline-flex items-center justify-center transition-all duration-300 ease-in-out w-fit bg-rm-secondary shrink-0"
     >
       <component
         :is="props.icon"
-        :class="[props.iconSize === 'medium' ? styleStore.iconSizeL : styleStore.iconSizeM]"
+        :class="[styleStore.iconSizeM]"
         class="text-white no-underline transition-all duration-300 ease-in-out"
       />
     </div>

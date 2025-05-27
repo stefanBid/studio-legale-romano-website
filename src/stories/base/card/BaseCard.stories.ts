@@ -20,20 +20,6 @@ const meta = {
         type: 'text',
       },
     },
-    headerType: {
-      description: 'The card type',
-      control: {
-        type: 'select',
-        options: ['default', 'custom'],
-      },
-    },
-    contentType: {
-      description: 'The card content type',
-      control: {
-        type: 'select',
-        options: ['default', 'custom'],
-      },
-    },
     title: {
       description: 'The card title',
       control: {
@@ -46,15 +32,6 @@ const meta = {
         type: 'text',
       },
     },
-    ariaLabel: {
-      description: 'The card aria-label attribute',
-      control: {
-        type: 'text',
-      },
-    },
-  },
-  args: {
-    ariaLabel: 'card',
   },
 } satisfies Meta<typeof BaseCard>;
 

@@ -38,14 +38,14 @@ watch(
   <div class="w-full">
     <BaseButton
       :id="props.id"
-      spacing-size="medium"
-      content-size="custom"
+      :aria-label="`Accordion section ${props.id}`"
+      size="medium"
       variant="custom"
       :class="{
         'hover:bg-rm-main/20 focus-visible:bg-rm-main/20': !isAccordionOpen,
         'bg-rm-main/20': isAccordionOpen,
       }"
-      class="w-full border-b-2 border-rm-main !rounded-b-none hover:bg-rm-main/20"
+      class="w-full border-b-2 border-rm-main !rounded-t hover:bg-rm-main/20"
       @click.stop="changeAccordionVisibility()"
     >
       <div class="flex items-center justify-between w-full gap-2">
@@ -54,7 +54,7 @@ watch(
         </div>
         <ChevronDownIcon
           :class="[styleStore.iconSizeS, { 'rotate-180': isAccordionOpen }]"
-          class="transition-all duration-300 ease-in-out shrink-0"
+          class="transition-all duration-300 ease-in-out shrink-0 stroke-[2.5px]"
         />
       </div>
     </BaseButton>
@@ -62,7 +62,7 @@ watch(
       <div
         v-if="isAccordionOpen"
         :class="[styleStore.elementTotalPaddingM]"
-        class="w-full transition-all duration-300 ease-in-out bg-white shadow-lg"
+        class="w-full transition-all duration-300 ease-in-out bg-white rounded-b shadow-lg"
       >
         <slot name="section-hidden-content"> </slot>
       </div>

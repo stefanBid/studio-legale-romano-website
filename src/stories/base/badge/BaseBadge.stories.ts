@@ -21,21 +21,8 @@ const meta = {
         type: 'object',
       },
     },
-    iconSize: {
-      description: 'The badge icon size',
-      control: {
-        type: 'select',
-        options: ['small', 'medium'],
-      },
-    },
     textContent: {
       description: 'The badge text content',
-      control: {
-        type: 'text',
-      },
-    },
-    ariaLabel: {
-      description: 'The badge aria-label attribute',
       control: {
         type: 'text',
       },
@@ -43,7 +30,6 @@ const meta = {
   },
   args: {
     icon: TagIcon,
-    ariaLabel: 'badge',
   },
 } satisfies Meta<typeof BaseBadge>;
 
@@ -54,13 +40,5 @@ export const DefaultBadge: Story = {
   args: {
     ...meta.args,
     textContent: 'Lorem ipsum dolor sit amet',
-  },
-};
-
-export const BadgeWithSmallIcon: Story = {
-  args: {
-    ...meta.args,
-    textContent: 'Lorem ipsum dolor sit amet',
-    iconSize: 'small',
   },
 };

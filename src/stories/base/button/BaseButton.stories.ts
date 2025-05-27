@@ -29,15 +29,8 @@ const meta = {
         options: ['primary', 'secondary', 'custom'],
       },
     },
-    contentSize: {
+    size: {
       description: 'The button size',
-      control: {
-        type: 'select',
-        options: ['small', 'medium', 'custom'],
-      },
-    },
-    spacingSize: {
-      description: 'The button spacing',
       control: {
         type: 'select',
         options: ['small', 'medium', 'custom'],
@@ -55,15 +48,6 @@ const meta = {
         type: 'boolean',
       },
     },
-    ariaLabel: {
-      description: 'The button aria-label attribute',
-      control: {
-        type: 'text',
-      },
-    },
-  },
-  args: {
-    ariaLabel: 'button',
   },
 } satisfies Meta<typeof BaseButton>;
 
@@ -87,14 +71,7 @@ export const SecondaryButton: Story = {
 export const SmallButton: Story = {
   args: {
     default: 'Button small',
-    contentSize: 'small',
-  },
-};
-
-export const MediumButton: Story = {
-  args: {
-    default: 'Button medium',
-    contentSize: 'medium',
+    size: 'small',
   },
 };
 
@@ -122,7 +99,6 @@ export const CustomButton: Story = {
   args: {
     default: 'Button custom',
     variant: 'custom',
-    spacingSize: 'custom',
-    contentSize: 'custom',
+    size: 'custom',
   },
 };

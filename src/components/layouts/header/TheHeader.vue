@@ -72,12 +72,12 @@ watch(
     :class="[styleStore.containerPadding]"
     class="fixed left-0 w-screen h-20 bg-white z-rm-header"
   >
-    <div class="flex items-center h-20 p-rm-side gap-x-4">
+    <div class="flex items-center h-20 gap-x-4">
       <!-- Logo Section-->
       <div class="inline-flex items-center flex-1 transition-all duration-300 ease-in-out">
         <router-link
           to="/"
-          class="flex items-center border border-transparent rounded-md text-rm-secondary gap-x-2 group ring-0 focus-visible:border-rm-main outline-none"
+          class="flex items-center border border-transparent rounded-md outline-none text-rm-secondary gap-x-2 group ring-0 focus-visible:border-rm-main"
           @click="onChangeMenuVisibility(false)"
         >
           <component
@@ -117,7 +117,7 @@ watch(
       <div
         v-if="isMenuCollapsed"
         tabindex="0"
-        class="transition-all duration-300 ease-in-out border border-transparent rounded-md w-fit h-fit focus-visible:border-white active:rotate-90 ring-0 outline-none"
+        class="transition-all duration-300 ease-in-out border border-transparent rounded-md outline-none w-fit h-fit focus-visible:border-white active:rotate-90 ring-0"
         :aria-label="`click for ${isMenuOpen ? 'close' : 'open'} menu`"
         @click.stop="onChangeMenuVisibility(!isMenuOpen)"
         @keydown.enter="onChangeMenuVisibility(!isMenuOpen)"

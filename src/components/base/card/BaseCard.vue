@@ -2,33 +2,27 @@
 import { useStyleStore } from '@/stores';
 
 interface BaseCardProps {
-  headerType?: 'default' | 'custom';
-  contentType?: 'default' | 'custom';
   title?: string;
   textContent?: string;
-  ariaLabel?: string;
 }
 
 // stores declaration
 const styleStore = useStyleStore();
 
 const props = withDefaults(defineProps<BaseCardProps>(), {
-  headerType: 'default',
-  contentType: 'default',
   title: undefined,
   textContent: undefined,
-  ariaLabel: 'general card',
 });
 </script>
 
 <template>
   <div
-    :aria-label="props.ariaLabel"
-    class="flex flex-col bg-white border-2 rounded-md shadow-lg border-rm-secondary"
+    v-bind="$attrs"
+    class="flex flex-col bg-white border-2 rounded shadow-lg border-rm-secondary"
   >
-    <div class="w-full rounded-t-sm bg-rm-secondary shrink-0">
+    <div class="w-full bg-rm-secondary shrink-0">
       <div
-        v-if="props.headerType === 'default'"
+        v-if="!$slots.header"
         :class="[styleStore.elementTotalPaddingS]"
         class="inline-flex items-center justify-center w-full transition-all duration-300 ease-in-out"
       >
@@ -39,13 +33,13 @@ const props = withDefaults(defineProps<BaseCardProps>(), {
           {{ props.title }}
         </h2>
       </div>
-      <template v-if="props.headerType === 'custom'">
-        <slot name="header"> </slot>
+      <template v-if="$slots.header">
+        <slot name="header" :title="props.title"> </slot>
       </template>
     </div>
     <div class="flex-1">
       <div
-        v-if="props.contentType === 'default'"
+        v-if="!$slots.content"
         :class="[styleStore.elementTotalPaddingS]"
         class="inline-flex items-center justify-center w-full h-full transition-all duration-300 ease-in-out"
       >
@@ -56,8 +50,8 @@ const props = withDefaults(defineProps<BaseCardProps>(), {
           {{ props.textContent }}
         </p>
       </div>
-      <template v-if="props.contentType === 'custom'">
-        <slot name="content"> </slot>
+      <template v-if="$slots.content">
+        <slot name="content" :text-content="props.textContent"> </slot>
       </template>
     </div>
   </div>

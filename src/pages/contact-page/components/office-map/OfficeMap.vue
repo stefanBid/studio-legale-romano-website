@@ -77,23 +77,17 @@ const handleManageScroll = (): void => {
   >
     <div
       id="office-map"
-      class="absolute rounded-md w-full h-[400px] z-rm-base-1 border-rm-secondary border-2 focus-visible:outline-rm-secondary"
+      class="absolute rounded w-full h-[400px] z-rm-base-1 border-rm-secondary border-2 focus-visible:outline-rm-secondary"
     ></div>
     <div
       id="extra-panel"
-      class="absolute gap-2 flex flex-col items-end justify-start w-fit bg-transparent z-rm-base-2 right-2.5 top-2.5 bottom-2-5 h-fit transition-all duration-300 ease-in-out"
+      class="absolute flex flex-col items-end justify-start gap-3 transition-all duration-300 ease-in-out bg-transparent w-fit z-rm-base-2 right-3 top-3 bottom-3 h-fit"
     >
-      <BaseButton
-        content-size="small"
-        spacing-size="small"
-        :icon="MapIcon"
-        @click="openLink(props.googleMapsLink)"
-      />
+      <BaseButton size="small" :icon="MapIcon" @click="openLink(props.googleMapsLink)" />
       <transition name="fade">
         <BaseButton
           v-if="showEnableScrollPanel"
-          content-size="small"
-          spacing-size="small"
+          size="small"
           :icon="isScrollEnabled ? LockOpenIcon : LockClosedIcon"
           @click="handleManageScroll"
         />

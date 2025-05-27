@@ -47,17 +47,14 @@ const getGeneralityData = computed(() => {
 </script>
 
 <template>
-  <BaseCard
-    :aria-label="`${props.generality.name}-${props.generality.surname}-card`"
-    header-type="custom"
-    content-type="custom"
-  >
+  <BaseCard :aria-label="`${props.generality.name}-${props.generality.surname}-card`">
     <template #header>
       <div
         :class="{
-          'p-2.5': styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-          'p-3': styleStore.activeBreakpoint === 'md',
-          'p-6':
+          'py-2.5 pl-2.5 pr-20':
+            styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+          'py-3 pl-3 pr-24': styleStore.activeBreakpoint === 'md',
+          'py-6 pl-6 pr-40':
             styleStore.activeBreakpoint !== 'xs' &&
             styleStore.activeBreakpoint !== 'sm' &&
             styleStore.activeBreakpoint !== 'md',
@@ -66,11 +63,12 @@ const getGeneralityData = computed(() => {
       >
         <h2
           :class="[styleStore.textSizeM]"
-          class="font-bold transition-all duration-300 ease-in-out text-rm-main font-playfair"
+          class="font-bold truncate transition-all duration-300 ease-in-out text-rm-main font-playfair"
         >
           {{ `${props.generality.name} ${props.generality.surname}` }}
         </h2>
         <BaseProfileImageBox
+          v-if="true"
           :class="{
             '-bottom-8 right-2.5':
               styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
@@ -125,8 +123,7 @@ const getGeneralityData = computed(() => {
             :aria-label="cta.content"
             :icon="cta.icon"
             variant="secondary"
-            content-size="small"
-            spacing-size="small"
+            size="small"
             @click.stop="cta.onClick()"
           >
             {{ cta.content }}
