@@ -2,18 +2,23 @@
 import { useRouter } from 'vue-router';
 
 import { ICONS } from '@/constants';
+import { usePageMeta } from '@/hooks';
 import { BaseButton } from '@/components';
-import { useI18nStore, useStyleStore, useTitleStore } from '@/stores';
+import { useI18nStore, useStyleStore } from '@/stores';
+import { computed } from 'vue';
 
 // Stores declarations
 const styleStore = useStyleStore();
 const i18nStore = useI18nStore();
-const titleStore = useTitleStore();
+
+// SEO Feature Manage Meta Tags
+usePageMeta({
+  meta: computed(() => i18nStore.notFoundPageI18nContent.metaDescription),
+  currentLang: computed(() => i18nStore.currentLanguage),
+});
 
 // Hooks declarations
 const router = useRouter();
-
-titleStore.setTitleSuffix('404 Pagina non trovata');
 </script>
 
 <template>

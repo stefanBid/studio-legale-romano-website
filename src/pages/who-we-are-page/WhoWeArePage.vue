@@ -2,7 +2,8 @@
 import type { Member } from '@/types';
 import { IMAGES, DOCS } from '@/constants';
 import { dowloadFile, sendEmail, stringPurifier } from '@/utils';
-import { useTitleStore, useI18nStore, useStyleStore } from '@/stores';
+import { useI18nStore, useStyleStore } from '@/stores';
+import { usePageMeta } from '@/hooks';
 import {
   ThePageContainer,
   BaseElementsContainer,
@@ -17,12 +18,14 @@ import { computed, ref } from 'vue';
 // Store Declarations
 const i18nStore = useI18nStore();
 const styleStore = useStyleStore();
-const titleStore = useTitleStore();
 
-// Feature 1: Page Title
-titleStore.setTitleSuffix('Chi Siamo');
+// SEO Feature Manage Meta Tags
+usePageMeta({
+  meta: computed(() => i18nStore.whoWeArePageI18nContent.metaDescription),
+  currentLang: computed(() => i18nStore.currentLanguage),
+});
 
-//Feature 2: Manage spacing based on the breakpoint
+//Feature 1: Manage spacing based on the breakpoint
 const getMarginBottomOfHeading = computed(() => {
   switch (styleStore.activeBreakpoint) {
     case 'xs':

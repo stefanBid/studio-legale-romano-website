@@ -20,6 +20,15 @@ type ExternalMessageInfo =
   | 'generalInformation'
   | 'professionalCollaboration';
 
+interface MetaDescription {
+  title: string;
+  author: string;
+  robots: string;
+  description?: string;
+  keywords?: string[];
+  copyright?: string;
+}
+
 interface Notification {
   id: string;
   message: string;
@@ -31,18 +40,6 @@ interface Button {
   text: string;
   link?: string;
 }
-/**
-interface InputField {
-  label: string;
-  placeholder: string;
-}
-
-interface Rating {
-  name: string;
-  value: number;
-}
-
-**/
 
 /** HEADER **/
 interface HeaderContent {
@@ -87,6 +84,7 @@ interface FooterContent {
 
 /** HOME PAGE **/
 interface HomePageContent {
+  metaDescription: MetaDescription;
   firstHeading: string;
   secondHeading: string;
   firstCta: Button;
@@ -95,6 +93,7 @@ interface HomePageContent {
 
 /** PERFORMANCE PAGE **/
 interface PerformancePageContent {
+  metaDescription: MetaDescription;
   firstHeading: string;
   secondHeading: string;
   index: {
@@ -150,6 +149,7 @@ interface WeeklySchedule {
 }
 
 interface ContactPageContent {
+  metaDescription: MetaDescription;
   firstHeading: string;
   secondHeading: string;
   reachUs: {
@@ -214,6 +214,7 @@ interface Member {
 }
 
 interface WhoWeArePageContent {
+  metaDescription: MetaDescription;
   firstHeading: string;
   secondHeading: string;
   team: {
@@ -229,6 +230,7 @@ interface WhoWeArePageContent {
 
 /** NOT FOUND PAGE **/
 interface NotFoundPageContent {
+  metaDescription: MetaDescription;
   firstHeading: string;
   secondHeading: string;
   goHomeButton: Button;
@@ -244,6 +246,7 @@ export type {
   ExternalMessageInfo,
   NotificationCategory,
   Notification,
+  MetaDescription,
   HeaderContent,
   FooterContent,
   HomePageContent,

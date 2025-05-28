@@ -1,22 +1,25 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { IMAGES } from '@/constants';
-import { useStyleStore, useTitleStore, useI18nStore } from '@/stores';
+import { useStyleStore, useI18nStore } from '@/stores';
+import { usePageMeta } from '@/hooks';
 import { BaseButton } from '@/components';
 import { useRouter } from 'vue-router';
 
 // Store Declarations
 const i18nStore = useI18nStore();
 const styleStore = useStyleStore();
-const titleStore = useTitleStore();
 
 // Hooks Declarations
 const router = useRouter();
 
-// Feature 1: Page Title
-titleStore.setTitleSuffix('Home');
+// SEO Feature Manage Meta Tags
+usePageMeta({
+  meta: computed(() => i18nStore.homePageI18nContent.metaDescription),
+  currentLang: computed(() => i18nStore.currentLanguage),
+});
 
-// Feature 2: Manage effects
+// Feature 1: Manage effects
 const show = ref(false);
 const imageRef = ref<HTMLImageElement | null>(null);
 const isImageLoaded = ref(false);

@@ -26,7 +26,7 @@ const changeAccordionVisibility = (): void => {
 watch(
   () => props.externalOpen,
   (newValue) => {
-    if (newValue !== undefined) {
+    if (newValue !== undefined && newValue !== isAccordionOpen.value) {
       isAccordionOpen.value = newValue;
     }
   },

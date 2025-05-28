@@ -92,6 +92,13 @@
   },
 
   "homePage": {
+    "metaDescription": {
+      "title": "Studio Legale Romano | Soluzioni Legali Personalizzate",
+      "description": "Lo Studio Legale Romano offre consulenza e assistenza legale in diritto civile, diritto del lavoro, diritto societario, diritto fallimentare e procedure concorsuali, diritto tributario e amministrativo, obbligazioni e contratti. Scopri come possiamo aiutarti a risolvere le tue questioni legali.",
+      "keywords": [],
+      "author": "Stefano Biddau",
+      "robots": "index, follow"
+    },
     "firstHeading": "Studio Legale Romano",
     "secondHeading": "Offriamo soluzioni legali personalizzate, unendo competenza ed esperienza per affrontare con successo ogni sfida del diritto.",
     "firstCta": {
@@ -104,6 +111,13 @@
     }
   },
   "performancePage": {
+    "metaDescription": {
+      "title": "Prestazioni | Studio Legale Romano Soluzioni Legali Personalizzate",
+      "description": "Lo Studio Legale Romano offre consulenza e assistenza legale in diritto civile, diritto del lavoro, diritto societario, diritto fallimentare e procedure concorsuali, diritto tributario e amministrativo, obbligazioni e contratti. Scopri come possiamo aiutarti a risolvere le tue questioni legali.",
+      "keywords": [],
+      "author": "Stefano Biddau",
+      "robots": "index, follow"
+    },
     "firstHeading": "Prestazioni",
     "secondHeading": "Il nostro studio legale offre consulenza e assistenza legale in diversi ambiti del diritto.",
     "index": {
@@ -174,6 +188,13 @@
     }
   },
   "contactPage": {
+    "metaDescription": {
+      "title": "Contatti | Studio Legale Romano Soluzioni Legali Personalizzate",
+      "description": "Lo Studio Legale Romano offre consulenza e assistenza legale in diritto civile, diritto del lavoro, diritto societario, diritto fallimentare e procedure concorsuali, diritto tributario e amministrativo, obbligazioni e contratti. Scopri come possiamo aiutarti a risolvere le tue questioni legali.",
+      "keywords": [],
+      "author": "Stefano Biddau",
+      "robots": "index, follow"
+    },
     "firstHeading": "Contatti",
     "secondHeading": "Contattaci per fissare un appuntamento o per richiedere informazioni.",
     "reachUs": {
@@ -330,6 +351,13 @@
     }
   },
   "whoWeArePage": {
+    "metaDescription": {
+      "title": "Chi Siamo | Studio Legale Romano Soluzioni Legali Personalizzate",
+      "description": "Lo Studio Legale Romano offre consulenza e assistenza legale in diritto civile, diritto del lavoro, diritto societario, diritto fallimentare e procedure concorsuali, diritto tributario e amministrativo, obbligazioni e contratti. Scopri come possiamo aiutarti a risolvere le tue questioni legali.",
+      "keywords": [],
+      "author": "Stefano Biddau",
+      "robots": "index, follow"
+    },
     "firstHeading": "Chi siamo",
     "secondHeading": "Una panoramica sul nostro studio legale e sui professionisti del diritto che lo compongono.",
     "team": {
@@ -355,6 +383,11 @@
     }
   },
   "notFoundPage": {
+    "metaDescription": {
+      "title": "404 - Pagina Non Trovata | Studio Legale Romano Soluzioni Legali Personalizzate",
+      "author": "Stefano Biddau",
+      "robots": "index, follow"
+    },
     "firstHeading": "404 - Pagina Non Trovata",
     "secondHeading": "La pagina che stai cercando non esiste.",
     "goHomeButton": {

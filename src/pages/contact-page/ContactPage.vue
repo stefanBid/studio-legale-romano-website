@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import type { ExternalOperation } from '@/types';
-import { useTitleStore, useI18nStore, useStyleStore } from '@/stores';
+import { useI18nStore, useStyleStore } from '@/stores';
+import { usePageMeta } from '@/hooks';
 import { CONTACT_CHANNEL_ICONS, IMAGES } from '@/constants';
 import { openLink, sendEmail, sendWhatsAppMessage } from '@/utils';
 import { ThePageContainer, BaseCard, BaseElementsContainer, BaseBadge } from '@/components';
@@ -11,12 +12,14 @@ import OpeningHourBox from '@/pages/contact-page/components/opening-hour-box/Ope
 // Store Declarations
 const i18nStore = useI18nStore();
 const styleStore = useStyleStore();
-const titleStore = useTitleStore();
 
-// Feature 1: Page Title
-titleStore.setTitleSuffix('Contatti');
+// SEO Feature Manage Meta Tags
+usePageMeta({
+  meta: computed(() => i18nStore.contactPageI18nContent.metaDescription),
+  currentLang: computed(() => i18nStore.currentLanguage),
+});
 
-//Feature 2: Manage spacing based on the breakpoint
+//Feature 1: Manage spacing based on the breakpoint
 const getMarginBottomOfHeading = computed(() => {
   switch (styleStore.activeBreakpoint) {
     case 'xs':
@@ -342,8 +345,9 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
               :class="{
                 'grayscale pointer-events-none opacity-40': index >= 3,
               }"
-              class="no-underline transition-all duration-300 ease-in-out hover:cursor-pointer hover:scale-105"
+              class="no-underline transition-all duration-300 ease-in-out hover:cursor-pointer hover:scale-105 outline-0 ring-0 focus-visible:scale-105"
               :aria-label="`Contact us via ${channel.value}`"
+              :tabindex="index < 3 ? 0 : undefined"
               :icon="CONTACT_CHANNEL_ICONS[channel.id]"
               :text-content="channel.value"
               @click.stop="executeChannelOperation(channel.operation, channel.value)"

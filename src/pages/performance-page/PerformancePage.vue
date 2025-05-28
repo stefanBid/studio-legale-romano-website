@@ -2,28 +2,35 @@
 import { useRouter } from 'vue-router';
 import { BookOpenIcon, BookmarkIcon } from '@heroicons/vue/24/solid';
 import { IMAGES } from '@/constants';
-import { useStyleStore, useTitleStore, useI18nStore } from '@/stores';
+import { usePageMeta } from '@/hooks';
+import { useStyleStore, useI18nStore } from '@/stores';
 import { BaseAccordion, BaseElementsContainer, ThePageContainer, BaseBadge } from '@/components';
 import { scrollToElement, stringPurifier } from '@/utils';
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 
 // Store Declarations
 const i18nStore = useI18nStore();
 const styleStore = useStyleStore();
-const titleStore = useTitleStore();
 
 // Hooks Declarations
 const router = useRouter();
 
-// Feature 1: Page Title
-titleStore.setTitleSuffix('Prestazioni');
+// SEO Feature Manage Meta Tags
+usePageMeta({
+  meta: computed(() => i18nStore.performancePageI18nContent.metaDescription),
+  currentLang: computed(() => i18nStore.currentLanguage),
+});
 
-// Feature 2: Manage Open Accordion Section on Route Change
-const defaultAccordionIdOpen = ref<string>();
+// Feature 1: Manage Open Accordion Section on Route Change
+const defaultAccordionIdOpen = ref<string>(
+  i18nStore.performancePageI18nContent.index.items[0].shortcutId.slice(1),
+);
 
 onMounted(() => {
   defaultAccordionIdOpen.value =
-    router.currentRoute.value.hash !== '' ? router.currentRoute.value.hash.slice(1) : undefined;
+    router.currentRoute.value.hash !== ''
+      ? router.currentRoute.value.hash.slice(1)
+      : i18nStore.performancePageI18nContent.index.items[0].shortcutId.slice(1);
 });
 </script>
 
@@ -56,7 +63,7 @@ onMounted(() => {
               <li
                 v-for="item in i18nStore.performancePageI18nContent.index.items"
                 :key="item.shortcutId"
-                tabindex="0"
+                :tabindex="0"
                 class="transition-all duration-300 ease-in-out outline-none cursor-pointer ring-0 w-fit hover:text-rm-secondary hover:underline focus-visible:text-rm-secondary focus-visible:underline focus-visible:ring-0"
                 @click.stop="scrollToElement(item.shortcutId.slice(1))"
                 @keypress.enter.stop="scrollToElement(item.shortcutId.slice(1))"
@@ -68,7 +75,7 @@ onMounted(() => {
         </BaseBadge>
       </BaseElementsContainer>
       <BaseElementsContainer
-        v-for="(item, index) in i18nStore.performancePageI18nContent.index.items"
+        v-for="item in i18nStore.performancePageI18nContent.index.items"
         :key="item.shortcutId"
         :intersection-observer-settings="{
           rootElement: null,
@@ -78,11 +85,7 @@ onMounted(() => {
       >
         <BaseAccordion
           :id="item.shortcutId.slice(1)"
-          :external-open="
-            defaultAccordionIdOpen
-              ? item.shortcutId.slice(1) === defaultAccordionIdOpen
-              : index === 0
-          "
+          :external-open="item.shortcutId.slice(1) === defaultAccordionIdOpen"
         >
           <template #section-visibility-content>
             <div class="flex items-center w-full gap-2">

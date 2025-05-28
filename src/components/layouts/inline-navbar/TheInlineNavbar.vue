@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { vOnClickOutside, vIntersectionObserver } from '@vueuse/components';
-import { useFloatingPanel } from '@/hooks';
+import { useSbFloatingPanel } from 'sb-floating-panel-vue';
 import { useStyleStore } from '@/stores';
 import { ChevronDownIcon } from '@heroicons/vue/24/outline';
 import { computed } from 'vue';
@@ -19,7 +19,7 @@ const props = defineProps<InlineNavbarProps>();
 const route = useRoute();
 const styleStore = useStyleStore();
 
-const { isOpen, reference, floating, floatingStyles, changeFloatingVisibility } = useFloatingPanel({
+const { isOpen, reference, floating, floatingStyle, toggle, close } = useSbFloatingPanel({
   placement: 'bottom',
   strategy: 'fixed',
   offsetValue: 5,
@@ -27,7 +27,7 @@ const { isOpen, reference, floating, floatingStyles, changeFloatingVisibility } 
 
 const onIntersectionObserver = ([{ isIntersecting }]: IntersectionObserverEntry[]): void => {
   if (!isIntersecting && isOpen.value) {
-    changeFloatingVisibility(false);
+    close();
   }
 };
 
@@ -77,10 +77,7 @@ const getVisibleRoutes = computed<ManagedRoutes>(() => {
       ref="reference"
       class="inline-flex items-center justify-center px-4 py-2 border-l-2 min-w-20 border-rm-main"
     >
-      <span
-        class="inline-flex items-center justify-center group"
-        @click="changeFloatingVisibility(isOpen ? false : true)"
-      >
+      <span class="inline-flex items-center justify-center group" @click="toggle()">
         <span
           :class="[styleStore.textSizeS]"
           class="transition-all duration-300 ease-in-out outline-none underline-offset-2 group-hover:cursor-pointer font-lora ring-0 group-focus-visible:ring-0 text-rm-main group-hover:text-rm-secondary group-hover:underline group-focus-visible:text-rm-secondary group-focus-visible:underline"
@@ -98,10 +95,7 @@ const getVisibleRoutes = computed<ManagedRoutes>(() => {
         <div
           v-if="isOpen"
           ref="floating"
-          v-on-click-outside="[
-            (_: Event) => changeFloatingVisibility(false),
-            { ignore: [reference] },
-          ]"
+          v-on-click-outside="[(_: Event) => close(), { ignore: [reference] }]"
           v-intersection-observer="[
             onIntersectionObserver,
             {
@@ -110,7 +104,7 @@ const getVisibleRoutes = computed<ManagedRoutes>(() => {
               rootMargin: '-80px 0px 0px 0px',
             },
           ]"
-          :style="floatingStyles"
+          :style="floatingStyle"
           class="box-border flex flex-col items-center justify-center p-4 bg-white border-2 rounded shadow-2xl min-w-36 gap-y-4 z-rm-dropdown border-rm-secondary shadow-black"
         >
           <router-link
