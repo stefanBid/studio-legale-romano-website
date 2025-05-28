@@ -386,7 +386,7 @@
     "metaDescription": {
       "title": "404 - Pagina Non Trovata | Studio Legale Romano Soluzioni Legali Personalizzate",
       "author": "Stefano Biddau",
-      "robots": "index, follow"
+      "robots": "noindex, nofollow"
     },
     "firstHeading": "404 - Pagina Non Trovata",
     "secondHeading": "La pagina che stai cercando non esiste.",
