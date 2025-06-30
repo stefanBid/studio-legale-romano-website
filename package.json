@@ -16,7 +16,6 @@
     "chromatic": "npx chromatic --ci"
   },
   "dependencies": {
-    "@floating-ui/vue": "^1.1.6",
     "@headlessui/vue": "^1.7.23",
     "@heroicons/vue": "^2.2.0",
     "@unhead/vue": "^2.0.10",
