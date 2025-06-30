@@ -46,7 +46,7 @@ onMounted(() => {
   L.marker(officeLocation, { icon: customIcon })
     .addTo(map.value)
     .bindPopup(
-      '<span class="!text-rm-main !font-lora !text-center flex flex-col justify-center items-center transition-all duration-300 ease-in-out"><strong>Studio Legale Romano</strong><span class="block !text-center">Via Partenio, 56, Avellino</span></span>',
+      '<span class="!text-rm-main !font-lora !text-center flex flex-col justify-center items-center transition-all duration-300 ease-in-out"><strong>Studio Legale Romano</strong><span class="block !text-center !text-rm-main-light">Via Partenio, 56, Avellino</span></span>',
     )
     .openPopup();
 });

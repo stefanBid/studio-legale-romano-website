@@ -33,7 +33,7 @@ const props = withDefaults(defineProps<BaseBadgeProps>(), {
       <p
         v-if="props.textContent"
         :class="[styleStore.textSizeS]"
-        class="text-justify no-underline truncate transition-all duration-300 ease-in-out font-lora"
+        class="text-justify no-underline truncate transition-all duration-300 ease-in-out font-lora text-rm-main"
       >
         {{ props.textContent }}
       </p>

@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { useStyleStore } from '@/stores';
 import { BaseButton, BaseCard, BaseProfileImageBox } from '@/components';
-import { type FunctionalComponent, type Component, computed } from 'vue';
+import { type FunctionalComponent, type Component } from 'vue';
 
 interface Generality {
   name: string;
   surname: string;
-  birthDate: string;
-  number: string;
+  description?: string;
 }
 
 interface CallToAction {
@@ -33,17 +32,6 @@ const props = withDefaults(defineProps<ProfileCardProps>(), {
 });
 // Store Declarations
 const styleStore = useStyleStore();
-
-// Feature 1: Manage generality data
-
-const getGeneralityData = computed(() => {
-  return [
-    { label: 'Nome', value: props.generality.name },
-    { label: 'Cognome', value: props.generality.surname },
-    { label: 'Data di Nascita', value: props.generality.birthDate },
-    { label: 'Telefono', value: props.generality.number },
-  ];
-});
 </script>
 
 <template>
@@ -51,34 +39,27 @@ const getGeneralityData = computed(() => {
     <template #header>
       <div
         :class="{
-          'py-2.5 pl-2.5 pr-20':
-            styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-          'py-3 pl-3 pr-24': styleStore.activeBreakpoint === 'md',
-          'py-6 pl-6 pr-40':
+          'h-14': styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+          'h-16': styleStore.activeBreakpoint === 'md',
+          'h-28':
             styleStore.activeBreakpoint !== 'xs' &&
             styleStore.activeBreakpoint !== 'sm' &&
             styleStore.activeBreakpoint !== 'md',
         }"
         class="relative w-full transition-all duration-300 ease-in-out"
       >
-        <h2
-          :class="[styleStore.textSizeM]"
-          class="font-bold truncate transition-all duration-300 ease-in-out text-rm-main font-playfair"
-        >
-          {{ `${props.generality.name} ${props.generality.surname}` }}
-        </h2>
         <BaseProfileImageBox
           v-if="true"
           :class="{
-            '-bottom-8 right-2.5':
+            '-bottom-4':
               styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-            '-bottom-10 right-3': styleStore.activeBreakpoint === 'md',
-            '-bottom-16 right-6':
+            '-bottom-6': styleStore.activeBreakpoint === 'md',
+            '-bottom-8':
               styleStore.activeBreakpoint !== 'xs' &&
               styleStore.activeBreakpoint !== 'sm' &&
               styleStore.activeBreakpoint !== 'md',
           }"
-          class="absolute"
+          class="absolute translate-x-1/2 right-1/2"
           :avatar="props.avatar"
           :name="props.generality.name"
           :surname="props.generality.surname"
@@ -101,14 +82,27 @@ const getGeneralityData = computed(() => {
         class="flex flex-col h-full transition-all duration-300 ease-in-out"
       >
         <div
-          :class="[styleStore.elementTotalGapS]"
-          class="flex flex-col flex-1 transition-all duration-300 ease-in-out"
+          :class="[
+            styleStore.elementTotalGapS,
+            {
+              'mt-4': styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+              'mt-6': styleStore.activeBreakpoint === 'md',
+              'mt-8':
+                styleStore.activeBreakpoint !== 'xs' &&
+                styleStore.activeBreakpoint !== 'sm' &&
+                styleStore.activeBreakpoint !== 'md',
+            },
+          ]"
+          class="flex flex-col items-center flex-1 transition-all duration-300 ease-in-out"
         >
-          <span v-for="data in getGeneralityData" :key="data.label" class="text-rm-main">
-            <span :class="[styleStore.textSizeS]" class="font-bold font-playfair">
-              {{ `${data.label}: ` }}
-            </span>
-            <span :class="[styleStore.textSizeS]" class="font-lora">{{ data.value }}</span>
+          <span
+            :class="[styleStore.textSizeL]"
+            class="font-bold text-center font-playfair text-rm-main"
+          >
+            {{ `${props.generality.name} ${props.generality.surname}` }}
+          </span>
+          <span :class="[styleStore.textSizeS]" class="text-center font-lora text-rm-main-light">
+            {{ props.generality.description }}
           </span>
         </div>
         <div

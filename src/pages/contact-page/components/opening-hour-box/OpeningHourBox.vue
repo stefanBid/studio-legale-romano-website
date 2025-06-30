@@ -53,6 +53,8 @@ const weekDays = [
             styleStore.textSizeS,
             {
               'font-bold': index === weekDays[today],
+              'text-rm-main-light/80': !day.openingHours,
+              'text-rm-main': day.openingHours,
             },
           ]"
           class="transition-all duration-300 ease-in-out text-rm-main font-lora"

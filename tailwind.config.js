@@ -46,7 +46,10 @@ export default {
 			'black': '#000000',
 			'white': '#fdfcf9',
 			'transparent': 'transparent',
-			'rm-main': '#1c1919',
+			'rm-main': {
+				DEFAULT: '#1c1919',
+				light: '#555050',
+			},
 			'rm-secondary': '#c08e41',
 			'rm-error': '#d32f2f',
 		},

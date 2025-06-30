@@ -70,13 +70,13 @@ const handleCloseDialogProfile = (falsyValue: boolean): void => {
         <div :class="[getMarginBottomOfHeading]">
           <h1
             :class="[styleStore.textSizeXL]"
-            class="font-bold text-left transition-all duration-300 ease-in-out font-playfair"
+            class="font-bold text-left transition-all duration-300 ease-in-out font-playfair text-rm-main"
           >
             {{ i18nStore.whoWeArePageI18nContent.team.heading }}
           </h1>
           <p
             :class="[styleStore.textSizeS]"
-            class="text-left transition-all duration-300 ease-in-out font-lora"
+            class="text-left transition-all duration-300 ease-in-out font-lora text-rm-main-light"
           >
             {{ i18nStore.whoWeArePageI18nContent.team.description }}
           </p>
@@ -107,8 +107,7 @@ const handleCloseDialogProfile = (falsyValue: boolean): void => {
               :generality="{
                 name: member.name,
                 surname: member.surname,
-                birthDate: member.birthDate,
-                number: member.number,
+                description: member.role,
               }"
               :avatar="
                 member.imagePath ? { imageUrl: member.imagePath, alt: member.name } : undefined
@@ -149,13 +148,13 @@ const handleCloseDialogProfile = (falsyValue: boolean): void => {
         <div :class="[getMarginBottomOfHeading]">
           <h1
             :class="[styleStore.textSizeXL]"
-            class="font-bold text-left transition-all duration-300 ease-in-out font-playfair"
+            class="font-bold text-left transition-all duration-300 ease-in-out font-playfair text-rm-main"
           >
             {{ i18nStore.whoWeArePageI18nContent.office.heading }}
           </h1>
           <p
             :class="[styleStore.textSizeS]"
-            class="text-left transition-all duration-300 ease-in-out font-lora"
+            class="text-left transition-all duration-300 ease-in-out font-lora text-rm-main-light"
           >
             {{ i18nStore.whoWeArePageI18nContent.office.description }}
           </p>

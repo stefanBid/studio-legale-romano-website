@@ -206,9 +206,7 @@ interface Member {
   imagePath?: string;
   name: string;
   surname: string;
-  birthDate: string;
   email: string;
-  number: string;
   role: string;
   description: string;
 }

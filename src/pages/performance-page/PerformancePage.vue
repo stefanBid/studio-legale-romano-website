@@ -51,14 +51,14 @@ onMounted(() => {
           >
             <h1
               :class="[styleStore.textSizeL]"
-              class="font-medium text-left transition-all duration-300 ease-in-out font-playfair"
+              class="font-medium text-left transition-all duration-300 ease-in-out font-playfair text-rm-main"
             >
               {{ i18nStore.performancePageI18nContent.index.title }}
             </h1>
 
             <ol
               :class="[styleStore.textSizeS]"
-              class="list-inside list-[upper-roman] font-lora pl-3"
+              class="list-inside list-[upper-roman] font-lora pl-3 text-rm-main-light"
             >
               <li
                 v-for="item in i18nStore.performancePageI18nContent.index.items"
@@ -129,7 +129,7 @@ onMounted(() => {
               </div>
               <p
                 :class="[styleStore.textSizeS, styleStore.firstLetterSize]"
-                class="text-justify transition-all duration-300 ease-in-out text-rm-main font-lora first-letter:text-rm-secondary"
+                class="text-justify transition-all duration-300 ease-in-out text-rm-main-light font-lora first-letter:text-rm-secondary"
                 v-html="stringPurifier(item.description)"
               ></p>
             </div>

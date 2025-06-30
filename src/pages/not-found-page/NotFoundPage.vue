@@ -28,13 +28,13 @@ const router = useRouter();
   >
     <h1
       :class="[styleStore.textSizeXL]"
-      class="font-medium whitespace-normal transition-all duration-300 ease-in-out font-playfair"
+      class="font-medium whitespace-normal transition-all duration-300 ease-in-out font-playfair text-rm-main"
     >
       {{ i18nStore.notFoundPageI18nContent.firstHeading }}
     </h1>
     <p
       :class="[styleStore.textSizeM]"
-      class="font-medium whitespace-normal transition-all duration-300 ease-in-out font-lora"
+      class="font-medium whitespace-normal transition-all duration-300 ease-in-out font-lora text-rm-main-light"
     >
       {{ i18nStore.notFoundPageI18nContent.secondHeading }}
     </p>

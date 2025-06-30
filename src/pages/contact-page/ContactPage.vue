@@ -67,13 +67,13 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
         <div :class="[getMarginBottomOfHeading]" class="transition-all duration-300 ease-in-out">
           <h1
             :class="[styleStore.textSizeXL]"
-            class="font-bold text-left transition-all duration-300 ease-in-out font-playfair"
+            class="font-bold text-left transition-all duration-300 ease-in-out font-playfair text-rm-main"
           >
             {{ i18nStore.contactPageI18nContent.openingHours.heading }}
           </h1>
           <p
             :class="[styleStore.textSizeS]"
-            class="text-left transition-all duration-300 ease-in-out font-lora"
+            class="text-left transition-all duration-300 ease-in-out font-lora text-rm-main-light"
           >
             {{ i18nStore.contactPageI18nContent.openingHours.description }}
           </p>
@@ -101,13 +101,13 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
         >
           <h1
             :class="[styleStore.textSizeXL]"
-            class="font-bold text-left transition-all duration-300 ease-in-out font-playfair"
+            class="font-bold text-left transition-all duration-300 ease-in-out font-playfair text-rm-main"
           >
             {{ i18nStore.contactPageI18nContent.reachUs.heading }}
           </h1>
           <p
             :class="[styleStore.textSizeS]"
-            class="text-left transition-all duration-300 ease-in-out font-lora"
+            class="text-left transition-all duration-300 ease-in-out font-lora text-rm-main-light"
           >
             {{ i18nStore.contactPageI18nContent.reachUs.description }}
           </p>
@@ -145,7 +145,7 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
                 >
                   <p
                     :class="[styleStore.textSizeXS]"
-                    class="transition-all duration-300 ease-in-out font-lora"
+                    class="transition-all duration-300 ease-in-out font-lora text-rm-main-light"
                   >
                     {{ i18nStore.contactPageI18nContent.reachUs.withCar.description }}
                   </p>
@@ -157,7 +157,7 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
                     >
                       <h4
                         :class="[styleStore.textSizeS]"
-                        class="font-bold transition-all duration-300 ease-in-out font-playfair"
+                        class="font-bold transition-all duration-300 ease-in-out font-playfair text-rm-main"
                       >
                         {{ parking.name }}
                         <span
@@ -168,7 +168,7 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
                       </h4>
                       <p
                         :class="[styleStore.textSizeXS]"
-                        class="transition-all duration-300 ease-in-out font-lora"
+                        class="transition-all duration-300 ease-in-out font-lora text-rm-main-light"
                       >
                         {{ parking.description }}
                       </p>
@@ -193,7 +193,7 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
                 <div :class="[styleStore.elementTotalPaddingS]">
                   <p
                     :class="[styleStore.textSizeXS]"
-                    class="transition-all duration-300 ease-in-out font-lora"
+                    class="transition-all duration-300 ease-in-out font-lora text-rm-main-light"
                   >
                     {{ i18nStore.contactPageI18nContent.reachUs.withPublicTransport.description }}
                   </p>
@@ -207,7 +207,7 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
                     >
                       <h4
                         :class="[styleStore.textSizeS]"
-                        class="font-bold transition-all duration-300 ease-in-out font-playfair"
+                        class="font-bold transition-all duration-300 ease-in-out font-playfair text-rm-main"
                       >
                         {{ busStop.name }}
                         <span
@@ -218,7 +218,7 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
                       </h4>
                       <p
                         :class="[styleStore.textSizeXS]"
-                        class="transition-all duration-300 ease-in-out font-lora"
+                        class="transition-all duration-300 ease-in-out font-lora text-rm-main-light"
                       >
                         {{ busStop.description }}
                       </p>
@@ -247,7 +247,7 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
                 <div :class="[styleStore.elementTotalPaddingS]">
                   <p
                     :class="[styleStore.textSizeXS]"
-                    class="transition-all duration-300 ease-in-out font-lora"
+                    class="transition-all duration-300 ease-in-out font-lora text-rm-main-light"
                   >
                     {{ i18nStore.contactPageI18nContent.reachUs.withFoot.description }}
                   </p>
@@ -260,7 +260,7 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
                     >
                       <h4
                         :class="[styleStore.textSizeS]"
-                        class="font-bold transition-all duration-300 ease-in-out font-playfair"
+                        class="font-bold transition-all duration-300 ease-in-out font-playfair text-rm-main"
                       >
                         {{ landmark.name }}
                         <span
@@ -271,7 +271,7 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
                       </h4>
                       <p
                         :class="[styleStore.textSizeXS]"
-                        class="transition-all duration-300 ease-in-out font-lora"
+                        class="transition-all duration-300 ease-in-out font-lora text-rm-main-light"
                       >
                         {{ landmark.description }}
                       </p>
@@ -309,13 +309,13 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
         <div :class="[getMarginBottomOfHeading]" class="transition-all duration-300 ease-in-out">
           <h1
             :class="[styleStore.textSizeXL]"
-            class="font-bold text-left transition-all duration-300 ease-in-out font-playfair"
+            class="font-bold text-left transition-all duration-300 ease-in-out font-playfair text-rm-main"
           >
             {{ i18nStore.contactPageI18nContent.contacts.heading }}
           </h1>
           <p
             :class="[styleStore.textSizeS]"
-            class="text-left transition-all duration-300 ease-in-out font-lora"
+            class="text-left transition-all duration-300 ease-in-out font-lora text-rm-main-light"
           >
             {{ i18nStore.contactPageI18nContent.contacts.description }}
           </p>
@@ -343,7 +343,7 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
           >
             <BaseBadge
               :class="{
-                'grayscale pointer-events-none opacity-40': index >= 3,
+                'grayscale pointer-events-none opacity-40 !text-rm-main-light': index >= 3,
               }"
               class="no-underline transition-all duration-300 ease-in-out hover:cursor-pointer hover:scale-105 outline-0 ring-0 focus-visible:scale-105"
               :aria-label="`Contact us via ${channel.value}`"
