@@ -53,8 +53,8 @@ const styleStore = useStyleStore();
           :class="{
             '-bottom-4':
               styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-            '-bottom-6': styleStore.activeBreakpoint === 'md',
-            '-bottom-8':
+            '-bottom-7': styleStore.activeBreakpoint === 'md',
+            '-bottom-10':
               styleStore.activeBreakpoint !== 'xs' &&
               styleStore.activeBreakpoint !== 'sm' &&
               styleStore.activeBreakpoint !== 'md',
@@ -82,26 +82,20 @@ const styleStore = useStyleStore();
         class="flex flex-col h-full transition-all duration-300 ease-in-out"
       >
         <div
-          :class="[
-            styleStore.elementTotalGapS,
-            {
-              'mt-4': styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
-              'mt-6': styleStore.activeBreakpoint === 'md',
-              'mt-8':
-                styleStore.activeBreakpoint !== 'xs' &&
-                styleStore.activeBreakpoint !== 'sm' &&
-                styleStore.activeBreakpoint !== 'md',
-            },
-          ]"
-          class="flex flex-col items-center flex-1 transition-all duration-300 ease-in-out"
+          :class="{
+            'mt-4': styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+            'mt-6': styleStore.activeBreakpoint === 'md',
+            'mt-8':
+              styleStore.activeBreakpoint !== 'xs' &&
+              styleStore.activeBreakpoint !== 'sm' &&
+              styleStore.activeBreakpoint !== 'md',
+          }"
+          class="flex-1 text-center transition-all duration-300 ease-in-out"
         >
-          <span
-            :class="[styleStore.textSizeL]"
-            class="font-bold text-center font-playfair text-rm-main"
-          >
+          <h1 :class="[styleStore.textSizeL]" class="font-bold font-playfair text-rm-main">
             {{ `${props.generality.name} ${props.generality.surname}` }}
-          </span>
-          <span :class="[styleStore.textSizeS]" class="text-center font-lora text-rm-main-light">
+          </h1>
+          <span :class="[styleStore.textSizeS]" class="font-lora text-rm-main-light">
             {{ props.generality.description }}
           </span>
         </div>
