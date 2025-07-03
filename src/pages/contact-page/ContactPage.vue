@@ -3,8 +3,8 @@ import { computed } from 'vue';
 import type { ExternalOperation } from '@/types';
 import { useI18nStore, useStyleStore } from '@/stores';
 import { usePageMeta } from '@/hooks';
-import { CONTACT_CHANNEL_ICONS, IMAGES } from '@/constants';
 import { openLink, sendEmail, sendWhatsAppMessage } from '@/utils';
+import { CONTACT_CHANNEL_ICONS } from '@/constants';
 import { ThePageContainer, BaseCard, BaseElementsContainer, BaseBadge } from '@/components';
 import OfficeMap from '@/pages/contact-page/components/office-map/OfficeMap.vue';
 import OpeningHourBox from '@/pages/contact-page/components/opening-hour-box/OpeningHourBox.vue';
@@ -57,7 +57,7 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
     :intro-cover="{
       title: i18nStore.contactPageI18nContent.firstHeading,
       subtitle: i18nStore.contactPageI18nContent.secondHeading,
-      imgPath: IMAGES.contactPageCoverImg,
+      imgPath: i18nStore.contactPageI18nContent.coverImage,
     }"
   >
     <template #page-content>

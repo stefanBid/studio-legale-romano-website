@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
-
-import { ICONS } from '@/constants';
 import { usePageMeta } from '@/hooks';
 import { BaseButton } from '@/components';
 import { useI18nStore, useStyleStore } from '@/stores';
 import { computed } from 'vue';
+import Logo from '@/assets/icons/logo.svg?component';
 
 // Stores declarations
 const styleStore = useStyleStore();
@@ -39,7 +38,7 @@ const router = useRouter();
       {{ i18nStore.notFoundPageI18nContent.secondHeading }}
     </p>
     <component
-      :is="ICONS.LogoIcon"
+      :is="Logo"
       class="transition-all duration-300 ease-in-out animate-pulse"
       :class="[styleStore.iconSizeXXL]"
     />

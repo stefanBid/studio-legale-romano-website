@@ -4,15 +4,6 @@
 type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 type NotificationCategory = 'info' | 'success' | 'error';
 type Locale = 'it';
-type IconsName = 'LogoIcon' | 'InstagramIcon' | 'FacebookIcon' | 'TwitterIcon';
-type ImageName =
-  | 'contactPageCoverImg'
-  | 'homePageCoverImg'
-  | 'performancePageCoverImg'
-  | 'whoWeArePageCoverImg'
-  | 'accordionTestImg';
-
-type DocName = 'antonioRomanoCvDoc';
 type ExternalOperation = 'openLink' | 'sendEmail' | 'sendWhatsAppMessage' | 'callNumber';
 type ExternalMessageInfo =
   | 'legalConsultation'
@@ -27,6 +18,11 @@ interface MetaDescription {
   description?: string;
   keywords?: string[];
   copyright?: string;
+}
+
+interface Image {
+  webp?: string;
+  jpg: string;
 }
 
 interface Notification {
@@ -85,8 +81,10 @@ interface FooterContent {
 /** HOME PAGE **/
 interface HomePageContent {
   metaDescription: MetaDescription;
+  bgImage: Image;
   firstHeading: string;
   secondHeading: string;
+  thirdHeading: string;
   firstCta: Button;
   secondCta: Button;
 }
@@ -96,6 +94,7 @@ interface PerformancePageContent {
   metaDescription: MetaDescription;
   firstHeading: string;
   secondHeading: string;
+  coverImage: Image;
   index: {
     title: string;
     items: {
@@ -150,6 +149,7 @@ interface WeeklySchedule {
 
 interface ContactPageContent {
   metaDescription: MetaDescription;
+  coverImage: Image;
   firstHeading: string;
   secondHeading: string;
   reachUs: {
@@ -202,8 +202,9 @@ interface ContactPageContent {
 /** WHO WE ARE PAGE **/
 interface Member {
   id: string;
-  idDoc?: DocName;
-  imagePath?: string;
+  cvFilePath?: string;
+  imageProfile?: Image;
+  imageCover?: Image;
   name: string;
   surname: string;
   email: string;
@@ -213,6 +214,7 @@ interface Member {
 
 interface WhoWeArePageContent {
   metaDescription: MetaDescription;
+  coverImage: Image;
   firstHeading: string;
   secondHeading: string;
   team: {
@@ -223,6 +225,7 @@ interface WhoWeArePageContent {
   office: {
     heading: string;
     description: string;
+    photoGallery: Image[];
   };
 }
 
@@ -237,9 +240,7 @@ interface NotFoundPageContent {
 export type {
   Breakpoint,
   Locale,
-  IconsName,
-  ImageName,
-  DocName,
+  Image,
   ExternalOperation,
   ExternalMessageInfo,
   NotificationCategory,

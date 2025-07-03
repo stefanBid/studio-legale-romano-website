@@ -3,7 +3,7 @@ import { XMarkIcon, Bars3Icon } from '@heroicons/vue/24/outline';
 import { computed, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useI18nStore, useStyleStore } from '@/stores';
-import { ICONS } from '@/constants';
+import Logo from '@/assets/icons/logo.svg?component';
 import { TheInlineNavbar, TheSideNavbar } from '@/components';
 
 // Store Declarations
@@ -81,7 +81,7 @@ watch(
           @click="onChangeMenuVisibility(false)"
         >
           <component
-            :is="ICONS.LogoIcon"
+            :is="Logo"
             :class="[styleStore.iconSizeM]"
             class="transition-all duration-300 ease-in-out shrink-0"
           />

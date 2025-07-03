@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { useStyleStore } from '@/stores';
+import type { Image } from '@/types';
+
 interface BaseprofileImageBoxProps {
   avatar?: {
-    imageUrl: string;
+    image: Image;
     alt: string;
   };
   name: string;
@@ -34,12 +36,15 @@ const styleStore = useStyleStore();
     ]"
     class="inline-flex items-center overflow-hidden transition-all duration-300 ease-in-out border-4 border-white"
   >
-    <img
-      v-if="props.avatar"
-      :src="props.avatar.imageUrl"
-      :alt="props.avatar.alt"
-      class="object-cover size-full"
-    />
+    <picture v-if="props.avatar">
+      <source :srcset="props.avatar.image.webp" type="image/webp" />
+      <img
+        v-if="props.avatar"
+        :src="props.avatar.image.jpg"
+        :alt="props.avatar.alt"
+        class="object-cover size-full"
+      />
+    </picture>
     <span
       v-else
       :class="[styleStore.textSizeL]"

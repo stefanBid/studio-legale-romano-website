@@ -1,4 +1,4 @@
-export const dowloadFile = (fileName: string, fileHref: string): void => {
+export const downloadFile = (fileName: string, fileHref: string): void => {
   // Create a new <a> element for the download simulation
   const link = document.createElement('a');
   link.href = fileHref;

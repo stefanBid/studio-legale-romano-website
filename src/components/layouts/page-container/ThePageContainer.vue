@@ -1,15 +1,13 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import { useStyleStore } from '@/stores';
+import type { Image } from '@/types';
 
 interface PageContainerProps {
   introCover?: {
     title: string;
     subtitle?: string;
-    imgPath: {
-      jpg: string;
-      webp: string;
-    };
+    imgPath: Image;
   };
 }
 
@@ -21,17 +19,10 @@ const props = withDefaults(defineProps<PageContainerProps>(), {
 const styleStore = useStyleStore();
 
 // Feature 1: Transition
-const imageRef = ref<HTMLImageElement | null>(null);
-const isImageLoaded = ref(false);
 const show = ref(false);
 
 onMounted(() => {
   show.value = true;
-  if (imageRef.value) {
-    imageRef.value.onload = () => {
-      isImageLoaded.value = true;
-    };
-  }
 });
 </script>
 
@@ -55,16 +46,11 @@ onMounted(() => {
     >
       <!-- Overlay -->
       <div class="absolute inset-0 bg-rm-main z-rm-base-1 opacity-55"></div>
-      <picture
-        :class="{ 'opacity-100': isImageLoaded, 'opacity-0': !isImageLoaded }"
-        class="transition-all duration-300 ease-in-out"
-      >
+      <picture>
         <source :srcset="props.introCover.imgPath.webp" type="image/webp" />
         <img
-          ref="imageRef"
           :src="props.introCover.imgPath.jpg"
           class="absolute inset-0 object-cover object-center w-full h-full pointer-events-none"
-          loading="lazy"
           decoding="async"
         />
       </picture>

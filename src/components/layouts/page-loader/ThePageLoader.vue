@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ICONS } from '@/constants';
+import Logo from '@/assets/icons/logo.svg?component';
 </script>
 <template>
   <div
@@ -8,7 +8,7 @@ import { ICONS } from '@/constants';
     aria-live="assertive"
   >
     <div class="relative inline-flex items-center justify-center">
-      <component :is="ICONS.LogoIcon" class="size-20 z-rm-base-4" />
+      <component :is="Logo" class="size-20 z-rm-base-4" />
       <div
         class="absolute border-2 rounded size-32 border-rm-main bg-rm-main z-rm-base-3 animate-spin"
       ></div>

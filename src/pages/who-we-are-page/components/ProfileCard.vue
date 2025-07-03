@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useStyleStore } from '@/stores';
 import { BaseButton, BaseCard, BaseProfileImageBox } from '@/components';
+import type { Image } from '@/types';
 import { type FunctionalComponent, type Component } from 'vue';
 
 interface Generality {
@@ -19,7 +20,7 @@ interface CallToAction {
 interface ProfileCardProps {
   generality: Generality;
   avatar?: {
-    imageUrl: string;
+    image: Image;
     alt: string;
   };
   callToActions?: CallToAction[];

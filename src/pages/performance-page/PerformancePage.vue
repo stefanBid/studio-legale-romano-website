@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
 import { BookOpenIcon, BookmarkIcon } from '@heroicons/vue/24/solid';
-import { IMAGES } from '@/constants';
 import { usePageMeta } from '@/hooks';
 import { useStyleStore, useI18nStore } from '@/stores';
 import { BaseAccordion, BaseElementsContainer, ThePageContainer, BaseBadge } from '@/components';
@@ -39,7 +38,7 @@ onMounted(() => {
     :intro-cover="{
       title: i18nStore.performancePageI18nContent.firstHeading,
       subtitle: i18nStore.performancePageI18nContent.secondHeading,
-      imgPath: IMAGES.performancePageCoverImg,
+      imgPath: i18nStore.performancePageI18nContent.coverImage,
     }"
   >
     <template #page-content>
@@ -104,7 +103,7 @@ onMounted(() => {
           <template #section-hidden-content>
             <div class="w-full">
               <div
-                class="relative border-2 rounded border-rm-secondary p-2 h-[300px] w-full transition-all duration-300 ease-in-out"
+                class="relative h-[300px] w-full transition-all duration-300 ease-in-out overflow-hidden bg-white"
                 :class="{
                   'mb-4':
                     styleStore.activeBreakpoint !== 'xs' &&
@@ -115,23 +114,31 @@ onMounted(() => {
                     styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
                 }"
               >
-                <div class="absolute inset-0 m-2 rounded bg-rm-main z-rm-base-1 opacity-20"></div>
+                <div
+                  class="absolute bottom-0 left-0 pointer-events-none size-full bg-black/20 z-rm-base-1"
+                ></div>
+                <div
+                  class="absolute bottom-0 left-0 w-full h-[150px] pointer-events-none z-rm-base-2"
+                  style="background: linear-gradient(to bottom, transparent, #fdfcf9)"
+                ></div>
                 <picture>
-                  <source :srcset="IMAGES.accordionTestImg.webp" type="image/webp" />
+                  <source srcset="/images/accordion-test.webp" type="image/webp" />
                   <img
-                    :src="IMAGES.accordionTestImg.jpg"
+                    src="/images/accordion-test.jpg"
                     :alt="item.title"
                     loading="lazy"
                     decoding="async"
-                    class="object-cover object-center w-full h-full rounded"
+                    class="object-cover object-center w-full h-full"
                   />
                 </picture>
               </div>
-              <p
-                :class="[styleStore.textSizeS, styleStore.firstLetterSize]"
-                class="text-justify transition-all duration-300 ease-in-out text-rm-main-light font-lora first-letter:text-rm-secondary"
-                v-html="stringPurifier(item.description)"
-              ></p>
+              <div :class="[styleStore.elementTotalPaddingM]">
+                <p
+                  :class="[styleStore.textSizeS, styleStore.firstLetterSize]"
+                  class="text-justify transition-all duration-300 ease-in-out text-rm-main-light font-lora first-letter:text-rm-secondary"
+                  v-html="stringPurifier(item.description)"
+                ></p>
+              </div>
             </div>
           </template>
         </BaseAccordion>

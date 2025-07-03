@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import type { Member } from '@/types';
-import { IMAGES, DOCS } from '@/constants';
-import { dowloadFile, sendEmail, stringPurifier } from '@/utils';
+import { downloadFile, sendEmail, stringPurifier } from '@/utils';
 import { useI18nStore, useStyleStore } from '@/stores';
 import { usePageMeta } from '@/hooks';
 import {
   ThePageContainer,
   BaseElementsContainer,
   BaseDialog,
-  BaseProfileImageBox,
   BaseCarousel,
+  BaseButton,
 } from '@/components';
 import { UserCircleIcon, EnvelopeIcon, DocumentArrowDownIcon } from '@heroicons/vue/24/solid';
+import { XMarkIcon } from '@heroicons/vue/24/outline';
 import ProfileCard from './components/ProfileCard.vue';
 import { computed, ref } from 'vue';
 
@@ -61,7 +61,7 @@ const handleCloseDialogProfile = (falsyValue: boolean): void => {
     :intro-cover="{
       title: i18nStore.whoWeArePageI18nContent.firstHeading,
       subtitle: i18nStore.whoWeArePageI18nContent.secondHeading,
-      imgPath: IMAGES.whoWeArePageCoverImg,
+      imgPath: i18nStore.whoWeArePageI18nContent.coverImage,
     }"
   >
     <template #page-content>
@@ -110,7 +110,7 @@ const handleCloseDialogProfile = (falsyValue: boolean): void => {
                 description: member.role,
               }"
               :avatar="
-                member.imagePath ? { imageUrl: member.imagePath, alt: member.name } : undefined
+                member.imageProfile ? { image: member.imageProfile, alt: member.name } : undefined
               "
               :call-to-actions="[
                 {
@@ -134,7 +134,7 @@ const handleCloseDialogProfile = (falsyValue: boolean): void => {
                   content: 'Scarica CV',
                   icon: DocumentArrowDownIcon,
                   onClick: () => {
-                    if (member.idDoc) dowloadFile(`${member.id}-cv`, DOCS[member.idDoc]);
+                    if (member.cvFilePath) downloadFile(`${member.id}-cv`, member.cvFilePath);
                   },
                 },
               ]"
@@ -160,8 +160,11 @@ const handleCloseDialogProfile = (falsyValue: boolean): void => {
           </p>
         </div>
         <BaseElementsContainer>
-          <BaseCarousel :number-of-items="10" auto-play>
-            <template #carousel-item>
+          <BaseCarousel
+            :number-of-items="i18nStore.whoWeArePageI18nContent.office.photoGallery.length"
+            auto-play
+          >
+            <template #carousel-item="{ index }">
               <div
                 :class="{
                   'h-[400px]':
@@ -176,7 +179,7 @@ const handleCloseDialogProfile = (falsyValue: boolean): void => {
               >
                 <img
                   class="object-cover w-full h-full"
-                  src="https://picsum.photos/3000"
+                  :src="i18nStore.whoWeArePageI18nContent.office.photoGallery[index].jpg"
                   alt="placeholder"
                 />
               </div>
@@ -188,31 +191,76 @@ const handleCloseDialogProfile = (falsyValue: boolean): void => {
   </ThePageContainer>
 
   <BaseDialog
-    :dialog-title="`Profilo professionale di ${currentMemberProfile?.name} ${currentMemberProfile?.surname}`"
     block-dialog-height
     :is-open="isOpenProfileDialog"
+    hide-dialog-header
     :on-close-modal="(falsyValue) => handleCloseDialogProfile(falsyValue)"
   >
-    <template #modal-content>
+    <template #modal-content="{ closeModal }">
       <div
         v-if="currentMemberProfile"
         :class="[styleStore.elementTotalGapM]"
         class="flex flex-col items-center w-full h-full overflow-y-hidden transition-all duration-300 ease-in-out"
       >
-        <BaseProfileImageBox
-          class="shrink-0"
-          :avatar="
-            currentMemberProfile?.imagePath
-              ? { imageUrl: currentMemberProfile.imagePath, alt: currentMemberProfile.name }
-              : undefined
-          "
-          :name="currentMemberProfile.name"
-          :surname="currentMemberProfile.surname"
-        />
-        <div class="h-full overflow-y-auto outline-none ring-0">
+        <div
+          class="relative w-full overflow-hidden transition-all duration-300 ease-in-out bg-white h-1/3"
+        >
+          <BaseButton
+            :class="{
+              'right-2.5 top-2.5':
+                styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+              'right-3 top-3': styleStore.activeBreakpoint === 'md',
+              'right-4 top-4':
+                styleStore.activeBreakpoint !== 'xs' &&
+                styleStore.activeBreakpoint !== 'sm' &&
+                styleStore.activeBreakpoint !== 'md',
+            }"
+            class="absolute text-white border border-transparent rounded z-rm-base-3 w-fit h-fit hover:rotate-90 focus-visible:border-white"
+            aria-label="close modal"
+            variant="custom"
+            size="custom"
+            @click.stop="closeModal"
+            @keydown.enter.stop="closeModal"
+          >
+            <XMarkIcon :class="[styleStore.iconSizeS]" class="stroke-[2.5px]" />
+          </BaseButton>
+          <h1
+            class="absolute w-full font-bold text-center text-white whitespace-normal transition-all duration-300 ease-in-out -translate-y-1/2 z-rm-base-3 top-1/2 font-playfair"
+            :class="[styleStore.textSizeXL]"
+          >
+            {{ currentMemberProfile.name }} {{ currentMemberProfile.surname }}
+          </h1>
+          <div class="absolute bottom-0 left-0 size-full bg-black/30 z-rm-base-1"></div>
+          <div
+            class="absolute bottom-0 left-0 w-full h-[150px] z-rm-base-2"
+            style="background: linear-gradient(to bottom, transparent, #fdfcf9)"
+          ></div>
+          <picture>
+            <source :srcset="currentMemberProfile.imageCover?.webp" type="image/webp" />
+            <img
+              :src="currentMemberProfile.imageCover?.jpg"
+              :alt="currentMemberProfile.name"
+              loading="lazy"
+              decoding="async"
+              class="object-cover object-center w-full h-full"
+            />
+          </picture>
+        </div>
+        <div
+          :class="{
+            'px-4 pb-4':
+              styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
+            'px-5 pb-5': styleStore.activeBreakpoint === 'md',
+            'px-6 pb-6':
+              styleStore.activeBreakpoint !== 'xs' &&
+              styleStore.activeBreakpoint !== 'sm' &&
+              styleStore.activeBreakpoint !== 'md',
+          }"
+          class="flex-1 overflow-y-auto outline-none ring-0"
+        >
           <p
             :class="[styleStore.textSizeS]"
-            class="transition-all duration-300 ease-in-out text-rm-main font-lora"
+            class="transition-all duration-300 ease-in-out text-rm-main-light font-lora"
             v-html="stringPurifier(currentMemberProfile.description)"
           ></p>
         </div>

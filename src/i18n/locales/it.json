@@ -25,16 +25,12 @@
       "description": "Offriamo soluzioni legali personalizzate, unendo competenza ed esperienza per affrontare con successo ogni sfida del diritto.",
       "socials": [
         {
-          "id": "InstagramIcon",
+          "id": "instagram",
           "value": "@studiolegaleromano"
         },
         {
-          "id": "FacebookIcon",
+          "id": "facebook",
           "value": "/studiolegaleromano"
-        },
-        {
-          "id": "TwitterIcon",
-          "value": "@studiolegaleromano"
         }
       ]
     },
@@ -63,15 +59,15 @@
       "title": "Contatti",
       "channels": [
         {
-          "id": "MobileIcon",
+          "id": "mobile",
           "value": "+39 330 40 0201"
         },
         {
-          "id": "TelephoneIcon",
+          "id": "telephone",
           "value": "+39 0825 26555"
         },
         {
-          "id": "EmailIcon",
+          "id": "email",
           "value": "romanolaw@alice.it"
         }
       ]
@@ -99,8 +95,13 @@
       "author": "Stefano Biddau",
       "robots": "index, follow"
     },
-    "firstHeading": "Romano Studio di Avvocati",
-    "secondHeading": "Offriamo soluzioni legali personalizzate, unendo competenza ed esperienza per affrontare con successo ogni sfida del diritto.",
+    "bgImage": {
+      "webp": "/images/home-page-cover.webp",
+      "jpg": "/images/home-page-cover.jpg"
+    },
+    "firstHeading": "Romano",
+    "secondHeading": "Studio di Avvocati",
+    "thirdHeading": "Offriamo soluzioni legali personalizzate, unendo competenza ed esperienza per affrontare con successo ogni sfida del diritto.",
     "firstCta": {
       "text": "Scopri come possiamo aiutarti",
       "link": "performancePage"
@@ -117,6 +118,10 @@
       "keywords": [],
       "author": "Stefano Biddau",
       "robots": "index, follow"
+    },
+    "coverImage": {
+      "webp": "/images/performance-page-cover.webp",
+      "jpg": "/images/performance-page-cover.jpg"
     },
     "firstHeading": "Prestazioni",
     "secondHeading": "Il nostro studio legale offre consulenza e assistenza legale in diversi ambiti del diritto.",
@@ -195,6 +200,10 @@
       "author": "Stefano Biddau",
       "robots": "index, follow"
     },
+    "coverImage": {
+      "webp": "/images/contacts-page-cover.webp",
+      "jpg": "/images/contacts-page-cover.jpg"
+    },
     "firstHeading": "Contatti",
     "secondHeading": "Contattaci per fissare un appuntamento o per richiedere informazioni.",
     "reachUs": {
@@ -261,33 +270,28 @@
       "description": "Per fissare un appuntamento o per richiedere informazioni, contattaci tramite i seguenti canali:",
       "channels": [
         {
-          "id": "MobileIcon",
+          "id": "mobile",
           "value": "+39 330 400 201",
           "operation": "sendWhatsAppMessage"
         },
         {
-          "id": "TelephoneIcon",
+          "id": "telephone",
           "value": "+39 0825 26555",
           "operation": "callNumber"
         },
         {
-          "id": "EmailIcon",
+          "id": "email",
           "value": "romanolaw@alice.it",
           "operation": "sendEmail"
         },
         {
-          "id": "InstagramIcon",
+          "id": "instagram",
           "value": "@studiolegaleromano",
           "operation": "openLink"
         },
         {
-          "id": "FacebookIcon",
+          "id": "facebook",
           "value": "/studiolegaleromano",
-          "operation": "openLink"
-        },
-        {
-          "id": "TwitterIcon",
-          "value": "@studiolegaleromano",
           "operation": "openLink"
         }
       ]
@@ -358,6 +362,10 @@
       "author": "Stefano Biddau",
       "robots": "index, follow"
     },
+    "coverImage": {
+      "webp": "/images/who-we-are-page-cover.webp",
+      "jpg": "/images/who-we-are-page-cover.jpg"
+    },
     "firstHeading": "Chi siamo",
     "secondHeading": "Una panoramica sul nostro studio legale e sui professionisti del diritto che lo compongono.",
     "team": {
@@ -366,18 +374,37 @@
       "members": [
         {
           "id": "antonio-romano",
-          "idDoc": "antonioRomanoCvDoc",
+          "cvFilePath": "/docs/antonio-romano-cv.pdf",
+          "imageProfile": {
+            "webp": "/images/members/antonio-romano-profile.webp",
+            "jpg": "/images/members/antonio-romano-profile.jpg"
+          },
+          "imageCover": {
+            "webp": "/images/members/antonio-romano-cover.webp",
+            "jpg": "/images/members/antonio-romano-cover.jpg"
+          },
           "name": "Antonio",
           "surname": "Romano",
           "email": "antonio.romano@avvocatiavellinopec.it",
           "role": "Fondatore e Avvocato",
-          "description": "<b>Avv. Antonio Romano</b> è un <i>avvocato esperto in diritto civile</i> con un'ampia esperienza maturata in oltre 30 anni di attività. Iscritto all'<b>Albo degli Avvocati di Avellino</b>, svolge la sua professione come libero professionista presso il proprio studio legale, fornendo consulenza e assistenza legale a privati, aziende e enti pubblici.<br><br>La sua esperienza si estende a molteplici ambiti del <b>diritto civile</b>, con particolare attenzione a: <ul class='ml-6 list-disc'><li>Contrattualistica e consulenza aziendale</li><li>Recupero crediti e procedure esecutive</li><li>Diritto del lavoro e previdenza sociale</li><li>Diritto di famiglia e successioni</li><li>Responsabilità medica e risarcimento danni</li><li>Codice del consumo e tutela del consumatore</li><li>Diritto societario, fallimentare e procedure concorsuali</li></ul><br>Oltre alla tradizionale attività forense, ha ricoperto importanti incarichi in ambito giuridico, tra cui:<ul class='ml-6 list-disc'><li><b>Curatore Fallimentare</b> presso il Tribunale di Avellino, gestendo procedure fallimentari in collaborazione con il Giudice Delegato.</li><li><b>Custode Giudiziario</b>, con esperienza nella gestione di esecuzioni immobiliari e vendite giudiziarie.</li><li><b>Mediatore Professionista</b> per la risoluzione alternativa delle controversie civili e commerciali.</li><li><b>Consulente Legale</b> per <i>Unipol Sai SpA</i> (già Milano Assicurazioni SpA) con oltre 20 anni di esperienza nel settore assicurativo.</li><li><b>Legale di Istituto Bancari</b>, con attività di gestione del contenzioso su crediti non riscossi.</li><li><b>Componente di Collegi Arbitrali</b> per la risoluzione di controversie tra imprese mediante arbitrato.</li></ul><br>Grazie alla sua competenza e affidabilità, ha rappresentato <b>enti pubblici</b>, tra cui la Provincia di Avellino e diversi Comuni, e aziende operanti in settori diversificati, come vitivinicolo, assicurativo, edilizio, tipografico, automobilistico, spettacolo e finanza.<br><br>Ha svolto incarichi di <b>docenza</b> in diritto penale, diritto processuale e diritto costituzionale, partecipando come formatore in corsi di aggiornamento per Guardie Giurate. Inoltre, ha fatto parte della Commissione Esami per l'abilitazione alla professione forense presso la Corte di Appello di Napoli.<br><br><b>Formazione:</b> Laureato in <i>Giurisprudenza</i> presso l'Università degli Studi di Napoli 'Federico II', ha successivamente conseguito una seconda laurea in <i>Scienze Politiche e Relazioni Internazionali</i>. Dal 2022 è <b>docente a contratto in Diritto Civile</b>.<br><br>La sua attività professionale si distingue per un approccio strategico, volto a individuare soluzioni efficaci e sostenibili per la tutela dei clienti, tenendo in considerazione tempi e costi del contenzioso. Collabora con numerosi studi legali in Italia, estendendo la sua attività su Avellino, Napoli, Roma, Milano, Torino, Bologna, Bari, Catania e altre città.<br><br><b>Lingue:</b> Italiano (madrelingua), Francese (ottima conoscenza)."
+          "description": "<strong class='text-rm-main' class='text'>Avv. Antonio Romano</strong> è un <i>avvocato esperto in diritto civile</i> con un'ampia esperienza maturata in oltre 30 anni di attività. Iscritto all'<strong class='text-rm-main'>Albo degli Avvocati di Avellino</strong>, svolge la sua professione come libero professionista presso il proprio studio legale, fornendo consulenza e assistenza legale a privati, aziende e enti pubblici.<br><br>La sua esperienza si estende a molteplici ambiti del <strong class='text-rm-main'>diritto civile</strong>, con particolare attenzione a: <ul class='ml-6 list-disc'><li>Contrattualistica e consulenza aziendale</li><li>Recupero crediti e procedure esecutive</li><li>Diritto del lavoro e previdenza sociale</li><li>Diritto di famiglia e successioni</li><li>Responsabilità medica e risarcimento danni</li><li>Codice del consumo e tutela del consumatore</li><li>Diritto societario, fallimentare e procedure concorsuali</li></ul><br>Oltre alla tradizionale attività forense, ha ricoperto importanti incarichi in ambito giuridico, tra cui:<ul class='ml-6 list-disc'><li><strong class='text-rm-main'>Curatore Fallimentare</strong> presso il Tribunale di Avellino, gestendo procedure fallimentari in collaborazione con il Giudice Delegato.</li><li><strong class='text-rm-main'>Custode Giudiziario</strong>, con esperienza nella gestione di esecuzioni immobiliari e vendite giudiziarie.</li><li><strong class='text-rm-main'>Mediatore Professionista</strong> per la risoluzione alternativa delle controversie civili e commerciali.</li><li><strong class='text-rm-main'>Consulente Legale</strong> per <i>Unipol Sai SpA</i> (già Milano Assicurazioni SpA) con oltre 20 anni di esperienza nel settore assicurativo.</li><li><strong class='text-rm-main'>Legale di Istituto Bancari</strong>, con attività di gestione del contenzioso su crediti non riscossi.</li><li><strong class='text-rm-main'>Componente di Collegi Arbitrali</strong> per la risoluzione di controversie tra imprese mediante arbitrato.</li></ul><br>Grazie alla sua competenza e affidabilità, ha rappresentato <strong class='text-rm-main'>enti pubblici</strong>, tra cui la Provincia di Avellino e diversi Comuni, e aziende operanti in settori diversificati, come vitivinicolo, assicurativo, edilizio, tipografico, automobilistico, spettacolo e finanza.<br><br>Ha svolto incarichi di <strong class='text-rm-main'>docenza</strong> in diritto penale, diritto processuale e diritto costituzionale, partecipando come formatore in corsi di aggiornamento per Guardie Giurate. Inoltre, ha fatto parte della Commissione Esami per l'abilitazione alla professione forense presso la Corte di Appello di Napoli.<br><br><strong class='text-rm-main'>Formazione:</strong> Laureato in <i>Giurisprudenza</i> presso l'Università degli Studi di Napoli 'Federico II', ha successivamente conseguito una seconda laurea in <i>Scienze Politiche e Relazioni Internazionali</i>. Dal 2022 è <strong class='text-rm-main'>docente a contratto in Diritto Civile</strong>.<br><br>La sua attività professionale si distingue per un approccio strategico, volto a individuare soluzioni efficaci e sostenibili per la tutela dei clienti, tenendo in considerazione tempi e costi del contenzioso. Collabora con numerosi studi legali in Italia, estendendo la sua attività su Avellino, Napoli, Roma, Milano, Torino, Bologna, Bari, Catania e altre città.<br><br><strong class='text-rm-main'>Lingue:</strong> Italiano (madrelingua), Francese (ottima conoscenza)."
         }
       ]
     },
     "office": {
       "heading": "Il nostro studio",
-      "description": "Uno sguardo all'interno del nostro studio legale, situato in Via Partenio, 56, Avellino. Scopri le nostre aule di lavoro e i nostri spazi di accoglienza:"
+      "description": "Uno sguardo all'interno del nostro studio legale, situato in Via Partenio, 56, Avellino. Scopri le nostre aule di lavoro e i nostri spazi di accoglienza:",
+      "photoGallery": [
+        {
+          "jpg": "/images/office/office1.jpg"
+        },
+        {
+          "jpg": "/images/office/office2.jpg"
+        },
+        {
+          "jpg": "/images/office/office3.jpg"
+        }
+      ]
     }
   },
   "notFoundPage": {

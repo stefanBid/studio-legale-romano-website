@@ -61,7 +61,6 @@ watch(
     <transition name="stretch">
       <div
         v-if="isAccordionOpen"
-        :class="[styleStore.elementTotalPaddingM]"
         class="w-full transition-all duration-300 ease-in-out bg-white rounded-b shadow-lg"
       >
         <slot name="section-hidden-content"> </slot>

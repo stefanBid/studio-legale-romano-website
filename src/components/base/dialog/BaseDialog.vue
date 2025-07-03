@@ -10,12 +10,14 @@ interface BaseDialogProps {
   dialogSize?: 'small' | 'medium' | 'large';
   blockDialogHeight?: boolean;
   dialogTitle?: string;
+  hideDialogHeader?: boolean;
   onCloseModal: (falsyValue: false) => void;
 }
 
 const props = withDefaults(defineProps<BaseDialogProps>(), {
   dialogSize: 'large',
   blockDialogHeight: false,
+  hideDialogHeader: false,
   dialogTitle: undefined,
   headerOrientation: 'left',
 });
@@ -70,7 +72,7 @@ const handleCloseModal = (): void => {
           >
             <DialogPanel
               :class="[
-                styleStore.elementTotalPaddingM,
+                props.hideDialogHeader ? undefined : styleStore.elementTotalPaddingM,
                 {
                   'w-[45%]':
                     props.dialogSize === 'small' &&
@@ -93,7 +95,10 @@ const handleCloseModal = (): void => {
               ]"
               class="flex flex-col overflow-hidden transition-all duration-300 ease-in-out transform bg-white border-2 rounded shadow-lg gap-y-6 border-rm-secondary"
             >
-              <div class="flex justify-between overflow-hidden cursor-default shrink-0 gap-x-6">
+              <div
+                v-if="!props.hideDialogHeader"
+                class="flex justify-between overflow-hidden cursor-default shrink-0 gap-x-6"
+              >
                 <div
                   :class="{
                     'text-left': props.headerOrientation === 'left',
@@ -122,7 +127,7 @@ const handleCloseModal = (): void => {
                   <XMarkIcon :class="[styleStore.iconSizeS]" class="stroke-[2.5px]" />
                 </BaseButton>
               </div>
-              <slot name="modal-content"></slot>
+              <slot name="modal-content" :close-modal="handleCloseModal"></slot>
             </DialogPanel>
           </TransitionChild>
         </div>

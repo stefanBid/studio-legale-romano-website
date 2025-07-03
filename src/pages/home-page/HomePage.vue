@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue';
-import { IMAGES } from '@/constants';
 import { useStyleStore, useI18nStore } from '@/stores';
 import { usePageMeta } from '@/hooks';
 import { BaseButton } from '@/components';
@@ -21,33 +20,21 @@ usePageMeta({
 
 // Feature 1: Manage effects
 const show = ref(false);
-const imageRef = ref<HTMLImageElement | null>(null);
-const isImageLoaded = ref(false);
 
 onMounted(() => {
   show.value = true;
-  if (imageRef.value) {
-    imageRef.value.onload = () => {
-      isImageLoaded.value = true;
-    };
-  }
 });
 </script>
 
 <template>
   <div class="relative w-full h-screen overflow-x-hidden bg-rm-main">
     <!-- Background -->
-    <picture
-      :class="{ 'opacity-100': isImageLoaded, 'opacity-0': !isImageLoaded }"
-      class="transition-all duration-300 ease-in-out"
-    >
-      <source :srcset="IMAGES.homePageCoverImg.webp" type="image/webp" />
+    <picture class="transition-all duration-300 ease-in-out">
+      <source :srcset="i18nStore.homePageI18nContent.bgImage.webp" type="image/webp" />
       <img
-        ref="imageRef"
-        :src="IMAGES.homePageCoverImg.jpg"
+        :src="i18nStore.homePageI18nContent.bgImage.jpg"
         class="absolute inset-0 object-cover object-center w-full h-full pointer-events-none"
         alt="Home Page Cover"
-        loading="lazy"
         decoding="async"
       />
     </picture>
@@ -61,32 +48,43 @@ onMounted(() => {
       <transition name="scale-and-fade-slow">
         <div
           v-if="show"
-          :class="[styleStore.elementTotalGapS]"
           class="flex flex-col items-center justify-center w-full h-full transition-all duration-300 ease-in-out"
         >
           <h1
-            class="font-bold text-center whitespace-normal transition-all duration-300 ease-in-out text-rm-secondary font-playfair"
+            class="p-0 font-bold leading-none text-center whitespace-normal transition-all duration-300 ease-in-out text-rm-secondary font-playfair"
             :class="[styleStore.textSizeXXL]"
           >
             {{ i18nStore.homePageI18nContent.firstHeading }}
           </h1>
           <h2
-            class="font-medium text-center text-white whitespace-normal transition-all duration-300 ease-in-out font-playfair"
-            :class="[styleStore.textSizeL]"
+            class="font-bold text-center text-white whitespace-normal transition-all duration-300 ease-in-out font-playfair"
+            :class="[styleStore.textSizeXL]"
           >
             {{ i18nStore.homePageI18nContent.secondHeading }}
           </h2>
+          <h3
+            class="mt-2 font-medium text-center text-white whitespace-normal transition-all duration-300 ease-in-out font-playfair"
+            :class="[styleStore.textSizeL]"
+          >
+            {{ i18nStore.homePageI18nContent.thirdHeading }}
+          </h3>
           <div
             :class="[
               styleStore.elementTotalGapM,
               {
+                'mt-12':
+                  styleStore.activeBreakpoint !== 'xs' &&
+                  styleStore.activeBreakpoint !== 'sm' &&
+                  styleStore.activeBreakpoint !== 'md',
+                'mt-10': styleStore.activeBreakpoint === 'md',
+                'mt-8':
+                  styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
                 'inline-flex items-center justify-center':
                   styleStore.activeBreakpoint !== 'xs' && styleStore.activeBreakpoint !== 'sm',
                 'flex flex-col items-center justify-center':
                   styleStore.activeBreakpoint === 'xs' || styleStore.activeBreakpoint === 'sm',
               },
             ]"
-            class="mt-6"
           >
             <BaseButton
               id="firstCtaButton"
