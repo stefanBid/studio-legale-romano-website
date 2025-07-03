@@ -1,8 +1,4 @@
 import type { ExternalMessageInfo } from '@/types';
-import InstagramIcon from '@/assets/icons/instagram.svg?component';
-import FacebookIcon from '@/assets/icons/facebook.svg?component';
-import { DevicePhoneMobileIcon, PhoneIcon, EnvelopeIcon } from '@heroicons/vue/24/solid';
-import type { Component, FunctionalComponent } from 'vue';
 
 export const MAIL_MESSAGES_MAP: Record<ExternalMessageInfo, { subject: string; body: string }> = {
   legalConsultation: {
@@ -28,12 +24,4 @@ export const WHATS_APP_MESSAGES_MAP: Record<ExternalMessageInfo, string> = {
   appointment: 'Ciao, vorrei fissare un appuntamento.',
   generalInformation: 'Ciao, avrei bisogno di informazioni generali.',
   professionalCollaboration: 'Ciao, sono interessato/a a una collaborazione professionale.',
-};
-
-export const CONTACT_CHANNEL_ICONS: Record<string, FunctionalComponent | Component | string> = {
-  mobile: DevicePhoneMobileIcon,
-  telephone: PhoneIcon,
-  email: EnvelopeIcon,
-  instagram: InstagramIcon,
-  facebook: FacebookIcon,
 };

@@ -1,12 +1,21 @@
 <script setup lang="ts">
 import { useStyleStore, useI18nStore } from '@/stores';
 import { openLink } from '@/utils';
-import { CONTACT_CHANNEL_ICONS } from '@/constants';
-import Logo from '@/assets/icons/logo.svg?component';
+import { PhoneIcon, DevicePhoneMobileIcon, EnvelopeIcon } from '@heroicons/vue/24/solid';
+import { resolveComponent, type Component, type FunctionalComponent } from 'vue';
+//import Logo from '@/assets/icons/logo.svg?component';
 
 //Store Declarations
 const styleStore = useStyleStore();
 const i18nStore = useI18nStore();
+
+const CONTACT_CHANNEL_ICONS: Record<string, FunctionalComponent | Component | string> = {
+  mobile: DevicePhoneMobileIcon,
+  telephone: PhoneIcon,
+  email: EnvelopeIcon,
+  instagram: resolveComponent('IconCustomInstagram'),
+  facebook: resolveComponent('IconCustomFacebook'),
+};
 </script>
 
 <template>
@@ -50,8 +59,7 @@ const i18nStore = useI18nStore();
           id="logo"
           class="flex items-center gap-2 transition-all duration-300 ease-in-out text-rm-secondary"
         >
-          <component
-            :is="Logo"
+          <IconCustomLogo
             :class="[styleStore.iconSizeS]"
             class="transition-all duration-300 ease-in-out shrink-0"
           />

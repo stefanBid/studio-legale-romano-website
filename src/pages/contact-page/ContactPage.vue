@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, resolveComponent, type Component, type FunctionalComponent } from 'vue';
 import type { ExternalOperation } from '@/types';
 import { useI18nStore, useStyleStore } from '@/stores';
 import { usePageMeta } from '@/hooks';
 import { openLink, sendEmail, sendWhatsAppMessage } from '@/utils';
-import { CONTACT_CHANNEL_ICONS } from '@/constants';
+import { PhoneIcon, DevicePhoneMobileIcon, EnvelopeIcon } from '@heroicons/vue/24/solid';
 import { ThePageContainer, BaseCard, BaseElementsContainer, BaseBadge } from '@/components';
 import OfficeMap from '@/pages/contact-page/components/office-map/OfficeMap.vue';
 import OpeningHourBox from '@/pages/contact-page/components/opening-hour-box/OpeningHourBox.vue';
@@ -49,6 +49,14 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
     default:
       break;
   }
+};
+
+const CONTACT_CHANNEL_ICONS: Record<string, FunctionalComponent | Component | string> = {
+  mobile: DevicePhoneMobileIcon,
+  telephone: PhoneIcon,
+  email: EnvelopeIcon,
+  instagram: resolveComponent('IconCustomInstagram'),
+  facebook: resolveComponent('IconCustomFacebook'),
 };
 </script>
 
