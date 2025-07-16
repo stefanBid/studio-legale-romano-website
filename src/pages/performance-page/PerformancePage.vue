@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
-import LineMdList from '~icons/line-md/list';
-import LineMdWatchOff from '~icons/line-md/watch-off';
-import LineMdWatchLoop from '~icons/line-md/watch-loop';
+import MdiFormatListBulleted from '~icons/mdi/format-list-bulleted';
+import MdiBookOpenBlankVariant from '~icons/mdi/book-open-blank-variant';
+import MdiBookOpenPageVariant from '~icons/mdi/book-open-page-variant';
 
 import { usePageMeta } from '@/hooks';
 import { useStyleStore, useI18nStore } from '@/stores';
@@ -46,7 +46,7 @@ onMounted(() => {
   >
     <template #page-content>
       <BaseElementsContainer>
-        <BaseBadge :icon="LineMdList" aria-label="Performance Page Index">
+        <BaseBadge :icon="MdiFormatListBulleted" aria-label="Performance Page Index">
           <div
             :class="[styleStore.elementTotalPaddingS]"
             class="w-full transition-all duration-300 ease-in-out"
@@ -92,7 +92,7 @@ onMounted(() => {
           <template #section-visibility-content="{ isOpen }">
             <div class="flex items-center w-full gap-2">
               <component
-                :is="isOpen ? LineMdWatchLoop : LineMdWatchOff"
+                :is="isOpen ? MdiBookOpenPageVariant : MdiBookOpenBlankVariant"
                 :class="[styleStore.iconSizeM]"
                 class="transition-all duration-300 ease-in-out text-rm-secondary shrink-0"
               />

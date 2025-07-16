@@ -4,6 +4,9 @@ import type { ExternalOperation } from '@/types';
 import { useI18nStore, useStyleStore } from '@/stores';
 import { usePageMeta } from '@/hooks';
 import { openLink, sendEmail, sendWhatsAppMessage } from '@/utils';
+import MdiCar from '~icons/mdi/car';
+import MdiBus from '~icons/mdi/bus';
+import MdiWalk from '~icons/mdi/walk';
 import {
   ThePageContainer,
   BaseCard,
@@ -141,6 +144,7 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
               class="h-full"
               :aria-label="i18nStore.contactPageI18nContent.reachUs.withCar.title"
               :title="i18nStore.contactPageI18nContent.reachUs.withCar.title"
+              :icon="MdiCar"
             >
               <template #content>
                 <!-- Parking -->
@@ -189,9 +193,7 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
               class="h-full"
               :aria-label="i18nStore.contactPageI18nContent.reachUs.withPublicTransport.title"
               :title="i18nStore.contactPageI18nContent.reachUs.withPublicTransport.title"
-              :text-content="
-                i18nStore.contactPageI18nContent.reachUs.withPublicTransport.description
-              "
+              :icon="MdiBus"
             >
               <template #content>
                 <!-- Bus Stops -->
@@ -245,7 +247,7 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
               class="h-full"
               :aria-label="i18nStore.contactPageI18nContent.reachUs.withFoot.title"
               :title="i18nStore.contactPageI18nContent.reachUs.withFoot.title"
-              :text-content="i18nStore.contactPageI18nContent.reachUs.withFoot.description"
+              :icon="MdiWalk"
             >
               <template #content>
                 <!-- Landmars -->

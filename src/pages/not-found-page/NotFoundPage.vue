@@ -4,7 +4,7 @@ import { usePageMeta } from '@/hooks';
 import { BaseButton } from '@/components';
 import { useI18nStore, useStyleStore } from '@/stores';
 import { computed } from 'vue';
-import Logo from '~icons/custom/logo';
+import MdiHome from '~icons/mdi/home';
 
 // Stores declarations
 const styleStore = useStyleStore();
@@ -37,15 +37,12 @@ const router = useRouter();
     >
       {{ i18nStore.notFoundPageI18nContent.secondHeading }}
     </p>
-    <Logo
-      class="transition-all duration-300 ease-in-out animate-pulse"
-      :class="[styleStore.iconSizeXXL]"
-    />
 
     <BaseButton
       id="goHomeButton"
       name="go_home_button"
       variant="secondary"
+      :icon="MdiHome"
       aria-label="click to go to the home page"
       @click.stop="router.push({ name: i18nStore.notFoundPageI18nContent.goHomeButton.link })"
     >

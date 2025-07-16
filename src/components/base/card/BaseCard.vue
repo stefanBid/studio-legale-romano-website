@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { useStyleStore } from '@/stores';
+import type { FunctionalComponent, Component } from 'vue';
 
 interface BaseCardProps {
   title?: string;
+  icon?: FunctionalComponent | Component | string;
   textContent?: string;
 }
 
@@ -11,6 +13,7 @@ const styleStore = useStyleStore();
 
 const props = withDefaults(defineProps<BaseCardProps>(), {
   title: undefined,
+  icon: undefined,
   textContent: undefined,
 });
 </script>
@@ -28,10 +31,16 @@ const props = withDefaults(defineProps<BaseCardProps>(), {
       >
         <h2
           :class="[styleStore.textSizeL]"
-          class="font-bold text-white transition-all duration-300 ease-in-out font-playfair"
+          class="font-bold text-white truncate transition-all duration-300 ease-in-out font-playfair"
         >
           {{ props.title }}
         </h2>
+        <component
+          :is="props.icon"
+          v-if="props.icon"
+          :class="[styleStore.iconSizeM]"
+          class="ml-2 text-white shrink-0"
+        />
       </div>
       <template v-if="$slots.header">
         <slot name="header" :title="props.title"> </slot>
