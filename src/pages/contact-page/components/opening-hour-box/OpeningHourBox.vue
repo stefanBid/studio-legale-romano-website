@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { ClockIcon, CalendarDaysIcon } from '@heroicons/vue/24/outline';
+import MdiCalendarMultiselect from '~icons/mdi/calendar-multiselect';
+import SvgSpinnersClock from '~icons/svg-spinners/clock';
+import MdiClockOutline from '~icons/mdi/clock-outline';
 import type { WeeklySchedule } from '@/types';
 import { useStyleStore } from '@/stores';
 import { BaseChip } from '@/components';
@@ -47,13 +49,22 @@ const weekDays = [
       class="flex items-center justify-between transition-all duration-300 ease-in-out gap-x-4"
     >
       <div class="flex items-center flex-1 gap-2">
-        <CalendarDaysIcon :class="[styleStore.iconSizeS]" class="stroke-2 text-rm-main" />
+        <MdiCalendarMultiselect
+          :class="[
+            styleStore.iconSizeS,
+            {
+              'text-rm-main-light/70': !day.openingHours,
+              'text-rm-main': day.openingHours,
+            },
+          ]"
+          class="stroke-2"
+        />
         <span
           :class="[
             styleStore.textSizeS,
             {
               'font-bold': index === weekDays[today],
-              'text-rm-main-light/80': !day.openingHours,
+              'text-rm-main-light/70': !day.openingHours,
               'text-rm-main': day.openingHours,
             },
           ]"
@@ -71,13 +82,13 @@ const weekDays = [
         <div v-if="day.openingHours" class="flex flex-wrap items-center justify-end gap-2">
           <BaseChip
             v-if="day.openingHours.morning"
-            :icon="ClockIcon"
+            :icon="index === weekDays[today] ? SvgSpinnersClock : MdiClockOutline"
             :text="`${day.openingHours.morning.start} - ${day.openingHours.morning.end}`"
             variant="secondary"
           />
           <BaseChip
             v-if="day.openingHours.afternoon"
-            :icon="ClockIcon"
+            :icon="index === weekDays[today] ? SvgSpinnersClock : MdiClockOutline"
             :text="`${day.openingHours.afternoon.start} - ${day.openingHours.afternoon.end}`"
             variant="secondary"
           />

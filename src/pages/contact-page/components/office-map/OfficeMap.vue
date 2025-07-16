@@ -4,7 +4,9 @@ import L, { type LatLngTuple } from 'leaflet'; // Import Leaflet library
 import { onMounted, ref } from 'vue';
 import { openLink } from '@/utils';
 import { BaseButton } from '@/components';
-import { LockOpenIcon, LockClosedIcon, MapIcon } from '@heroicons/vue/24/outline';
+import MdiMapMarkerRadiusOutline from '~icons/mdi/map-marker-radius-outline';
+import MdiUnlockedVariantOutline from '~icons/mdi/unlocked-variant-outline';
+import MdiLockOutline from '~icons/mdi/lock-outline';
 
 interface OfficeMapProps {
   latCoordinate: number;
@@ -83,12 +85,16 @@ const handleManageScroll = (): void => {
       id="extra-panel"
       class="absolute flex flex-col items-end justify-start gap-3 transition-all duration-300 ease-in-out bg-transparent w-fit z-rm-base-2 right-3 top-3 bottom-3 h-fit"
     >
-      <BaseButton size="small" :icon="MapIcon" @click="openLink(props.googleMapsLink)" />
+      <BaseButton
+        size="small"
+        :icon="MdiMapMarkerRadiusOutline"
+        @click="openLink(props.googleMapsLink)"
+      />
       <transition name="fade">
         <BaseButton
           v-if="showEnableScrollPanel"
           size="small"
-          :icon="isScrollEnabled ? LockOpenIcon : LockClosedIcon"
+          :icon="isScrollEnabled ? MdiUnlockedVariantOutline : MdiLockOutline"
           @click="handleManageScroll"
         />
       </transition>

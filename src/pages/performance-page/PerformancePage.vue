@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
-import { BookOpenIcon, BookmarkIcon } from '@heroicons/vue/24/solid';
+import LineMdList from '~icons/line-md/list';
+import LineMdWatchOff from '~icons/line-md/watch-off';
+import LineMdWatchLoop from '~icons/line-md/watch-loop';
+
 import { usePageMeta } from '@/hooks';
 import { useStyleStore, useI18nStore } from '@/stores';
 import { BaseAccordion, BaseElementsContainer, ThePageContainer, BaseBadge } from '@/components';
@@ -43,7 +46,7 @@ onMounted(() => {
   >
     <template #page-content>
       <BaseElementsContainer>
-        <BaseBadge :icon="BookmarkIcon" aria-label="Performance Page Index">
+        <BaseBadge :icon="LineMdList" aria-label="Performance Page Index">
           <div
             :class="[styleStore.elementTotalPaddingS]"
             class="w-full transition-all duration-300 ease-in-out"
@@ -86,9 +89,10 @@ onMounted(() => {
           :id="item.shortcutId.slice(1)"
           :external-open="item.shortcutId.slice(1) === defaultAccordionIdOpen"
         >
-          <template #section-visibility-content>
+          <template #section-visibility-content="{ isOpen }">
             <div class="flex items-center w-full gap-2">
-              <BookOpenIcon
+              <component
+                :is="isOpen ? LineMdWatchLoop : LineMdWatchOff"
                 :class="[styleStore.iconSizeM]"
                 class="transition-all duration-300 ease-in-out text-rm-secondary shrink-0"
               />

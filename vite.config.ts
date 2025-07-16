@@ -1,8 +1,6 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import Icons from 'unplugin-icons/vite';
-import Components from 'unplugin-vue-components/vite';
-import IconsResolver from 'unplugin-icons/resolver';
 import { FileSystemIconLoader } from 'unplugin-icons/loaders';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import path from 'path';
@@ -15,26 +13,21 @@ export default defineConfig({
       includePublic: true,
       jpeg: { quality: 75 },
       png: { quality: 80 },
-      webp: { quality: 75 }, // non usare lossless
+      webp: { quality: 75 },
       svg: { multipass: true },
-    }),
-    // Automatically import icon components when used
-    Components({
-      resolvers: [
-        IconsResolver({
-          prefix: 'Icon', // Components will be named like <IconCustomMyLogo />
-          customCollections: ['custom'], // Your custom SVG set
-        }),
-      ],
     }),
     // Load custom SVG icons from your directory
     Icons({
       compiler: 'vue3',
+      autoInstall: false,
+      scale: 1,
       customCollections: {
-        custom: FileSystemIconLoader('src/assets/icons'), // Path to your SVG icons
+        // chiave "custom" → accedi con `i-custom-my-icon`
+        custom: FileSystemIconLoader(
+          './src/assets/', // icons path
+          (svg) => svg.replace(/^<svg /, '<svg fill="currentColor" '), // dynamic fill
+        ),
       },
-      scale: 1, // Optional: scale SVG size
-      defaultStyle: '', // Optional: no default style
     }),
   ],
   resolve: {

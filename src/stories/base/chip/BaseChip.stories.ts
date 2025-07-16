@@ -1,6 +1,6 @@
 //import { fn } from '@storybook/test';
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { ClockIcon } from '@heroicons/vue/24/outline';
+import MdiClockTimeNineOutline from '~icons/mdi/clock-time-nine-outline';
 import { BaseChip } from '@/components';
 
 const meta = {
@@ -60,6 +60,6 @@ export const SecondaryChip: Story = {
 export const WithIconChip: Story = {
   args: {
     ...meta.args,
-    icon: ClockIcon,
+    icon: MdiClockTimeNineOutline,
   },
 };

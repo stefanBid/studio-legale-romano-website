@@ -1,6 +1,6 @@
 //import { fn } from '@storybook/test';
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { TagIcon } from '@heroicons/vue/24/outline';
+import MdiTag from '~icons/mdi/tag';
 
 import { BaseBadge } from '@/components';
 
@@ -29,7 +29,7 @@ const meta = {
     },
   },
   args: {
-    icon: TagIcon,
+    icon: MdiTag,
   },
 } satisfies Meta<typeof BaseBadge>;
 

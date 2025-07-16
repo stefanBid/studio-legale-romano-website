@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { type Component, type FunctionalComponent } from 'vue';
-import { ArrowPathIcon } from '@heroicons/vue/24/outline';
+import SvgSpinnersBarsScale from '~icons/svg-spinners/bars-scale';
 import { useStyleStore } from '@/stores';
 
 interface BaseButtonProps {
@@ -39,24 +39,24 @@ const styleStore = useStyleStore();
       props.size === 'small' ? styleStore.textSizeXS : undefined,
       {
         'rounded font-playfair font-bold': props.variant !== 'custom',
-        'px-6 py-4':
+        'px-6 h-14':
           props.size === 'medium' &&
           styleStore.activeBreakpoint !== 'md' &&
           styleStore.activeBreakpoint !== 'sm' &&
           styleStore.activeBreakpoint !== 'xs',
-        'px-5 py-3': props.size === 'medium' && styleStore.activeBreakpoint === 'md',
-        'px-4 py-2.5':
+        'px-5 h-14': props.size === 'medium' && styleStore.activeBreakpoint === 'md',
+        'px-4 h-12':
           props.size === 'medium' &&
           (styleStore.activeBreakpoint === 'sm' || styleStore.activeBreakpoint === 'xs'),
       },
       {
-        'px-4 py-2':
+        'px-4 h-8':
           props.size === 'small' &&
           styleStore.activeBreakpoint !== 'md' &&
           styleStore.activeBreakpoint !== 'sm' &&
           styleStore.activeBreakpoint !== 'xs',
-        'px-3 py-1.5': props.size === 'small' && styleStore.activeBreakpoint === 'md',
-        'px-2.5 py-1':
+        'px-3 h-7': props.size === 'small' && styleStore.activeBreakpoint === 'md',
+        'px-2.5 h-7':
           props.size === 'small' &&
           (styleStore.activeBreakpoint === 'sm' || styleStore.activeBreakpoint === 'xs'),
       },
@@ -74,14 +74,11 @@ const styleStore = useStyleStore();
       <slot></slot>
     </template>
     <component
-      :is="props.loading ? ArrowPathIcon : props.icon"
+      :is="props.loading ? SvgSpinnersBarsScale : props.icon"
       class="shrink-0 stroke-[2.5px]"
       :class="[
         props.size === 'medium' ? styleStore.iconSizeS : undefined,
         props.size === 'small' ? styleStore.iconSizeXS : undefined,
-        {
-          'animate-spin': props.loading,
-        },
       ]"
     />
   </button>

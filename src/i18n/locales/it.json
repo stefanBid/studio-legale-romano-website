@@ -25,12 +25,12 @@
       "description": "Offriamo soluzioni legali personalizzate, unendo competenza ed esperienza per affrontare con successo ogni sfida del diritto.",
       "socials": [
         {
-          "id": "instagram",
-          "value": "@studiolegaleromano"
+          "icon": "fa6-brands:instagram",
+          "link": "@studiolegaleromano"
         },
         {
-          "id": "facebook",
-          "value": "/studiolegaleromano"
+          "icon": "fa6-brands:square-facebook",
+          "link": "/studiolegaleromano"
         }
       ]
     },
@@ -59,15 +59,15 @@
       "title": "Contatti",
       "channels": [
         {
-          "id": "mobile",
+          "icon": "mdi:cellphone",
           "value": "+39 330 40 0201"
         },
         {
-          "id": "telephone",
+          "icon": "mdi:phone",
           "value": "+39 0825 26555"
         },
         {
-          "id": "email",
+          "icon": "mdi:email",
           "value": "romanolaw@alice.it"
         }
       ]
@@ -270,27 +270,27 @@
       "description": "Per fissare un appuntamento o per richiedere informazioni, contattaci tramite i seguenti canali:",
       "channels": [
         {
-          "id": "mobile",
+          "icon": "fa6-brands:whatsapp",
           "value": "+39 330 400 201",
           "operation": "sendWhatsAppMessage"
         },
         {
-          "id": "telephone",
+          "icon": "mdi:phone",
           "value": "+39 0825 26555",
           "operation": "callNumber"
         },
         {
-          "id": "email",
+          "icon": "mdi:email",
           "value": "romanolaw@alice.it",
           "operation": "sendEmail"
         },
         {
-          "id": "instagram",
+          "icon": "fa6-brands:instagram",
           "value": "@studiolegaleromano",
           "operation": "openLink"
         },
         {
-          "id": "facebook",
+          "icon": "fa6-brands:square-facebook",
           "value": "/studiolegaleromano",
           "operation": "openLink"
         }

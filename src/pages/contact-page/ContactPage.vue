@@ -1,11 +1,16 @@
 <script setup lang="ts">
-import { computed, resolveComponent, type Component, type FunctionalComponent } from 'vue';
+import { computed, h } from 'vue';
 import type { ExternalOperation } from '@/types';
 import { useI18nStore, useStyleStore } from '@/stores';
 import { usePageMeta } from '@/hooks';
 import { openLink, sendEmail, sendWhatsAppMessage } from '@/utils';
-import { PhoneIcon, DevicePhoneMobileIcon, EnvelopeIcon } from '@heroicons/vue/24/solid';
-import { ThePageContainer, BaseCard, BaseElementsContainer, BaseBadge } from '@/components';
+import {
+  ThePageContainer,
+  BaseCard,
+  BaseElementsContainer,
+  BaseBadge,
+  BaseIcon,
+} from '@/components';
 import OfficeMap from '@/pages/contact-page/components/office-map/OfficeMap.vue';
 import OpeningHourBox from '@/pages/contact-page/components/opening-hour-box/OpeningHourBox.vue';
 
@@ -49,14 +54,6 @@ const executeChannelOperation = (operation: ExternalOperation, value: string): v
     default:
       break;
   }
-};
-
-const CONTACT_CHANNEL_ICONS: Record<string, FunctionalComponent | Component | string> = {
-  mobile: DevicePhoneMobileIcon,
-  telephone: PhoneIcon,
-  email: EnvelopeIcon,
-  instagram: resolveComponent('IconCustomInstagram'),
-  facebook: resolveComponent('IconCustomFacebook'),
 };
 </script>
 
@@ -347,7 +344,7 @@ const CONTACT_CHANNEL_ICONS: Record<string, FunctionalComponent | Component | st
         >
           <BaseElementsContainer
             v-for="(channel, index) in i18nStore.contactPageI18nContent.contacts.channels"
-            :key="channel.id"
+            :key="index"
           >
             <BaseBadge
               :class="{
@@ -356,7 +353,7 @@ const CONTACT_CHANNEL_ICONS: Record<string, FunctionalComponent | Component | st
               class="no-underline transition-all duration-300 ease-in-out hover:cursor-pointer hover:scale-105 outline-0 ring-0 focus-visible:scale-105"
               :aria-label="`Contact us via ${channel.value}`"
               :tabindex="index < 3 ? 0 : undefined"
-              :icon="CONTACT_CHANNEL_ICONS[channel.id]"
+              :icon="() => h(BaseIcon, { icon: channel.icon })"
               :text-content="channel.value"
               @click.stop="executeChannelOperation(channel.operation, channel.value)"
               @keypress.enter.stop="executeChannelOperation(channel.operation, channel.value)"

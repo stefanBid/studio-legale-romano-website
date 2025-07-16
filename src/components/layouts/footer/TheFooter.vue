@@ -1,21 +1,12 @@
 <script setup lang="ts">
 import { useStyleStore, useI18nStore } from '@/stores';
 import { openLink } from '@/utils';
-import { PhoneIcon, DevicePhoneMobileIcon, EnvelopeIcon } from '@heroicons/vue/24/solid';
-import { resolveComponent, type Component, type FunctionalComponent } from 'vue';
-//import Logo from '@/assets/icons/logo.svg?component';
+import { BaseIcon } from '@/components';
+import Logo from '~icons/custom/logo';
 
 //Store Declarations
 const styleStore = useStyleStore();
 const i18nStore = useI18nStore();
-
-const CONTACT_CHANNEL_ICONS: Record<string, FunctionalComponent | Component | string> = {
-  mobile: DevicePhoneMobileIcon,
-  telephone: PhoneIcon,
-  email: EnvelopeIcon,
-  instagram: resolveComponent('IconCustomInstagram'),
-  facebook: resolveComponent('IconCustomFacebook'),
-};
 </script>
 
 <template>
@@ -59,7 +50,7 @@ const CONTACT_CHANNEL_ICONS: Record<string, FunctionalComponent | Component | st
           id="logo"
           class="flex items-center gap-2 transition-all duration-300 ease-in-out text-rm-secondary"
         >
-          <IconCustomLogo
+          <Logo
             :class="[styleStore.iconSizeS]"
             class="transition-all duration-300 ease-in-out shrink-0"
           />
@@ -86,15 +77,15 @@ const CONTACT_CHANNEL_ICONS: Record<string, FunctionalComponent | Component | st
         </p>
         <!--Social Media-->
         <div id="social-media" class="flex gap-x-4">
-          <component
-            :is="CONTACT_CHANNEL_ICONS[social.id]"
-            v-for="social in i18nStore.footerI18nContent.intro.socials"
-            :key="social.id"
+          <BaseIcon
+            v-for="(social, index) in i18nStore.footerI18nContent.intro.socials"
+            :key="index"
+            :icon="social.icon"
             :tabindex="0"
             :class="[styleStore.iconSizeS, { 'pointer-events-none opacity-50': true }]"
             class="text-white transition-all duration-300 ease-in-out outline-none cursor-pointer hover:text-rm-secondary focus-visible:text-rm-secondary ring-0 focus-visible:ring-0 focus-visible:outline-none"
-            @click.stop="openLink(social.value)"
-            @keypress.enter.stop="openLink(social.value)"
+            @click.stop="openLink(social.link)"
+            @keypress.enter.stop="openLink(social.link)"
           />
         </div>
       </div>
@@ -165,7 +156,7 @@ const CONTACT_CHANNEL_ICONS: Record<string, FunctionalComponent | Component | st
         <!--Contact Info-->
         <span
           v-for="(channel, index) in i18nStore.footerI18nContent.contacts.channels"
-          :key="channel.id"
+          :key="index"
           :class="[
             styleStore.textSizeXS,
             {
@@ -176,8 +167,8 @@ const CONTACT_CHANNEL_ICONS: Record<string, FunctionalComponent | Component | st
           ]"
           class="inline-flex items-center gap-1 text-white no-underline transition-all duration-300 ease-in-out font-lora"
         >
-          <component
-            :is="CONTACT_CHANNEL_ICONS[channel.id]"
+          <BaseIcon
+            :icon="channel.icon"
             :class="[styleStore.iconSizeXS]"
             class="transition-all duration-300 ease-in-out shrink-0"
           />

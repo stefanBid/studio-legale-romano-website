@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { XMarkIcon, Bars3Icon } from '@heroicons/vue/24/outline';
+import MdiClose from '~icons/mdi/close';
+import MdiHamburgerMenu from '~icons/mdi/hamburger-menu';
 import { computed, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useI18nStore, useStyleStore } from '@/stores';
-//import Logo from '@/assets/icons/logo.svg?component';
+import Logo from '~icons/custom/logo';
 import { TheInlineNavbar, TheSideNavbar } from '@/components';
 
 // Store Declarations
@@ -70,7 +71,7 @@ watch(
 <template>
   <header
     :class="[styleStore.containerPadding]"
-    class="fixed left-0 w-screen h-20 bg-white z-rm-header"
+    class="fixed left-0 w-full h-20 bg-white z-rm-header"
   >
     <div class="flex items-center h-20 gap-x-4">
       <!-- Logo Section-->
@@ -80,7 +81,7 @@ watch(
           class="flex items-center border border-transparent rounded outline-none text-rm-secondary gap-x-2 group ring-0 focus-visible:border-rm-main"
           @click="onChangeMenuVisibility(false)"
         >
-          <IconCustomLogo
+          <Logo
             :class="[styleStore.iconSizeM]"
             class="transition-all duration-300 ease-in-out shrink-0"
           />
@@ -122,7 +123,7 @@ watch(
         @keydown.enter="onChangeMenuVisibility(!isMenuOpen)"
       >
         <component
-          :is="isMenuOpen ? XMarkIcon : Bars3Icon"
+          :is="isMenuOpen ? MdiClose : MdiHamburgerMenu"
           v-if="!hideElementsForSomeRoutesPages"
           class="flex-none transition-all duration-300 ease-in-out cursor-pointer text-rm-main"
           :class="[styleStore.iconSizeM]"

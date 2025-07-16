@@ -4,6 +4,7 @@ import { usePageMeta } from '@/hooks';
 import { BaseButton } from '@/components';
 import { useI18nStore, useStyleStore } from '@/stores';
 import { computed } from 'vue';
+import Logo from '~icons/custom/logo';
 
 // Stores declarations
 const styleStore = useStyleStore();
@@ -36,7 +37,7 @@ const router = useRouter();
     >
       {{ i18nStore.notFoundPageI18nContent.secondHeading }}
     </p>
-    <IconCustomLogo
+    <Logo
       class="transition-all duration-300 ease-in-out animate-pulse"
       :class="[styleStore.iconSizeXXL]"
     />

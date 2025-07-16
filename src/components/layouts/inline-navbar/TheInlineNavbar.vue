@@ -2,7 +2,7 @@
 import { vOnClickOutside, vIntersectionObserver } from '@vueuse/components';
 import { useSbFloatingPanel } from 'sb-floating-panel-vue';
 import { useStyleStore } from '@/stores';
-import { ChevronDownIcon } from '@heroicons/vue/24/outline';
+import MdiKeyboardArrowDown from '~icons/mdi/keyboard-arrow-down';
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 
@@ -84,7 +84,7 @@ const getVisibleRoutes = computed<ManagedRoutes>(() => {
         >
           Altro
         </span>
-        <ChevronDownIcon
+        <MdiKeyboardArrowDown
           :class="[styleStore.iconSizeXS, isOpen ? 'rotate-180' : 'rotate-0']"
           class="shrink-0 ml-1.5 transition-all duration-300 ease-in-out group-hover:text-rm-secondary group-hover:cursor-pointer"
         />

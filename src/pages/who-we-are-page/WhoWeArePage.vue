@@ -10,8 +10,10 @@ import {
   BaseCarousel,
   BaseButton,
 } from '@/components';
-import { UserCircleIcon, EnvelopeIcon, DocumentArrowDownIcon } from '@heroicons/vue/24/solid';
-import { XMarkIcon } from '@heroicons/vue/24/outline';
+import MdiClipboardUser from '~icons/mdi/clipboard-user';
+import MdiEmailEdit from '~icons/mdi/email-edit';
+import MdiCloudDownload from '~icons/mdi/cloud-download';
+import MdiCloseThick from '~icons/mdi/close-thick';
 import ProfileCard from './components/ProfileCard.vue';
 import { computed, ref } from 'vue';
 
@@ -116,7 +118,7 @@ const handleCloseDialogProfile = (falsyValue: boolean): void => {
                 {
                   id: `${member.id}-open-profile`,
                   content: 'Apri Profilo',
-                  icon: UserCircleIcon,
+                  icon: MdiClipboardUser,
                   onClick: () => {
                     handleOpenDialogProfile(member.id);
                   },
@@ -124,7 +126,7 @@ const handleCloseDialogProfile = (falsyValue: boolean): void => {
                 {
                   id: `${member.id}-email`,
                   content: 'Contatta',
-                  icon: EnvelopeIcon,
+                  icon: MdiEmailEdit,
                   onClick: () => {
                     sendEmail(member.email, 'legalConsultation');
                   },
@@ -132,7 +134,7 @@ const handleCloseDialogProfile = (falsyValue: boolean): void => {
                 {
                   id: `${member.id}-download-cv`,
                   content: 'Scarica CV',
-                  icon: DocumentArrowDownIcon,
+                  icon: MdiCloudDownload,
                   onClick: () => {
                     if (member.cvFilePath) downloadFile(`${member.id}-cv`, member.cvFilePath);
                   },
@@ -222,7 +224,7 @@ const handleCloseDialogProfile = (falsyValue: boolean): void => {
             @click.stop="closeModal"
             @keydown.enter.stop="closeModal"
           >
-            <XMarkIcon :class="[styleStore.iconSizeS]" class="stroke-[2.5px]" />
+            <MdiCloseThick :class="[styleStore.iconSizeS]" class="stroke-[2.5px]" />
           </BaseButton>
           <h1
             class="absolute w-full font-bold text-center text-white whitespace-normal transition-all duration-300 ease-in-out -translate-y-1/2 z-rm-base-3 top-1/2 font-playfair"

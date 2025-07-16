@@ -2,7 +2,8 @@
 import { ref, onBeforeUnmount, watch } from 'vue';
 import { useStyleStore } from '@/stores';
 import { BaseButton } from '@/components';
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/24/outline';
+import MdiKeyboardArrowLeft from '~icons/mdi/keyboard-arrow-left';
+import MdiKeyboardArrowRight from '~icons/mdi/keyboard-arrow-right';
 
 interface BaseCarouselProps {
   numberOfItems: number;
@@ -116,7 +117,7 @@ onBeforeUnmount(() => stopAutoPlay());
           'left-2.5': styleStore.activeBreakpoint === 'sm' || styleStore.activeBreakpoint === 'xs',
         },
       ]"
-      :icon="ChevronLeftIcon"
+      :icon="MdiKeyboardArrowLeft"
       @click.stop="prev()"
     />
     <BaseButton
@@ -135,7 +136,7 @@ onBeforeUnmount(() => stopAutoPlay());
           'right-2.5': styleStore.activeBreakpoint === 'sm' || styleStore.activeBreakpoint === 'xs',
         },
       ]"
-      :icon="ChevronRightIcon"
+      :icon="MdiKeyboardArrowRight"
       @click.stop="next()"
     />
     <!--Bullet List-->

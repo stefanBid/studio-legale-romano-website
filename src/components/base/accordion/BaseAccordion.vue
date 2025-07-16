@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ChevronDownIcon } from '@heroicons/vue/24/outline';
+import MdiKeyboardArrowDown from '~icons/mdi/keyboard-arrow-down';
 import { BaseButton } from '@/components';
 import { useStyleStore } from '@/stores';
 import { ref, watch } from 'vue';
@@ -45,15 +45,15 @@ watch(
         'hover:bg-rm-main/20 focus-visible:bg-rm-main/20': !isAccordionOpen,
         'bg-rm-main/20': isAccordionOpen,
       }"
-      class="w-full border-b-2 border-rm-main !rounded-t hover:bg-rm-main/20"
+      class="w-full border-b-2 border-rm-main !rounded-t hover:bg-rm-main/20 !min-h-fit"
       @click.stop="changeAccordionVisibility()"
     >
       <div class="flex items-center justify-between w-full gap-2">
         <div class="flex-1">
-          <slot name="section-visibility-content"> </slot>
+          <slot name="section-visibility-content" :is-open="isAccordionOpen"> </slot>
         </div>
-        <ChevronDownIcon
-          :class="[styleStore.iconSizeS, { 'rotate-180': isAccordionOpen }]"
+        <MdiKeyboardArrowDown
+          :class="[styleStore.iconSizeM, { 'rotate-180': isAccordionOpen }]"
           class="transition-all duration-300 ease-in-out shrink-0 stroke-[2.5px]"
         />
       </div>
@@ -63,7 +63,7 @@ watch(
         v-if="isAccordionOpen"
         class="w-full transition-all duration-300 ease-in-out bg-white rounded-b shadow-lg"
       >
-        <slot name="section-hidden-content"> </slot>
+        <slot name="section-hidden-content" :is-open="isAccordionOpen"> </slot>
       </div>
     </transition>
   </div>

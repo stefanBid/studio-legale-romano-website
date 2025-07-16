@@ -1,6 +1,6 @@
 //import { fn } from '@storybook/test';
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { HomeIcon } from '@heroicons/vue/24/outline';
+import MdiHome from '~icons/mdi/home';
 
 import { BaseButton } from '@/components';
 
@@ -91,7 +91,7 @@ export const LoadingButton: Story = {
 
 export const IconButton: Story = {
   args: {
-    icon: HomeIcon,
+    icon: MdiHome,
   },
 };
 

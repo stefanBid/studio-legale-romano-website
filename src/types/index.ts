@@ -51,8 +51,8 @@ interface FooterContent {
     title: string;
     description: string;
     socials: {
-      id: string;
-      value: string;
+      icon: string;
+      link: string;
     }[];
   };
   quickLinks: {
@@ -65,7 +65,7 @@ interface FooterContent {
   contacts: {
     title: string;
     channels: {
-      id: string;
+      icon: string;
       value: string;
     }[];
   };
@@ -187,7 +187,7 @@ interface ContactPageContent {
     heading: string;
     description: string;
     channels: {
-      id: string;
+      icon: string;
       value: string;
       operation: ExternalOperation;
     }[];

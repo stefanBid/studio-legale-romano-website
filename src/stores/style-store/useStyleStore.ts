@@ -227,9 +227,9 @@ export const useStyleStore = defineStore('style', () => {
       activeBreakpoint.value === 'sm' ||
       activeBreakpoint.value === 'md'
     ) {
-      return 'size-[0.900rem]';
+      return 'size-4';
     }
-    return 'size-4';
+    return 'size-5';
   });
 
   return {

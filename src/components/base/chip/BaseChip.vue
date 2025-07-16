@@ -23,14 +23,14 @@ const styleStore = useStyleStore();
     :class="{
       'bg-rm-main text-rm-secondary': props.variant === 'main',
       'bg-rm-secondary text-white': props.variant === 'secondary',
-      'h-8':
+      'h-8 px-2.5':
         styleStore.activeBreakpoint !== 'md' &&
         styleStore.activeBreakpoint !== 'sm' &&
         styleStore.activeBreakpoint !== 'xs',
-      'h-7': styleStore.activeBreakpoint === 'md',
-      'h-6': styleStore.activeBreakpoint === 'sm' || styleStore.activeBreakpoint === 'xs',
+      'h-7 px-2': styleStore.activeBreakpoint === 'md',
+      'h-7 px-1.5': styleStore.activeBreakpoint === 'sm' || styleStore.activeBreakpoint === 'xs',
     }"
-    class="inline-flex items-center gap-2 px-2 transition-all duration-300 ease-in-out rounded"
+    class="inline-flex items-center gap-2 transition-all duration-300 ease-in-out rounded"
   >
     <component
       :is="props.icon"
@@ -38,6 +38,6 @@ const styleStore = useStyleStore();
       :class="[styleStore.iconSizeS]"
       class="stroke-2"
     />
-    <span :class="[styleStore.textSizeXS]" class="font-lora">{{ props.text }}</span>
+    <span :class="[styleStore.textSizeXS]" class="truncate font-lora">{{ props.text }}</span>
   </span>
 </template>
